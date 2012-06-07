@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>E-Shop | Phresco</title>
+    <meta charset="utf-8">
+
+    <!-- Linking styles -->
+    <link rel="stylesheet" href="css/eshop/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/eshop/phresco_style.css" type="text/css"  media="screen">
+
+    <script type='text/javascript' src='lib/jquery/jquery.js'></script>
+    <script type='text/javascript' src='lib/others/jquery.jqzoom1.0.1.js'></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/eshop/html5.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/eshop/html5.js"></script>
+    <![endif]-->
+
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            $('div.menu_class').click(function () {
+                $('ul.the_menu').css('z-index:9999;');
+                $('ul.the_menu').slideToggle('medium');
+            });
+        });
+    </script>
+
+    <script type='text/javascript'>
+    $(document).ready(function(){
+         /*Since all the tabs are hidden with css we are displaying the tab with class .active_tab using fadeIn()
+         function. If you just want it to show with no effect, just put show() instead of fadeIn() */
+        $('.active_tab').fadeIn();
+
+        //when a tab link is clicked...
+        $('.tab_link').live('click', function(event){
+
+            /*...prevent the default behaviour...*/
+            event.preventDefault();
+
+            /* ...remove the tab_link_selected class from current active link... */
+            $('.tab_link_selected').removeClass('tab_link_selected');
+
+            /* ...and add it to the new active link */
+            $(this).addClass('tab_link_selected');
+
+            /*...get the title attribute (which corensponds to the id of the needed text container),
+            but you can use any attribute you want*/
+            var container_id = $(this).attr('title');
+
+            //...animate the current active_tab by changing it's height and opacity ...'
+            $('.active_tab').animate({
+
+                height : 'toggle' , opacity : 'toggle'
+
+            //...and when that animation ends...
+            },function(){
+
+                //...remove the active_tab class from the current active tab...
+                $(this).removeClass('active_tab');
+
+                //...and add that class to the tab that corensponds the clicked link...
+                $(container_id).addClass('active_tab');
+
+                //...and animate the new active_tab by using toggle on height and opacity again...
+                $('.active_tab').animate({
+
+                    height : 'toggle' , opacity : 'toggle'
+
+                });
+            });
+
+        });
+    });
+</script>
+
+
+
+</head>
+<body>
+
+<div class="container">
+
+        <header><!-- Defining the header section of the page -->
+
+            <nav><!-- Defining the navigation menu -->
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="selected"><a href="#">Products</a></li>
+                    <li><a href="#">Specials</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">About us</a></li>
+
+                </ul>
+            </nav>
+
+
+            <div class="top_head"><!-- Defining the top head element -->
+                <div class="logo"><!-- Defining the logo element -->
+                    <a href="#">
+                        <img src="images/eshop/logo.png" title="Phresco" alt="Phresco" />
+                    </a>
+                </div>
+
+                <section id="search"><!-- Search form -->
+                    <form action="#" onsubmit="return false;" method="get">
+                        <input type="text" onfocus="if (this.value =='Search..' ) this.value=''" onblur="if (this.value=='') this.value='Search..'" value="Search.." placeholder="Search" name="q">
+                        <a href="#"><img src="images/eshop/searchicon.png" width="20" height="20" alt="searchicon" class="searchbtn"></a>
+                        <!--<input type="submit" value="Search">-->
+                    </form>
+
+                    <ul id="social"><!-- Social profiles links -->
+                        <li><a href="#" title="facebook" rel="external nofollow"><img alt="" src="images/eshop/facebook.png"></a></li>
+                        <li><a href="#" title="twitter" rel="external nofollow"><img alt="" src="images/eshop/twitter.png"></a></li>
+                        <li><a href="#" title="linkedin" rel="external nofollow"><img alt="" src="images/eshop/linkedin.png"></a></li>
+                        <li><a href="#" title="rss" rel="external nofollow"><img alt="" src="images/eshop/rss.png"></a></li>
+                    </ul>
+                </section>
+            </div>
+
+            <section id="submenu"><!-- Defining the sub menu -->
+                <ul>
+                    <li><a href="#">Television</a></li>
+                    <li><a href="#">Computers</a></li>
+                    <li><a href="#">Mobile</a></li>
+                    <li><a href="#">Audio Devices</a></li>
+                    <li><a href="#">Cameras</a></li>
+                    <li><a href="#">Tablets</a></li>
+                    <li><a href="#">Movies & Music</a></li>
+                    <li><a href="#">Video Games</a></li>
+                    <li><a href="#">MP3 Players</a></li>
+                    <li ><a href="#">Accessories</a></li>
+
+                </ul>
+                <div class="menu_class"><a href="#" >More</a>
+                        <ul class="the_menu">
+                            <li><a href="#">category 1</a></li>
+                            <li><a href="#">category 2</a></li>
+                            <li><a href="#">category 3</a></li>
+                            <li><a href="#">category 4</a></li>
+
+                         </ul>
+                </div>
+            </section>
+
+        </header>
+
+
+
+        <div id="main"><!-- Defining submain content section -->
+            <section id="content">
+              <p>
+                <!-- Defining the content section #2 -->
+              </p>
+              <p>&nbsp;</p>
+              <div id="left">
+        <h3> Computers</h3>
+                    <div class="productcontainer">
+                            <div class="productimageholder">
+                        <script type="text/javascript">
+                            $(document).ready(function(){
+                                  var options ={
+                                  zoomType: 'standard',
+                                  zoomWidth: 410,
+                                  zoomHeight: 208,
+                                  xOffset: 15,
+                                  yOffset: -5,
+                                  position: "right" ,
+                                  lens:true,
+                                  lensReset : false,
+                                  imageOpacity: 0.2,
+                                  title : true,
+                                  alwaysOn: false,
+                                  showEffect: 'show',
+                                  hideEffect: 'hide',
+                                  fadeinSpeed: 'medium',
+                                  fadeoutSpeed: 'medium',
+                                  preloadImages :true,
+                                  showPreload: true,
+                                  preloadText : 'Loading zoom',
+                                  preloadPosition : 'center'
+                                  }
+                                  $(".myvalue").jqzoom(options);
+
+                                  });
+                          </script>
+                             <a href="images/eshop/big_apple_comp_11.png" class="myvalue"  title="Apple - 11.6 inches MacBook Air Notebook Computer"><img src="images/eshop/apple_comp_11.png" alt="" width="200" height="200" ></a>
+                            </div>
+                            <div class="shadow"><img src="images/eshop/dropshadow2.png" width="194" height="24" alt="shadow">
+                            <div class="zoomhint"> * Roll over the image to zoom in</div>
+                            </div>
+
+                <div class="productdetail_info">
+                              <h4> Apple - 11.6" MacBook Air Notebook Computer</h4>
+                                <div class="review">
+                                    <span ><img src="images/eshop/red_star.png" width="16" height="16" alt="Red star"></span>
+                                    <span ><img src="images/eshop/red_star.png" width="16" height="16" alt="Red star"></span>
+                                    <span ><img src="images/eshop/red_star.png" width="16" height="16" alt="Red star"></span>
+                                    <span ><img src="images/eshop/white_star.png" width="16" height="16" alt="Red star"></span>
+                                    <span ><img src="images/eshop/white_star.png" width="16" height="16" alt="Red star"></span>
+                                    <span class="writeriew"><a href="#readreview">( Reviews )</a></span>
+                                </div>
+
+                                <div class="productdetail_price">
+                                    <div><span class="st">List price :</span><span class="st1">$889.00</span></div>
+                                    <div><span class="st2">Sell at :</span><span class="st2">$800.00</span></div>
+                                    <div><span class="st4">You save :</span><span class="st3">15%</span></div>
+                                </div>
+
+                               <div class="stockavailablity">
+                                 <div class="row1"><span class="st">Availability:</span><span class="st">In Stock</span></div>
+                                 <div class="row1"><span class="st">Quantity:</span><span class="st1"><input name="input text" type="text" value="0" placeholder="0" size="1"></span></div>
+                                   <!-- <div class="buttonactions"><img src="images/eshop/addtocart_btn_greycolor.png" width="105" height="36" alt="add to cart"></div>-->
+                                <div class="buttonactions"><a href="#"><img src="images/eshop/addtocart_btn_greycolor.png" width="105" height="36" alt="add to cart"></a></div>
+                              </div>
+
+
+                      </div>
+
+                       <div>
+                           <h4 class="descrip"> Description</h4>
+                           <p>The 11.6" MacBook Air Notebook Computer from Apple is an extremely portable, stunningly designed laptop computer.
+                           Apple's engineers have leveraged the lessons they learned in designing the miniaturized iPad and applied them
+                           to the design of this 2.3-pound computer. </p><br>
+
+                           <p>The original MacBook Air's slim profile was made possible due to the lack of an optical drive.
+                           This system eschews the hard drive as well -- opting instead for 128GB of flash storage -- resulting in an even slimmer profile.
+                             When closed, the computer is only 0.68" at its thickest point.</p><br>
+
+                           <p>Flash storage doesn't just give you a lighter, thinner computer. It also allows for impressive
+                            battery life -- up to 5 hours of web browsing and an amazing 30 days of standby time!</p><br>
+
+                            <p>The MacBook Air is housed in an aluminum unibody enclosure, which is as strong as it is light.
+                            Because it is cut from a solid block of aluminum, the housing is stronger than those
+                            found on laptops built via traditional means.</p>
+                      </div>
+
+
+                            <!-- start the tabs wrapper (not necessery, but good to have) -->
+                            <div id='tabs_wrapper'>
+                                <!--  the tab links  -->
+                                <a href='#readreview' class='tab_link tab_link_selected' title='#readreview'>Read reviews</a>
+                                <a href='#writeareview' class='tab_link' title='#writeareview'>write a review</a>
+                                <!--  end tab links  -->
+
+                                <!--  clear it  -->
+                                <div class='clear'></div>
+
+                                <!-- start tab text containers  -->
+                                <div class='tab_text active_tab' id='readreview'>
+                                    <br><p> James : Phresco products are cool and worthy ... </p><br>
+                                    <p> Andrew :I brought the iphone in E-shop webstie ,It is cool and gr8 ... </p><br>
+                                    <p> Joe : Hi guys this is nice website  ... </p>
+
+                                </div>
+
+                                <div class='tab_text' id='writeareview'>
+                                   <form id="contact" method="post" action="form.html">
+
+                                    <fieldset>
+
+                                    <label for="name"><span>Your name</span><input type="text" name="name" id="name" placeholder="Your name" /></label>
+                                    <label for="comments"><span>Comments</span><textarea name="comments" id="comments" placeholder="Your comments"cols="5" rows="6" scale="no"></textarea></label>
+
+                                    </fieldset>
+
+                                    <div class="postreviewbutton"><input type="submit" value="submit" class="buttonstyle"/></div>
+                                    </form>
+
+                                </div>
+
+                                <!--  end tab text containers  -->
+
+
+                            </div>
+                            <!-- end the tabs wrapper -->
+
+
+                    </div>
+                </div>
+
+              <div class="cashbanner"><img src="images/eshop/cashdelivery_banner.png" width="181" height="70" alt="Cash delivery"></div>
+              <div class="mycartbg">
+
+                            <div class="carticon"><img src="images/eshop/mycart_icon.png" width="28" height="21" alt="My Cart icon"> </div>
+                            <div class="cartheader">My Cart </div>
+                <div class="split"></div>
+                <div class="mycarttext"> Item </div>
+                <div class="split2"></div>
+                <div class="mycarttext">Total Price </div>
+                <div class="clear"></div>
+                <div class="mycarttextvalue1"> 1000 </div>
+                <div class="mycarttextvalue2">100000 </div>
+              </div>
+                <!--<div class="mycartaccount"><img src="images/eshop/mycart_bg.png" width="115" height="70" alt="Mycart"> </div>-->
+          <aside>
+          <div id="right">
+
+          <h3>featured Products</h3>
+                    <ul>
+                      <li>
+                            <div class="img"><a href="#"><img src="images/eshop/apple_tablet_54.png" alt="" ></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">APPLE 16GB iPAD 2 WITH Wi-Fi </a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$479.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                      </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/apple_mobile_21.png" alt="" ></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">APPLE iPHONE 4  24GB</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$685.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                          </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/canon_cam_46.png" alt="" ></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">CANON EOS 60D DSLR CAMERA</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$869.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/mp3players_83.png" alt=""></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">ALURATEK vNOTE PERSONAL VIDEO/AUDIO RECORDED</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$33.22</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/videogames_74.png" alt="" ></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">NINTENDO Wii JUST DANCE 3 by UBI SOFT</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$25.99</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/accessories_97.png"  alt=""></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">LOWEPRO APEX 60 AW All-WEATHER CAMERA POUCH</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$23.95</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/akg_audio_38.png"></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">AKG C214 - CARDIOID STUDIO CONDENSER MICROPHONE</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$392.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/canon_cam_41.png" alt=""></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">CANON  EOS 1D MARK IV SLR DIGITAL CAMERA</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$4990.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/roku_moviesandmusic_68.png"></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">Roku 2 XD Streaming Player </a>
+                                <div class="price">
+                                   <span class="special">Sell at:</span>
+                                    <span class="special">$75.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+          </section>
+        </div>
+    </aside>
+
+    <footer><!-- Defining the footer section of the page -->
+        <div id="privacy">
+           <strong> E-Shop Phresco © 2011 </strong>
+           <a class="link" href="#">Privacy Policy</a><br />
+            <a class="link" href="#">powered by Phresco</a>
+        </div>
+    </footer>
+
+</div>
+</body></html>

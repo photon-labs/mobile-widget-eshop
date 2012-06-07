@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>E-Shop | Phresco</title>
+    <meta charset="utf-8">
+
+    <!-- Linking styles -->
+    <link rel="stylesheet" href="css/eshop/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/eshop/phresco_style.css" type="text/css"  media="screen">
+
+    <script type='text/javascript' src='lib/jquery/jquery.js'></script>
+    <script type='text/javascript' src='lib/others/jquery.jqzoom1.0.1.js'></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/eshop/html5.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/eshop/html5.js"></script>
+    <![endif]-->
+
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            $('div.menu_class').click(function () {
+                $('ul.the_menu').css('z-index:9999;');
+                $('ul.the_menu').slideToggle('medium');
+            });
+        });
+    </script>
+
+    <script type='text/javascript'>
+    $(document).ready(function(){
+         /*Since all the tabs are hidden with css we are displaying the tab with class .active_tab using fadeIn()
+         function. If you just want it to show with no effect, just put show() instead of fadeIn() */
+        $('.active_tab').fadeIn();
+
+        //when a tab link is clicked...
+        $('.tab_link').live('click', function(event){
+
+            /*...prevent the default behaviour...*/
+            event.preventDefault();
+
+            /* ...remove the tab_link_selected class from current active link... */
+            $('.tab_link_selected').removeClass('tab_link_selected');
+
+            /* ...and add it to the new active link */
+            $(this).addClass('tab_link_selected');
+
+            /*...get the title attribute (which corensponds to the id of the needed text container),
+            but you can use any attribute you want*/
+            var container_id = $(this).attr('title');
+
+            //...animate the current active_tab by changing it's height and opacity ...'
+            $('.active_tab').animate({
+
+                height : 'toggle' , opacity : 'toggle'
+
+            //...and when that animation ends...
+            },function(){
+
+                //...remove the active_tab class from the current active tab...
+                $(this).removeClass('active_tab');
+
+                //...and add that class to the tab that corensponds the clicked link...
+                $(container_id).addClass('active_tab');
+
+                //...and animate the new active_tab by using toggle on height and opacity again...
+                $('.active_tab').animate({
+
+                    height : 'toggle' , opacity : 'toggle'
+
+                });
+            });
+
+        });
+    });
+</script>
+
+
+
+</head>
+<body>
+
+<div class="container">
+
+        <header><!-- Defining the header section of the page -->
+
+            <nav><!-- Defining the navigation menu -->
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="selected"><a href="#">Products</a></li>
+                    <li><a href="#">Specials</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">About us</a></li>
+
+                </ul>
+            </nav>
+
+
+            <div class="top_head"><!-- Defining the top head element -->
+                <div class="logo"><!-- Defining the logo element -->
+                    <a href="#">
+                        <img src="images/eshop/logo.png" title="Phresco" alt="Phresco" />
+                    </a>
+                </div>
+
+                <section id="search"><!-- Search form -->
+                    <form action="#" onsubmit="return false;" method="get">
+                        <input type="text" onfocus="if (this.value =='Search..' ) this.value=''" onblur="if (this.value=='') this.value='Search..'" value="Search.." placeholder="Search" name="q">
+                        <a href="#"><img src="images/eshop/searchicon.png" width="20" height="20" alt="searchicon" class="searchbtn"></a>
+                        <!--<input type="submit" value="Search">-->
+                    </form>
+
+                    <ul id="social"><!-- Social profiles links -->
+                        <li><a href="#" title="facebook" rel="external nofollow"><img alt="" src="images/eshop/facebook.png"></a></li>
+                        <li><a href="#" title="twitter" rel="external nofollow"><img alt="" src="images/eshop/twitter.png"></a></li>
+                        <li><a href="#" title="linkedin" rel="external nofollow"><img alt="" src="images/eshop/linkedin.png"></a></li>
+                        <li><a href="#" title="rss" rel="external nofollow"><img alt="" src="images/eshop/rss.png"></a></li>
+                    </ul>
+                </section>
+            </div>
+
+            <section id="submenu"><!-- Defining the sub menu -->
+                <ul>
+                    <li><a href="#">Television</a></li>
+                    <li><a href="#">Computers</a></li>
+                    <li><a href="#">Mobile</a></li>
+                    <li><a href="#">Audio Devices</a></li>
+                    <li><a href="#">Cameras</a></li>
+                    <li><a href="#">Tablets</a></li>
+                    <li><a href="#">Movies & Music</a></li>
+                    <li><a href="#">Video Games</a></li>
+                    <li><a href="#">MP3 Players</a></li>
+                    <li ><a href="#">Accessories</a></li>
+
+                </ul>
+                <div class="menu_class"><a href="#" >More</a>
+                        <ul class="the_menu">
+                            <li><a href="#">category 1</a></li>
+                            <li><a href="#">category 2</a></li>
+                            <li><a href="#">category 3</a></li>
+                            <li><a href="#">category 4</a></li>
+
+                         </ul>
+                </div>
+            </section>
+
+        </header>
+
+
+
+        <div id="main"><!-- Defining submain content section -->
+            <section id="content">
+              <p>
+                <!-- Defining the content section #2 -->
+              </p>
+              <p>&nbsp;</p>
+              <div id="left">
+        <h3> Computers</h3>
+                    <div class="productcontainer">
+                            
+                            <form id="contact" method="post" action="form.html">
+                         
+                           <h5> Customer Information</h5>
+                            <div class="fieldholder1">
+                            <fieldset>                            
+                            <label for="Email">
+                            <span>Email</span>
+                            <input type="text" name="Email" id="Email" placeholder="Email"  /></label>
+                            </fieldset>
+                           </div>     
+                          
+                            <h5> Billing / Delivery Informations</h5>
+                            <div class="fieldholder2">
+                            <fieldset>                            
+                            <label for="FirstName">
+                            <span>FirstName</span>
+                            <input type="text" name="FirstName" id="FirstName" placeholder="Firstname" /></label>
+                             <label for="Lastname">
+                            <span>Lastname</span>
+                            <input type="text" name="Lastname" id="Lastname" placeholder="Lastname" /></label>
+                             <label for="Company">
+                            <span>Company</span>
+                            <input type="text" name="Company" id="Company" placeholder="Company" /></label>
+                             <label for="Address1">
+                            <span>Address1</span>
+                            <input type="text" name="Address1" id="Address1" placeholder="Address1"/></label>
+                             <label for="Address2">
+                            <span>Address2</span>
+                            <input type="text" name="Address2" id="Address2" placeholder="Address2"/></label>
+                            <label for="City">
+                            <span>City</span>
+                            <input type="text" name="City" id="City" placeholder="City" /></label>
+                            
+                            <label for="State">
+                            <span>State/Province</span>
+                            <select name="state" size="1">
+                             <option value="states">states</option>
+                             <option value="states">states2</option>
+                             <option value="states">states3</option>
+                             <option value="states">states4</option>
+                             <option value="states">states5</option></select>
+                             </label>
+                             
+                            <label for="Country">
+                            <span>Country</span>
+                            <select name="country" size="1">
+                             <option value="country">country1</option>
+                             <option value="country">country2</option>
+                             <option value="country">country3</option>
+                             <option value="country">country4</option>
+                             <option value="country">country5</option></select>
+                             </label>
+                            <label for="Postcode">
+                            <span>Postcode</span>
+                            <input type="text" name="Postcode" id="Postcode" placeholder="postcode"/></label>
+                            <label for="Phonenumber">
+                            <span>Phonenumber</span>
+                            <input type="text" name="Phonenumber" id="Phonenumber" placeholder="Phonenumber"/></label>
+                            </fieldset>
+                           </div>
+                           
+                           
+                            <h5>Payment Method</h5>
+                            <div class="fieldholder3">
+                            <fieldset> 
+                            <h6>Select a payment method from the following options</h6>                           
+                            <div>
+                              <label class="paymentmethod" >
+                                <input type="radio" name="payment method" value="radio" id="paymentmethod_0" class="radiomethod">
+                               Cheque or Money order</label>
+                            </div>
+                             <div>
+                              <label class="paymentmethod">
+                                <input type="radio" name="payment method" value="radio" id="paymentmethod_0" class="radiomethod">
+                               Cash on delivery</label>
+                            </div>
+                            <div class="pricetag">
+                            <div class="priceblock">
+                            <div class="subtotal"> <span>Sub Total:</span> <span>$3750</span> </div>
+                            <div class="ordertotal"> <span>Order Total:</span> <span>$3750</span> </div>
+                            
+                            </div>
+                            </div>  
+                            <p class="hint">Cheque should be made to Phresco</p> 
+                            
+                            
+                           </div> 
+                            
+                            </fieldset>
+                            
+                             <h5> Order Comments</h5>
+                            <div class="fieldholder4">
+                            <fieldset>        
+                            <textarea name="comments" cols="6" rows="5" placeholder="Your suggestion and comments"></textarea>
+                            </fieldset>
+                            
+                           </div>
+                           
+<!--                           <div class="buttonposition"><a href="#"><img src="images/eshop/review_btn.png" width="105" height="36" alt="Review Order"></a></div>
+                           <div class="buttonposition"><a href="#"><img src="images/eshop/cancel_btn.png" width="105" height="36" alt="Cancel"></a></div>-->
+                            <div class="buttonposition"><input type="submit" value="Review Order" class="buttonstyle"/> <input type="submit" value="Cancel" class="buttonstyle"/></div>
+                            
+                            </form> 
+                            
+                            </div>
+                                           
+
+                       
+
+
+                    
+                </div>
+        <aside>
+              <div class="cashbanner"><img src="images/eshop/cashdelivery_banner.png" width="181" height="70" alt="Cash delivery"></div>
+              <div class="mycartbg">
+
+                            <div class="carticon"><img src="images/eshop/mycart_icon.png" width="28" height="21" alt="My Cart icon"> </div>
+                            <div class="cartheader">My Cart </div>
+                <div class="split"></div>
+                <div class="mycarttext"> Item </div>
+                <div class="split2"></div>
+                <div class="mycarttext">Total Price </div>
+                <div class="clear"></div>
+                <div class="mycarttextvalue1"> 1000 </div>
+                <div class="mycarttextvalue2">100000 </div>
+              </div>
+                <!--<div class="mycartaccount"><img src="images/eshop/mycart_bg.png" width="115" height="70" alt="Mycart"> </div>-->
+         
+          <div id="right">
+
+          <h3>featured Products</h3>
+                    <ul>
+                      <li>
+                            <div class="img"><a href="#"><img src="images/eshop/apple_tablet_54.png" alt="" ></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">APPLE 16GB iPAD 2 WITH Wi-Fi </a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$479.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                      </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/apple_mobile_21.png" alt="" ></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">APPLE iPHONE 4  24GB</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$685.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                          </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/canon_cam_46.png" alt="" ></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">CANON EOS 60D DSLR CAMERA</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$869.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/mp3players_83.png" alt=""></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">ALURATEK vNOTE PERSONAL VIDEO/AUDIO RECORDED</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$33.22</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/videogames_74.png" alt="" ></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">NINTENDO Wii JUST DANCE 3 by UBI SOFT</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$25.99</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/accessories_97.png"  alt=""></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">LOWEPRO APEX 60 AW All-WEATHER CAMERA POUCH</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$23.95</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/akg_audio_38.png"></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">AKG C214 - CARDIOID STUDIO CONDENSER MICROPHONE</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$392.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/canon_cam_41.png" alt=""></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">CANON  EOS 1D MARK IV SLR DIGITAL CAMERA</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$4990.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/roku_moviesandmusic_68.png"></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">Roku 2 XD Streaming Player </a>
+                                <div class="price">
+                                   <span class="special">Sell at:</span>
+                                    <span class="special">$75.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+          </section>
+        </div>
+    </aside>
+
+    <footer><!-- Defining the footer section of the page -->
+        <div id="privacy">
+           <strong> E-Shop Phresco © 2011 </strong>
+           <a class="link" href="#">Privacy Policy</a><br />
+            <a class="link" href="#">powered by Phresco</a>
+        </div>
+    </footer>
+
+</div>
+</body></html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>E-Shop | Phresco</title>
+    <meta charset="utf-8">
+
+    <!-- Linking styles -->
+    <link rel="stylesheet" href="css/eshop/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/eshop/phresco_style.css" type="text/css"  media="screen">
+
+    <script type='text/javascript' src='lib/jquery/jquery.js'></script>
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/eshop/html5.js"></script>
+    <![endif]-->
+
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            $('div.menu_class').click(function () {
+                $('ul.the_menu').css('z-index:9999;');
+                $('ul.the_menu').slideToggle('medium');
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="container">
+
+        <header><!-- Defining the header section of the page -->
+
+            <nav><!-- Defining the navigation menu -->
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="selected"><a href="#">Products</a></li>
+                    <li><a href="#">Specials</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">About us</a></li>
+
+                </ul>
+            </nav>
+
+
+            <div class="top_head"><!-- Defining the top head element -->
+                <div class="logo"><!-- Defining the logo element -->
+                    <a href="#">
+                        <img src="images/eshop/logo.png" title="Phresco" alt="Phresco" />
+                    </a>
+                </div>
+
+                <section id="search"><!-- Search form -->
+                    <form action="#" onsubmit="return false;" method="get">
+                        <input type="text" onfocus="if (this.value =='Search..' ) this.value=''" onblur="if (this.value=='') this.value='Search..'" value="Search.." placeholder="Search" name="q">
+                        <a href="#"><img src="images/eshop/searchicon.png" width="20" height="20" alt="searchicon" class="searchbtn"></a>
+                        <!--<input type="submit" value="Search">-->
+                    </form>
+
+                    <ul id="social"><!-- Social profiles links -->
+                        <li><a href="#" title="facebook" rel="external nofollow"><img alt="" src="images/eshop/facebook.png"></a></li>
+                        <li><a href="#" title="twitter" rel="external nofollow"><img alt="" src="images/eshop/twitter.png"></a></li>
+                        <li><a href="#" title="linkedin" rel="external nofollow"><img alt="" src="images/eshop/linkedin.png"></a></li>
+                        <li><a href="#" title="rss" rel="external nofollow"><img alt="" src="images/eshop/rss.png"></a></li>
+                    </ul>
+                </section>
+            </div>
+
+            <section id="submenu"><!-- Defining the sub menu -->
+                <ul>
+                    <li><a href="#">Television</a></li>
+                    <li><a href="#">Computers</a></li>
+                    <li><a href="#">Mobile</a></li>
+                    <li><a href="#">Audio Devices</a></li>
+                    <li><a href="#">Cameras</a></li>
+                    <li><a href="#">Tablets</a></li>
+                    <li><a href="#">Movies & Music</a></li>
+                    <li><a href="#">Video Games</a></li>
+                    <li><a href="#">MP3 Players</a></li>
+                    <li ><a href="#">Accessories</a></li>
+
+                </ul>
+                <div class="menu_class"><a href="#" >More</a>
+                        <ul class="the_menu">
+                            <li><a href="#">category 1</a></li>
+                            <li><a href="#">category 2</a></li>
+                            <li><a href="#">category 3</a></li>
+                            <li><a href="#">category 4</a></li>
+
+                         </ul>
+               </div>
+            </section>
+
+        </header>
+
+
+
+        <div id="main"><!-- Defining submain content section -->
+            <section id="content">
+              <p>
+                <!-- Defining the content section #2 -->
+              </p>
+              <p>&nbsp;</p>
+              <div id="left">
+        <h3> Computers</h3>
+                    <ul>
+                        <li>
+                            <div class="img"><a href="product_details.html"><img alt="" src="images/eshop/apple_comp_11.png"></a></div>
+                            <div class="info">
+                               <a class="title" href="product_details.html" >APPLE _ 11.6" MACBOOK AIR NOTEBOOK </a>
+                                <div class="price">
+                                    <span class="st">List price:</span><strong>$889.00</strong><br>
+                                    <span class="st2">Sell at:</span><span class="st3">$800.00</span>
+                                </div>
+                                <div class="actions">
+                                    <a href="product_details.html">Details</a>
+                                    <a href="#">Add to cart</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/apple_comp_12.png"></a></div>
+                            <div class="info">
+                                 <a class="title" href="#" >APPLE _ 11.6" MACBOOK AIR NOTEBOOK </a>
+                                 <div class="price">
+                                    <span class="st">List price:</span><strong>$939.00</strong><br>
+                                    <span class="st2">Sell at:</span><span class="st3">$900.00</span>
+                              </div>
+                                <div class="actions">
+                                    <a href="#">Details</a>
+                                    <a href="#">Add to cart</a>
+                                </div>
+                          </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/apple_comp_13.png"></a></div>
+                            <div class="info">
+                                 <a class="title" href="#" >APPLE _ 11.6" MACBOOK AIR NOTEBOOK </a>
+                                 <div class="price">
+                                    <span class="st">List price:</span><strong>$1139.00</strong><br>
+                                    <span class="st2">Sell at:</span><span class="st3">$1100.00</span>
+                                </div>
+                                <div class="actions">
+                                    <a href="#">Details</a>
+                                    <a href="#">Add to cart</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/apple_comp_14.png"></a></div>
+                            <div class="info">
+                                 <a class="title" href="#" >APPLE _ 13.3" MACBOOK AIR NOTEBOOK</a>
+                                 <div class="price">
+                                    <span class="st">List price:</span><strong>$1234.00</strong><br>
+                                    <span class="st2">Sell at:</span><span class="st3">$1200.00</span>
+                                </div>
+                                <div class="actions">
+                                    <a href="#">Details</a>
+                                    <a href="#">Add to cart</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/apple_comp_15.png"></a></div>
+                            <div class="info">
+                                <a class="title" href="#" >APPLE _ 13.3" MACBOOK AIR NOTEBOOK</a>
+                                <div class="price">
+                                    <span class="st">List price:</span><strong>$788.00</strong><br>
+                                    <span class="st2">Sell at:</span><span class="st3">$700.00</span>
+                                </div>
+                                <div class="actions">
+                                    <a href="#">Details</a>
+                                    <a href="#">Add to cart</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/acer_comp_16.png"></a></div>
+                            <div class="info">
+                                <a class="title" href="#" >ACER 1TB ASPIRE X3 AX3950 UR31P DESKTOP </a>
+                                <div class="price">
+                                    <span class="st">List price:</span><strong>$399.00</strong><br>
+                                    <span class="st2">Sell at:</span><span class="st3">$300.00</span>
+                                </div>
+                                <div class="actions">
+                                    <a href="#">Details</a>
+                                    <a href="#">Add to cart</a>
+                                </div>
+                            </div>
+                        </li>
+                                                <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/acer_comp_17.png"></a></div>
+                            <div class="info">
+                                 <a class="title" href="#" >ACER 1TB PREDATOR G3AG3610 UR30P DESKTOP </a>
+                                 <div class="price">
+                                    <span class="st">List price:</span><strong>$699.00</strong><br>
+                                    <span class="st2">Sell at:</span><span class="st3">$600.00</span>
+                                </div>
+                                <div class="actions">
+                                    <a href="#">Details</a>
+                                    <a href="#">Add to cart</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/acer_comp_18.png"></a></div>
+                            <div class="info">
+                                <a class="title" href="#" >ACER 320GB 10.1" ASPIRE ONE
+D257 AOD257-1646 NETBOOK </a>
+                                <div class="price">
+                                    <span class="st">List price:</span><strong>$269.00</strong><br>
+                                    <span class="st2">Sell at:</span><span class="st3">$250.00</span>
+                                </div>
+                                <div class="actions">
+                                    <a href="#">Details</a>
+                                    <a href="#">Add to cart</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/acer_comp_19.png"></a></div>
+                            <div class="info">
+                                <a class="title" href="#" >ACER 320GB 15.6" ASPIRE ONE AS5250 0437 NOTEBOOK </a>
+                                <div class="price">
+                                    <span class="st">List price:</span><strong>$371.00</strong><br>
+                                    <span class="st2">Sell at:</span><span class="st3">$350.00</span>
+                                </div>
+                                <div class="actions">
+                                    <a href="#">Details</a>
+                                    <a href="#">Add to cart</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="cashbanner"><img src="images/eshop/cashdelivery_banner.png" width="181" height="70" alt="Cash delivery"></div>
+                    <div class="mycartbg">
+                    <div class="carticon"><img src="images/eshop/mycart_icon.png" width="28" height="21" alt="My Cart icon"> </div>
+                    <div class="cartheader">My Cart </div>
+                    <div class="split"></div>
+                    <div class="mycarttext"> Item </div>
+                    <div class="split2"></div>
+                    <div class="mycarttext">Total Price </div>
+                    <div class="clear"></div>
+                    <div class="mycarttextvalue1"> 1000 </div>
+                    <div class="mycarttextvalue2">100000 </div>
+                </div>
+                <!--<div class="mycartaccount"><img src="images/eshop/mycart_bg.png" width="115" height="70" alt="Mycart"> </div>-->
+    <aside>
+    <div id="right">
+
+          <h3>featured Products</h3>
+                    <ul>
+                      <li>
+                            <div class="img"><a href="#"><img src="images/eshop/apple_tablet_54.png" alt="" ></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">APPLE 16GB iPAD 2 WITH Wi-Fi </a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$479.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                      </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/apple_mobile_21.png" alt="" ></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">APPLE iPHONE 4  24GB</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$685.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                          </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/canon_cam_46.png" alt="" ></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">CANON EOS 60D DSLR CAMERA</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$869.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/mp3players_83.png" alt=""></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">ALURATEK vNOTE PERSONAL VIDEO/AUDIO RECORDED</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$33.22</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/videogames_74.png" alt="" ></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">NINTENDO Wii JUST DANCE 3 by UBI SOFT</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$25.99</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/accessories_97.png"  alt=""></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">LOWEPRO APEX 60 AW All-WEATHER CAMERA POUCH</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$23.95</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/akg_audio_38.png"></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">AKG C214 - CARDIOID STUDIO CONDENSER MICROPHONE</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$392.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img src="images/eshop/canon_cam_41.png" alt=""></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">CANON  EOS 1D MARK IV SLR DIGITAL CAMERA</a>
+                                <div class="price">
+                                    <span class="special">Sell at:</span>
+                                    <span class="special">$4990.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><a href="#"><img alt="" src="images/eshop/roku_moviesandmusic_68.png"></a></div>
+                            <div class="info">
+                                <a class="title2" href="#">Roku 2 XD Streaming Player </a>
+                                <div class="price">
+                                   <span class="special">Sell at:</span>
+                                    <span class="special">$75.00</span>
+                                </div>
+                                <div class="pricebtn">
+                                   <a href="#"> <img src="images/eshop/addtocart_btnl.png" width="58" height="23" alt="Add to cart"> </a>
+                                </div>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+          </section>
+        </div>
+   </aside>
+
+    <footer><!-- Defining the footer section of the page -->
+        <div id="privacy">
+           <strong> E-Shop Phresco © 2011 </strong>
+           <a class="link" href="#">Privacy Policy</a><br />
+            <a class="link" href="#">powered by Phresco</a>
+        </div>
+    </footer>
+
+</div>
+
+</body></html>

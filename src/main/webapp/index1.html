@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="css/eshop/style.css"/>
+        <link type="text/css" rel="stylesheet" href="css/eshop/style1.css"/>
+        <link type="text/css" rel="stylesheet" href="css/eshop/jquery.loadmask.css"/>
+
+        <script type="text/javascript" charset="utf-8" src="lib/jquery/jquery.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/eshop/main.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/eshop/jquery.loadmask.js"></script>
+        <script type="text/javascript" src="lib/phonegap/phonegap-1.2.0.js"></script>
+
+        <script type="text/javascript" src="lib/yui/build/yui/yui-min.js"></script>
+
+        <script type="text/javascript" src="js/eshop/controller/EShopAPI.js"></script>
+
+        <script type="text/javascript" src="js/eshop/widgets/PhrescoWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/HeaderWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/NavigationWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/CategoryWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/ProductsWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/FooterWidget.js"></script>
+
+        <script type="text/javascript">
+            YUI().use('node', 'widget', 'eshopAPI', 'phrescoWidget', 'headerWidget', 'navigationWidget',
+                'categoryWidget', 'productsWidget', 'footerWidget', function(Y) {
+
+                Y.on("domready", function () {
+                    var eshopAPI = new Y.Phresco.EShopAPI({});
+
+
+                    // instantiate HeaderWidget with the HTML
+                    var headerWidget = new Y.Phresco.HeaderWidget({
+                        // place holder can be decided by specifying the attribute
+                        targetNode : "#header-wrapper",
+                        apiReference : eshopAPI
+                    });
+
+                    // instantiate NavigationWidget with the HTML
+                    var navigationWidget = new Y.Phresco.NavigationWidget({
+                        // place holder can be decided by specifying the attribute
+                        targetNode : "#navigation-tab",
+                        apiReference : eshopAPI
+                    });
+
+                    // instantiate CategoryWidget with the HTML
+                    var categoryWidget = new Y.Phresco.CategoryWidget({
+                        // place holder can be decided by specifying the attribute
+                        targetNode : "#content",
+                        apiReference : eshopAPI
+                    });
+
+                    // instantiate ProductsWidget with the HTML
+                    var productsWidget = new Y.Phresco.ProductsWidget({
+                        // place holder can be decided by specifying the attribute
+                        targetNode : "#content",
+                        apiReference : eshopAPI
+                    });
+
+                    // instantiate FooterWidget with the HTML
+                    var footerWidget = new Y.Phresco.FooterWidget({
+                        // place holder can be decided by specifying the attribute
+                        targetNode : "#footers",
+                        apiReference : eshopAPI
+                    });
+
+                    eshopAPI.getWSConfig();
+                    eshopAPI.getConfig();
+                    eshopAPI.getCategories([categoryWidget]);
+                    //eshopAPI.getNewProducts([productsWidget]);
+
+                    //var slider = '#slider';
+
+                    //categoryWidget.hideWidgets([slider]);
+                    categoryWidget.addSelectedListener(productsWidget);
+
+                    //headerWidget.hideWidgets([slider]);
+                    //headerWidget.addSearchListener(productsWidget);
+
+                    //navigationWidget.renderUI();
+                    headerWidget.renderUI();
+                    navigationWidget.renderUI();
+                    //sliderWidget.renderUI();
+                    categoryWidget.renderUI();
+                    //productsWidget.renderUI();
+                    //myCartWidget.renderUI();
+                    //topSellsWidget.renderUI();
+                    footerWidget.renderUI();
+                });
+            });
+        </script>
+
+
+    </head>
+    <body>
+        <div id="container-page">
+            <div id="container-content">
+                <div id="header-wrapper">
+                </div>
+
+                <div id="navigation-tab" class="header_tab">
+                </div>
+
+                <div id="content">
+                </div>
+            </div>
+
+            <footer id="footers">
+            </footer>
+        </div>
+    </body>
+</html>
