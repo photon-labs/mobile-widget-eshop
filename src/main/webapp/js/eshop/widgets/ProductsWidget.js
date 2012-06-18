@@ -127,6 +127,11 @@ YUI.add("productsWidget", function(Y) {
                     var reviewContent = this.createElement('<div class="review_contleft">');
                     var price = this.createElement('<p>' + this.getAmount(product.listPrice, false, config.supportedCurrencies) + '</p>');
                     reviewContent.appendChild(price);
+					
+					var arrow = Y.Node.create('<div class="arrow"><a href="javascript:void(0);"><img src="images/eshop/arrow.png" border="0" title="image" /></a></div>');
+					arrow.obj = this;
+                    arrow.data = product.id;
+                    Y.on('click' , this.showProductDetails , arrow);
                     var ratingDone = false;
 
                     for (var j = 0; j < 5; j++) {
@@ -157,6 +162,7 @@ YUI.add("productsWidget", function(Y) {
                     productsHolder.appendChild(productImage);
                     productsHolder.appendChild(productName);
 					productsHolder.appendChild(reviewDiv);
+					productsHolder.appendChild(arrow);
 
                     li.appendChild(productsHolder);
 					//li.appendChild(reviewHolder);
