@@ -1,22 +1,3 @@
-/*
- * ###
- * PHR_HTML5MobileWidget
- * %%
- * Copyright (C) 1999 - 2012 Photon Infotech Inc.
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ###
- */
 Event = YUI.event,
 YUI.add("loginWidget", function(Y) {
     function LoginWidget(config) {
@@ -205,13 +186,8 @@ YUI.add("loginWidget", function(Y) {
 				var copyinnerdiv = this.createElement('<div class="log_innerdiv">');
 					var copyinnerdiv1 = this.createElement('<div class="log_innerdiv1">');
 						var copyheading = this.createElement('<div class="log_heading">');
-							var copyRight = this.createElement('<strong> E-Shop Phresco &copy; 2011 </strong>');
-							var privacyPolicy = this.createElement('<a class="link" href="#">Privacy Policy</a><br />');
-							var poweredBy = this.createElement('<a class="link" href="#">powered by Photon</a>');
+							var copyRight = this.createElement('<strong> E-Shop Phresco &copy; Photon Infotech 2012 </strong>');
 							copyheading.appendChild(copyRight);
-							copyheading.appendChild(privacyPolicy);
-							copyheading.appendChild(poweredBy);
-
 					copyinnerdiv1.appendChild(copyheading);
 				copyinnerdiv.appendChild(copyinnerdiv1);
 			copydiv1.appendChild(copyinnerdiv);
