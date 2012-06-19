@@ -129,13 +129,13 @@ YUI.add("loginWidget", function(Y) {
                                    
                                var log_txt1 = this.createElement('<div class="log_txt"><div id="logEmail_err_div" class="clearfix">');
                                     var log_txt_lft = this.createElement('<div class="log_txt_lft">Email Id</div>');
-                                    var log_txt_rht = Y.Node.create('<div class="log_txt_rht"><input type="text" autofocus="autofocus" name="logEmail" id="logEmail" placeholder="Email" /></div><span class="help-inline" id="logEmail_err"></span>');
+                                    var log_txt_rht = Y.Node.create('<div class="log_txt_rht"><input type="text" autofocus="autofocus" name="logEmail" id="logEmail" placeholder="Email" maxlength="250" /></div><span class="help-inline" id="logEmail_err"></span>');
                                 log_txt1.appendChild(log_txt_lft);
                                 log_txt1.appendChild(log_txt_rht);
            
                                 var log_txt2 = this.createElement('<div class="log_txt"><div id="logpassword_err_div" class="clearfix">');
                                     var log_txt_lft2 = this.createElement('<div class="log_txt_lft">Password</div>');
-                                    var log_txt_rht2 = Y.Node.create('<div class="log_txt_rht"><input type="password" name="logpassword" id="logpassword" placeholder="Password"  /></div><span class="help-inline" id="logpassword_err"></span>');
+                                    var log_txt_rht2 = Y.Node.create('<div class="log_txt_rht"><input type="password" name="logpassword" id="logpassword" placeholder="Password" maxlength="20" /></div><span class="help-inline" id="logpassword_err"></span>');
                                 log_txt2.appendChild(log_txt_lft2);
                                 log_txt2.appendChild(log_txt_rht2);
 

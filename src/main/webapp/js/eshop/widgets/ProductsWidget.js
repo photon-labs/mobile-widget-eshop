@@ -133,6 +133,7 @@ YUI.add("productsWidget", function(Y) {
                     arrow.data = product.id;
                     Y.on('click' , this.showProductDetails , arrow);
                     var ratingDone = false;
+					
 
                     for (var j = 0; j < 5; j++) {
                         var starImage = 'start.png';
