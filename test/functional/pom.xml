@@ -22,7 +22,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.photon.phresco</groupId>
   <artifactId>HTML5Mobile_WebDriver</artifactId>
-  <version>0.0.1</version>
+  <version>1.2.0.3001-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>HTML5Mobile_Widget</name>
   <url>http://maven.apache.org</url>
