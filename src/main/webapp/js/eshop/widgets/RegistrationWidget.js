@@ -1,22 +1,3 @@
-/*
- * ###
- * PHR_HTML5MobileWidget
- * %%
- * Copyright (C) 1999 - 2012 Photon Infotech Inc.
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ###
- */
 Event = YUI.event,
 YUI.add("registrationWidget", function(Y) {
     function RegistrationWidget(config) {
@@ -150,31 +131,31 @@ YUI.add("registrationWidget", function(Y) {
                                 
                                 var log_txtfname = this.createElement('<div class="log_txt"><div id="regfirstname_err_div" class="clearfix">');
                                     var log_txt_lftfname = this.createElement('<div class="log_txt_lft">First Name</div>');
-                                    var log_txt_rhtfname = Y.Node.create('<div class="log_txt_rht"><input type="text" name="regfirstname" id="regfirstname" placeholder="First Name" autofocus="autofocus"/></div><span class="help-inline" id="regfirstname_err"></span>');
+                                    var log_txt_rhtfname = Y.Node.create('<div class="log_txt_rht"><input type="text" name="regfirstname" id="regfirstname" placeholder="First Name" autofocus="autofocus" maxlength="40"/></div><span class="help-inline" id="regfirstname_err"></span>');
                                 log_txtfname.appendChild(log_txt_lftfname);
                                 log_txtfname.appendChild(log_txt_rhtfname);
            
                                var log_txtlname = this.createElement('<div class="log_txt"><div id="reglastname_err_div" class="clearfix">');
                                     var log_txt_lftlname = this.createElement('<div class="log_txt_lft">Last Name</div>');
-                                    var log_txt_rhtlname = Y.Node.create('<div class="log_txt_rht"><input type="text" name="reglastname" id="reglastname" placeholder="Last Name"/></div><span class="help-inline" id="reglastname_err"></span>');
+                                    var log_txt_rhtlname = Y.Node.create('<div class="log_txt_rht"><input type="text" name="reglastname" id="reglastname" placeholder="Last Name" maxlength="40"/></div><span class="help-inline" id="reglastname_err"></span>');
                                 log_txtlname.appendChild(log_txt_lftlname);
                                 log_txtlname.appendChild(log_txt_rhtlname);
            
                                var log_txt1 = this.createElement('<div class="log_txt"><div id="regemail_err_div" class="clearfix">');
                                     var log_txt_lft = this.createElement('<div class="log_txt_lft">Email Id</div>');
-                                    var log_txt_rht = Y.Node.create('<div class="log_txt_rht"><input type="text" name="regemail" id="regemail" placeholder="Email"/></div><span class="help-inline" id="regemail_err"></span>');
+                                    var log_txt_rht = Y.Node.create('<div class="log_txt_rht"><input type="text" name="regemail" id="regemail" placeholder="Email" maxlength="250"/></div><span class="help-inline" id="regemail_err"></span>');
                                 log_txt1.appendChild(log_txt_lft);
                                 log_txt1.appendChild(log_txt_rht);
            
                                 var log_txt2 = this.createElement('<div class="log_txt"><div id="regpassword_err_div" class="clearfix">');
                                     var log_txt_lft2 = this.createElement('<div class="log_txt_lft">Password</div>');
-                                    var log_txt_rht2 = Y.Node.create('<div class="log_txt_rht"><input type="password" name="regpassword" id="regpassword" placeholder="Password"  /></div><span class="help-inline" id="regpassword_err"></span>');
+                                    var log_txt_rht2 = Y.Node.create('<div class="log_txt_rht"><input type="password" name="regpassword" id="regpassword" placeholder="Password" maxlength="20"  /></div><span class="help-inline" id="regpassword_err"></span>');
                                 log_txt2.appendChild(log_txt_lft2);
                                 log_txt2.appendChild(log_txt_rht2);
 
                                 var log_txt3 = this.createElement('<div class="log_txt"><div id="regphonenumber_err_div" class="clearfix">');
                                     var log_txt_lft3 = this.createElement('<div class="log_txt_lft">Phone</div>');
-                                    var log_txt_rht3 = Y.Node.create('<div class="log_txt_rht"><input type="phone" name="regphonenumber" id="regphonenumber" placeholder="Phone Number" /></div><span class="help-inline" id="regphonenumber_err"></span>');
+                                    var log_txt_rht3 = Y.Node.create('<div class="log_txt_rht"><input type="phone" name="regphonenumber" id="regphonenumber" placeholder="Phone Number" maxlength="20" /></div><span class="help-inline" id="regphonenumber_err"></span>');
                                 log_txt3.appendChild(log_txt_lft3);
                                 log_txt3.appendChild(log_txt_rht3);
 
@@ -226,12 +207,10 @@ YUI.add("registrationWidget", function(Y) {
 				var copyinnerdiv = this.createElement('<div class="log_innerdiv">');
 					var copyinnerdiv1 = this.createElement('<div class="log_innerdiv1">');
 						var copyheading = this.createElement('<div class="log_heading">');
-							var copyRight = this.createElement('<strong> E-Shop Phresco &copy; 2011 </strong>');
-							var privacyPolicy = this.createElement('<a class="link" href="#">Privacy Policy</a><br />');
-							var poweredBy = this.createElement('<a class="link" href="#">powered by Photon</a>');
+							var copyRight = this.createElement('<strong> E-Shop Phresco &copy; Photon Infotech 2012 </strong>');
+							var privacyPolicy = this.createElement('<a class="link" href="#"></a><br />');
 							copyheading.appendChild(copyRight);
-							copyheading.appendChild(privacyPolicy);
-							copyheading.appendChild(poweredBy);
+
 
 					copyinnerdiv1.appendChild(copyheading);
 				copyinnerdiv.appendChild(copyinnerdiv1);

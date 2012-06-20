@@ -1,22 +1,3 @@
-/*
- * ###
- * PHR_HTML5MobileWidget
- * %%
- * Copyright (C) 1999 - 2012 Photon Infotech Inc.
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ###
- */
 Event = YUI.event,
 YUI.add("productsWidget", function(Y) {
     function ProductsWidget(config) {
@@ -146,7 +127,13 @@ YUI.add("productsWidget", function(Y) {
                     var reviewContent = this.createElement('<div class="review_contleft">');
                     var price = this.createElement('<p>' + this.getAmount(product.listPrice, false, config.supportedCurrencies) + '</p>');
                     reviewContent.appendChild(price);
+					
+					var arrow = Y.Node.create('<div class="arrow"><a href="javascript:void(0);"><img src="images/eshop/arrow.png" border="0" title="image" /></a></div>');
+					arrow.obj = this;
+                    arrow.data = product.id;
+                    Y.on('click' , this.showProductDetails , arrow);
                     var ratingDone = false;
+					
 
                     for (var j = 0; j < 5; j++) {
                         var starImage = 'start.png';
@@ -176,6 +163,7 @@ YUI.add("productsWidget", function(Y) {
                     productsHolder.appendChild(productImage);
                     productsHolder.appendChild(productName);
 					productsHolder.appendChild(reviewDiv);
+					productsHolder.appendChild(arrow);
 
                     li.appendChild(productsHolder);
 					//li.appendChild(reviewHolder);

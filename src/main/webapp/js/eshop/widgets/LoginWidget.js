@@ -1,22 +1,3 @@
-/*
- * ###
- * PHR_HTML5MobileWidget
- * %%
- * Copyright (C) 1999 - 2012 Photon Infotech Inc.
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ###
- */
 Event = YUI.event,
 YUI.add("loginWidget", function(Y) {
     function LoginWidget(config) {
@@ -148,13 +129,13 @@ YUI.add("loginWidget", function(Y) {
                                    
                                var log_txt1 = this.createElement('<div class="log_txt"><div id="logEmail_err_div" class="clearfix">');
                                     var log_txt_lft = this.createElement('<div class="log_txt_lft">Email Id</div>');
-                                    var log_txt_rht = Y.Node.create('<div class="log_txt_rht"><input type="text" autofocus="autofocus" name="logEmail" id="logEmail" placeholder="Email" /></div><span class="help-inline" id="logEmail_err"></span>');
+                                    var log_txt_rht = Y.Node.create('<div class="log_txt_rht"><input type="text" autofocus="autofocus" name="logEmail" id="logEmail" placeholder="Email" maxlength="250" /></div><span class="help-inline" id="logEmail_err"></span>');
                                 log_txt1.appendChild(log_txt_lft);
                                 log_txt1.appendChild(log_txt_rht);
            
                                 var log_txt2 = this.createElement('<div class="log_txt"><div id="logpassword_err_div" class="clearfix">');
                                     var log_txt_lft2 = this.createElement('<div class="log_txt_lft">Password</div>');
-                                    var log_txt_rht2 = Y.Node.create('<div class="log_txt_rht"><input type="password" name="logpassword" id="logpassword" placeholder="Password"  /></div><span class="help-inline" id="logpassword_err"></span>');
+                                    var log_txt_rht2 = Y.Node.create('<div class="log_txt_rht"><input type="password" name="logpassword" id="logpassword" placeholder="Password" maxlength="20" /></div><span class="help-inline" id="logpassword_err"></span>');
                                 log_txt2.appendChild(log_txt_lft2);
                                 log_txt2.appendChild(log_txt_rht2);
 
@@ -205,13 +186,8 @@ YUI.add("loginWidget", function(Y) {
 				var copyinnerdiv = this.createElement('<div class="log_innerdiv">');
 					var copyinnerdiv1 = this.createElement('<div class="log_innerdiv1">');
 						var copyheading = this.createElement('<div class="log_heading">');
-							var copyRight = this.createElement('<strong> E-Shop Phresco &copy; 2011 </strong>');
-							var privacyPolicy = this.createElement('<a class="link" href="#">Privacy Policy</a><br />');
-							var poweredBy = this.createElement('<a class="link" href="#">powered by Photon</a>');
+							var copyRight = this.createElement('<strong> E-Shop Phresco &copy; Photon Infotech 2012 </strong>');
 							copyheading.appendChild(copyRight);
-							copyheading.appendChild(privacyPolicy);
-							copyheading.appendChild(poweredBy);
-
 					copyinnerdiv1.appendChild(copyheading);
 				copyinnerdiv.appendChild(copyinnerdiv1);
 			copydiv1.appendChild(copyinnerdiv);
