@@ -1,25 +1,8 @@
-/*
- * ###
- * PHR_HTML5MobileWidget
- * %%
- * Copyright (C) 1999 - 2012 Photon Infotech Inc.
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ###
- */
 package com.photon.phresco.Screens;
 
 import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -35,6 +18,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
+import com.opera.core.systems.OperaDriver;
 import com.photon.phresco.selenium.util.Constants;
 import com.photon.phresco.selenium.util.ScreenActionFailedException;
 import com.photon.phresco.selenium.util.ScreenException;
@@ -124,9 +108,45 @@ public class BaseScreen {
 			 * selenium = new WebDriverBackedSelenium(driver, url);
 			 * selenium.open(context);
 			 */
-		} else {
+		}
+		
+		 else if (browserName.equalsIgnoreCase(Constants.BROWSER_OPERA)) {
+				log.info("-------------***LAUNCHING OPERA***--------------");
+				WebDriver driver = new OperaDriver(); 
+				System.out.println("******entering window maximize********");
+				Robot robot;
+				try {
+					robot = new Robot();
+					robot.keyPress(KeyEvent.VK_ALT);
+			        robot.keyPress(KeyEvent.VK_SPACE);
+			        robot.keyRelease(KeyEvent.VK_ALT);
+			        robot.keyRelease(KeyEvent.VK_SPACE);
+			        robot.keyPress(KeyEvent.VK_X);
+			        robot.keyRelease(KeyEvent.VK_X);
+				} catch (AWTException e) {
+				
+					e.printStackTrace();
+				}
+				
+				 System.out.println("******window maximized********");
+				System.out.println("URL = " + url);
+	            driver.navigate().to(url + context);
+
+				
+			//	WindowManagerCommand();
+				
+				// driver.get(url+context);
+
+				/*
+				 * selenium = new WebDriverBackedSelenium(driver, url);
+				 * selenium.open(context);
+				 */
+				
+			}
+		
+		else {
 			throw new ScreenException(
-					"------Only FireFox,InternetExplore and Chrome works-----------");
+					"------Only FireFox,InternetExplore,Chrome and Opera works-----------");
 		}
 
 	}
@@ -143,7 +163,7 @@ public class BaseScreen {
 	public void closeBrowser() {
 		log.info("-------------***BROWSER CLOSING***--------------");		
 		if (driver != null) {
-			driver.close();		
+			driver.quit();		
 		if(chromeService!=null){
 			chromeService.stop();
 			}
