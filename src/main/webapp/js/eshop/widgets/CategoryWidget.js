@@ -98,8 +98,8 @@ YUI.add("categoryWidget", function(Y) {
                 targetNode.empty();
                 var apiRef = this.get("apiReference");
                 apiRef.set("backPage", "Categories");
-                var url = apiRef.get("wsURLWithoutContext");
-                var config = apiRef._getConfigData();
+                var url = apiRef.wsURLWithoutContext;
+				var config = apiRef._getConfigData();
                 var webImage = config.imagePath.mobile;
                 
                 var categoryList = this.createElement('<div class="cat_lister">');
