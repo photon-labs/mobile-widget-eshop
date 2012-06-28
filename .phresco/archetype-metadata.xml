@@ -25,7 +25,7 @@
 		<fileSet filtered="false" packaged="false"> 
 			<directory>src/main/webapp</directory> 
 			<includes>
-				<include>index.html</include>
+				<include>index.jsp</include>
 				<include>environment.jsp</include>
 			</includes>
 		</fileSet>
@@ -67,16 +67,15 @@
 			</includes>
 		</fileSet>
 		<fileSet filtered="false" packaged="false"> 
-			<directory>src/main/webapp/images</directory> 
+			<directory>src/main/webapp/WEB-INF/resources</directory> 
 			<includes>
-				<include>**/*</include>
+				<include>phresco-env-config.xml</include>
 			</includes>
 		</fileSet>
 		<fileSet filtered="false" packaged="false"> 
-			<directory>src/main/webapp/resources</directory> 
+			<directory>src/main/webapp/images</directory> 
 			<includes>
-				<include>ws-config.json</include>
-				<include>phresco-env-config.xml</include>
+				<include>**/*</include>
 			</includes>
 		</fileSet>
 		<fileSet filtered="false" packaged="false"> 
@@ -136,13 +135,6 @@
 				<include>PhrescoUiConstants.java</include>
 				<include>TestProperties.java</include>
 				<include>ReadXMLFile.java</include>
-			</includes>
-		</fileSet>
-		<fileSet filtered="false" encoding="UTF-8">
-			<directory>test/functional/src/main/resources</directory>
-			<includes>
-				<include>config.ini</include>
-				<include>phresco-env-config.xml</include>
 			</includes>
 		</fileSet>
 		<fileSet filtered="false" encoding="UTF-8">

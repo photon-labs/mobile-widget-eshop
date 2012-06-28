@@ -101,7 +101,7 @@ YUI.add("productsWidget", function(Y) {
                 var apiRef = this.get("apiReference");
                 apiRef.set("backPage", "Products");
                 
-                var url = apiRef.get("wsURLWithoutContext");
+                var url = apiRef.wsURLWithoutContext;
                 var config = apiRef._getConfigData();
                 var webImage = config.web.web;
                 var productsList = this.createElement('<div class="cat_listerDetail">');
