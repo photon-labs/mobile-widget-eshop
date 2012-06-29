@@ -2,6 +2,7 @@
 <environment>
 <phresco>
 <mobilewidget>
+
            <links>
                <browseWidget>//div[@id='container']/div/div[2]/div[2]/ul/li[2]/a/div/img</browseWidget>
                <login>//div[@id='container']/div/div[2]/div[2]/ul/li[3]/a/div/img</login>

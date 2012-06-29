@@ -2,8 +2,10 @@
 <environment>
 <phresco>
 <mobilewidget>
+
  <userName></userName>
  <passWord></passWord>
+ 
 </mobilewidget>
 </phresco>
 </environment>
