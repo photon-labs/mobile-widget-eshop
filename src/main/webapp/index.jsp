@@ -1,22 +1,10 @@
-<!--
-  ###
-  PHR_HTML5MobileWidget
-  %%
-  Copyright (C) 1999 - 2012 Photon Infotech Inc.
-  %%
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-  
-       http://www.apache.org/licenses/LICENSE-2.0
-  
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  ###
-  -->
+<%@ page import="java.io.InputStream" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.io.File" %>
+<%@ page import="java.util.Properties" %>			
+<%@ page import="com.photon.phresco.configuration.ConfigReader" %>
+<%@ page import="com.photon.phresco.configuration.Configuration" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
@@ -28,15 +16,19 @@
         <link type="text/css" rel="stylesheet" href="css/eshop/style.css">
         <link type="text/css" rel="stylesheet" href="css/eshop/style1.css"/>
         <link type="text/css" rel="stylesheet" href="css/eshop/jquery.loadmask.css"/>
+
         <script type="text/javascript" charset="utf-8" src="lib/jquery/jquery.js"></script>
 		<script type="text/javascript" src="lib/xml2json/jquery.xml2json.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/eshop/jquery.loadmask.js"></script>
         <script type="text/javascript" src="lib/phonegap/phonegap-1.2.0.js"></script>
         <script type="text/javascript" src="lib/yui/build/yui/yui-min.js"></script>
         <script type="text/javascript" src="lib/iscroll/iscroll.js"></script>
+<!--    <script type="text/javascript" src="lib/iscroll/iscrollnew.js"></script>-->
         <script type="text/javascript" src="lib/jsonpath/jsonpath.js"></script> 
         <script type="text/javascript" src="lib/jquery.menubf.js"></script> 
+        <!--<script type="text/javascript" src="lib/others/javascript.js"></script>-->
         <script type="text/javascript" src="js/eshop/controller/EShopAPI.js"></script>
+
         <script type="text/javascript" src="js/eshop/widgets/PhrescoWidget.js"></script>
         <script type="text/javascript" src="js/eshop/widgets/MenuWidget.js"></script>
         <script type="text/javascript" src="js/eshop/widgets/HeaderWidget.js"></script>
@@ -56,13 +48,24 @@
         <script type="text/javascript" src="js/eshop/widgets/RegistrationSuccessWidget.js"></script>
         <script type="text/javascript" src="js/eshop/widgets/LoginWidget.js"></script>
         <script type="text/javascript" src="js/eshop/widgets/LoginSuccessWidget.js"></script>
+		
+		<%
+			String currentEnv = System.getProperty("SERVER_ENVIRONMENT");
+			String path = getServletContext().getRealPath("/WEB-INF/resources/phresco-env-config.xml");
+			File file = new File(path);
+			ConfigReader reader = ConfigReader.getInstance(file);
+			String configJson = reader.getConfigAsJSON(currentEnv, "WebService");
+			
+		%>
 
         <script type="text/javascript">
             YUI().use('node', 'widget', 'eshopAPI', 'phrescoWidget', 'menuWidget', 'headerWidget', 'navigationWidget',
                 'categoryWidget', 'productsWidget', 'productDetailsWidget', 'footerWidget', 'shoppingCartWidget', 'reviewWidget', 'checkoutFormWidget', 'checkoutFormViewWidget','checkoutSuccessWidget' ,'myCartWidget','postReviewWidget','registrationWidget', 'registrationSuccessWidget', 'loginWidget', 'loginSuccessWidget',function(Y) {
 
                 Y.on("domready", function () {
-                    var eshopAPI = new Y.Phresco.EShopAPI({});
+					var configJson = '<%= configJson %>';
+					console.info('configJson = ' , configJson);
+                    var eshopAPI = new Y.Phresco.EShopAPI($.parseJSON(configJson));
 
                     // instantiate MenuWidget with the HTML
                     var menuWidget = new Y.Phresco.MenuWidget({

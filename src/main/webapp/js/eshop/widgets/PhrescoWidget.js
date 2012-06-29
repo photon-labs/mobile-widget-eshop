@@ -232,7 +232,7 @@ YUI.add("phrescoWidget", function(Y) {
             for (var i = 0 ;i < listeners.length; i++) {
                 var target = listeners[i].get("targetNode");
                 widgetObj.loading(target);
-                apiRef.getProducts(listeners[i], this.data, listeners[i]);
+                apiRef.getProducts(listeners, this.data, listeners[i]);
             }
 
         },
