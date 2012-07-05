@@ -2,18 +2,10 @@ package com.photon.phresco.uiconstants;
 
 import java.lang.reflect.Field;
 
-public class MobilewidgUiConstants {
+public class UIConstants {
 	
 	private ReadXMLFile readXml;
 	
-	public String PROTOCOL="protocol";
-	public String SERVER_PORT ="server.port";
-	public String CONTEXT = "context";	
-	public String SERVER_HOST = "server.host";
-	public String HOST = "host";
-	public String PORT = "port";
-	public String BROWSER = "Browser";
-	public String SPEED = "speed";
     public String BROWSE="browseWidget";
 	public String BROWSE_BACK="browsepgBackButton";
 	public String TELEVISION = "televisiontab";
@@ -39,30 +31,21 @@ public class MobilewidgUiConstants {
 	public String MP3_PROD1_DETAILS="mp3Prod1Details";
 	public String ACC_PROD1_DETAILS="accessoriesProd1Details";
     public String STATE="billInfoState";
-	public String STATE_VALUE="billInfoStateValue";
-	public String POSTALCODE_VALUE="billInfoPostCodeValue";
+    public String REVIEW="review";
 	public String PHONENUMBER="billInfoPhoneNumber";
-	public String PHONENUMBER_VALUE="billInfoPhoneNumberValue";
 	public String ADDTOCART="addToCart";
 	public String UPDATECART="updateCart";
 	public String VIEWMYCART="viewMyCart";
 	public String CHECKOUT="checkout";
 	public String CUSTOMERINFORMATION="custInfo";
 	public String EMAIL="billInfoEmail";
-	public String EMAIL_VALUE="billInfoEmailValue";
 	public String DELIVERYINFO="deliveryInfo";
 	public String FIRSTNAME="billInfoFirstName";
-	public String FIRSTNAME_VALUE="billInfoFirstNameValue";
 	public String LASTNAME="billInfoLastName";
-	public String LASTNAME_VALUE="billInfoLastNameValue";
 	public String COMPANY="billInfoCompany";
-	public String COMPANY_VALUE="billInfoCompanyValue";
 	public String ADDRESS1="billInfoAddress1";
-	public String ADDRESS1_VALUE="billInfoAddress1Value";
 	public String ADDRESS2="billInfoAddress2";
-	public String ADDRESS2_VALUE="billInfoAddress2Value";
 	public String CITY="billInfoCity";
-	public String CITY_VALUE="billInfoCityValue";
 	public String POSTCODE="billInfoPostCode";
 	public String BILLINGINFO="billInfo";
 	public String CHECKADDRESS="billInfocheckAddress";
@@ -70,15 +53,14 @@ public class MobilewidgUiConstants {
 	public String CASHONDELIVERY="billInfoPayMethodCOD";
 	public String CHEQUEorCASH = "billInfoPayMethodCheqOrCash";
 	public String ORDERCOMMENTS="billInfoComments";
-	public String ORDERCOMMENTS_VALUE="billInfoCommentsValue";
 	public String GIVECOMMENTS="billInfoGiveComments";
 	public String REVIEWORDER="reviewOrder";
-	public String REVIEW="review";
 	public String SUBMITORDER="submitOrder";
 	 
-	public MobilewidgUiConstants() {
+	public UIConstants() {
 		try {
 			readXml = new ReadXMLFile();
+			readXml.loadUIConstants();
 			Field[] arrayOfField1 = super.getClass().getFields();
 			Field[] arrayOfField2 = arrayOfField1;
 			int i = arrayOfField2.length;

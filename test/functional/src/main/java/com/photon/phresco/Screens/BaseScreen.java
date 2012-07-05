@@ -78,7 +78,7 @@ public class BaseScreen {
 				ChromeOptions chromeOption = new ChromeOptions();
 				chromeOption.addArguments("start-maximized");
 				driver = new ChromeDriver(chromeService, chromeOption);
-//				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				driver.navigate().to(url + context);
 				
 				/*selenium = new WebDriverBackedSelenium(driver, url);
@@ -108,45 +108,52 @@ public class BaseScreen {
 			 * selenium = new WebDriverBackedSelenium(driver, url);
 			 * selenium.open(context);
 			 */
-		}
-		
-		 else if (browserName.equalsIgnoreCase(Constants.BROWSER_OPERA)) {
-				log.info("-------------***LAUNCHING OPERA***--------------");
-				WebDriver driver = new OperaDriver(); 
-				System.out.println("******entering window maximize********");
-				Robot robot;
-				try {
-					robot = new Robot();
-					robot.keyPress(KeyEvent.VK_ALT);
-			        robot.keyPress(KeyEvent.VK_SPACE);
-			        robot.keyRelease(KeyEvent.VK_ALT);
-			        robot.keyRelease(KeyEvent.VK_SPACE);
-			        robot.keyPress(KeyEvent.VK_X);
-			        robot.keyRelease(KeyEvent.VK_X);
-				} catch (AWTException e) {
-				
-					e.printStackTrace();
-				}
-				
-				 System.out.println("******window maximized********");
-				System.out.println("URL = " + url);
-	            driver.navigate().to(url + context);
+		} else if (browserName.equalsIgnoreCase(Constants.BROWSER_OPERA)) {
+			log.info("-------------***LAUNCHING OPERA***--------------");
 
-				
-			//	WindowManagerCommand();
-				
-				// driver.get(url+context);
-
-				/*
-				 * selenium = new WebDriverBackedSelenium(driver, url);
-				 * selenium.open(context);
-				 */
-				
+			WebDriver driver = new OperaDriver(); 
+			System.out.println("******entering window maximize********");
+			Robot robot;
+			try {
+				robot = new Robot();
+				robot.keyPress(KeyEvent.VK_ALT);
+		        robot.keyPress(KeyEvent.VK_SPACE);
+		        robot.keyRelease(KeyEvent.VK_ALT);
+		        robot.keyRelease(KeyEvent.VK_SPACE);
+		        robot.keyPress(KeyEvent.VK_X);
+		        robot.keyRelease(KeyEvent.VK_X);
+			} catch (AWTException e) {
+			
+				e.printStackTrace();
 			}
-		
-		else {
+			
+			 System.out.println("******window maximized********");
+			System.out.println("URL = " + url);
+            driver.navigate().to(url + context);
+            try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			
+
+			// WebDriverWait(driver,5).until(alert_is_present()).dismiss()
+			// String currentWindowHandle = driver.getWindowHandle();
+
+			// close the popup windows
+			// driver.switchTo().window(currentWindowHandle);
+
+			/*
+			 * selenium = new WebDriverBackedSelenium(driver, url);
+			 * selenium.open(context);
+			 */
+
+} else if (browserName.equalsIgnoreCase(Constants.BROWSER_OPERA)) {
+		} else {
 			throw new ScreenException(
-					"------Only FireFox,InternetExplore,Chrome and Opera works-----------");
+					"------Only FireFox,InternetExplore,Chrome and Opera  works-----------");
 		}
 
 	}
@@ -163,11 +170,11 @@ public class BaseScreen {
 	public void closeBrowser() {
 		log.info("-------------***BROWSER CLOSING***--------------");		
 		if (driver != null) {
-			driver.quit();		
+			driver.close();		
 		if(chromeService!=null){
 			chromeService.stop();
 			}
-		} 
+		}
 		// selenium.stop();
 		/*
 		 * driver.quit(); selenium.stop();

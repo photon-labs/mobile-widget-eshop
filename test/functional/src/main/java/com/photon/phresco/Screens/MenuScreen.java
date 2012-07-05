@@ -6,8 +6,8 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
-import com.photon.phresco.uiconstants.MobilewidgUiConstants;
+import com.photon.phresco.uiconstants.MobileWidgetData;
+import com.photon.phresco.uiconstants.UIConstants;
 
 
 
@@ -15,10 +15,10 @@ import com.photon.phresco.uiconstants.MobilewidgUiConstants;
 
 
 public class MenuScreen extends WebDriverAbstractBaseScreen{
-	MobilewidgUiConstants phrsc;
+	UIConstants phrsc;
 	private Log log = LogFactory.getLog(getClass());
 	public WebDriverBaseScreen element;
-	public MenuScreen(MobilewidgUiConstants phrsc,String methodName) throws Exception {
+	public MenuScreen(UIConstants phrsc,String methodName) throws Exception {
 		this.phrsc = phrsc;
 		if (StringUtils.isEmpty(methodName)) {
 			methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
@@ -163,7 +163,7 @@ public class MenuScreen extends WebDriverAbstractBaseScreen{
     	waitForElementPresent(phrsc.REVIEW,methodName);
 		
 	}
-    public void BillingInfo(String methodName)throws Exception {
+    public void BillingInfo(MobileWidgetData mobwigdata,String methodName)throws Exception {
     	if (StringUtils.isEmpty(methodName)) {
 			methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
 		}
@@ -180,31 +180,32 @@ public class MenuScreen extends WebDriverAbstractBaseScreen{
     	element = getXpathWebElement(phrsc.CUSTOMERINFORMATION);
 		element.click();
 		element = getIdWebElement(phrsc.EMAIL);
-		element.type(phrsc.EMAIL_VALUE);
+		element.type(mobwigdata.EMAIL_VALUE);
     	waitForElementPresent(phrsc.DELIVERYINFO,methodName);
     	element = getXpathWebElement(phrsc.DELIVERYINFO);
 		element.click();
 		element = getIdWebElement(phrsc.FIRSTNAME);
-		element.type(phrsc.FIRSTNAME_VALUE);
+		element.type(mobwigdata.FIRSTNAME_VALUE);
 		element = getIdWebElement(phrsc.LASTNAME);
-		element.type(phrsc.LASTNAME_VALUE);
+		element.type(mobwigdata.LASTNAME_VALUE);
 		element = getIdWebElement(phrsc.COMPANY);
-		element.type(phrsc.COMPANY_VALUE);
+		element.type(mobwigdata.COMPANY_VALUE);
 		element = getIdWebElement(phrsc.ADDRESS1);
-		element.type(phrsc.ADDRESS1_VALUE);
+		element.type(mobwigdata.ADDRESS1_VALUE);
 		element = getIdWebElement(phrsc.ADDRESS2);
-		element.type(phrsc.ADDRESS2_VALUE);
+		element.type(mobwigdata.ADDRESS2_VALUE);
 		element = getIdWebElement(phrsc.CITY);
-		element.type(phrsc.CITY_VALUE);
+		element.type(mobwigdata.CITY_VALUE);
 		element = getIdWebElement(phrsc.STATE);
-		element.type(phrsc.STATE_VALUE);
+		element.type(mobwigdata.STATE_VALUE);
 		element = getIdWebElement(phrsc.POSTCODE);
-		element.type(phrsc.POSTALCODE_VALUE);
+		element.type(mobwigdata.POSTALCODE_VALUE);
 		element = getIdWebElement(phrsc.PHONENUMBER);
-		element.type(phrsc.PHONENUMBER_VALUE);
+		element.type(mobwigdata.PHONENUMBER_VALUE);
     	waitForElementPresent(phrsc.BILLINGINFO,methodName);
     	element = getXpathWebElement(phrsc.BILLINGINFO);
 		element.click();
+		Thread.sleep(5000);
     	waitForElementPresent(phrsc.CHECKADDRESS,methodName);
     	element = getXpathWebElement(phrsc.CHECKADDRESS);
 		element.click();
@@ -218,7 +219,7 @@ public class MenuScreen extends WebDriverAbstractBaseScreen{
     	element = getXpathWebElement(phrsc.ORDERCOMMENTS);
 		element.click();
 		element = getIdWebElement(phrsc.GIVECOMMENTS);
-		element.type(phrsc.ORDERCOMMENTS_VALUE);
+		element.type(mobwigdata.ORDERCOMMENTS_VALUE);
     	waitForElementPresent(phrsc.REVIEWORDER,methodName);
     	element = getXpathWebElement(phrsc.REVIEWORDER);
 		element.click();
