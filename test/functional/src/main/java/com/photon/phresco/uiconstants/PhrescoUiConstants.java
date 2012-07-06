@@ -15,6 +15,7 @@ public class PhrescoUiConstants {
 	public String BROWSER = "Browser";
 	public String SPEED = "speed";
 
+
     public PhrescoUiConstants() {
 		try {
 			readXml = new ReadXMLFile();
