@@ -14,7 +14,6 @@ public class PhrescoUiConstants {
 	public String PORT = "port";
 	public String BROWSER = "Browser";
 	public String SPEED = "speed";
-	
 
     public PhrescoUiConstants() {
 		try {
