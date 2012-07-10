@@ -38,23 +38,12 @@ public class BaseScreen {
 
 	public BaseScreen(String url, String browser, String speed, String reporter)
 			throws AWTException, IOException, ScreenActionFailedException {
-		/*
-		 * selenium = new ScreenshottingSelenium("localhost", 4444, browser,
-		 * url, reporter); selenium.start(); selenium.setSpeed(speed);
-		 * selenium.open("/");
-		 */
+		
 	}
 
 	public static void initialize(String host, int port, String browser,
 			String url, String speed, String context)
-			throws com.photon.phresco.selenium.util.ScreenActionFailedException {
-		/*
-		 * PhrescoHTML5widgUiConstants phrsc = new
-		 * PhrescoHTML5widgUiConstants(); selenium = new
-		 * ScreenshottingSelenium(host, port, browser, url,context);
-		 * selenium.start(); selenium.setSpeed(speed);
-		 * selenium.open(phrsc.CONTEXT); selenium.waitForPageToLoad("30000");
-		 */
+			throws com.photon.phresco.selenium.util.ScreenActionFailedException {		
 		try {
 			instantiateBrowser(browser, url, context, speed);
 		} catch (ScreenException se) {
@@ -66,13 +55,13 @@ public class BaseScreen {
 	public static void instantiateBrowser(String browserName, String url,
 			String context, String speed) throws ScreenException {
 
-		if (browserName.equalsIgnoreCase(Constants.BROWSER_CHROME)) {	
+		if (browserName.equalsIgnoreCase(Constants.BROWSER_CHROME)) {
 			try {
-				// "D:/Selenium-jar/chromedriver_win_19.0.1068.0/chromedriver.exe"			
+				// "D:/Selenium-jar/chromedriver_win_19.0.1068.0/chromedriver.exe"
 				chromeService = new ChromeDriverService.Builder()
 						.usingChromeDriverExecutable(
 								new File(getChromeLocation()))
-						.usingAnyFreePort().build();				
+						.usingAnyFreePort().build();
 				log.info("-------------***LAUNCHING GOOGLECHROME***--------------");
 				chromeService.start();
 				ChromeOptions chromeOption = new ChromeOptions();
@@ -80,10 +69,6 @@ public class BaseScreen {
 				driver = new ChromeDriver(chromeService, chromeOption);
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				driver.navigate().to(url + context);
-				
-				/*selenium = new WebDriverBackedSelenium(driver, url);
-				selenium.open(context);
-				selenium.windowMaximize();*/
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -93,64 +78,42 @@ public class BaseScreen {
 			log.info("---------------***LAUNCHING INTERNET EXPLORE***-----------");
 			driver = new InternetExplorerDriver();
 			driver.navigate().to(url + context);
-			// driver.get(url);
-		/*	selenium = new WebDriverBackedSelenium(driver, url);
-			selenium.open(context);*/
 
 		} else if (browserName.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
 			log.info("-------------***LAUNCHING FIREFOX***--------------");
 			driver = new FirefoxDriver();
 			windowMaximizeFirefox();
-			driver.navigate().to(url + context);	
-			// driver.get(url+context);
+			driver.navigate().to(url + context);
 
-			/*
-			 * selenium = new WebDriverBackedSelenium(driver, url);
-			 * selenium.open(context);
-			 */
 		} else if (browserName.equalsIgnoreCase(Constants.BROWSER_OPERA)) {
 			log.info("-------------***LAUNCHING OPERA***--------------");
-
-			WebDriver driver = new OperaDriver(); 
+			WebDriver driver = new OperaDriver();
 			System.out.println("******entering window maximize********");
 			Robot robot;
 			try {
 				robot = new Robot();
 				robot.keyPress(KeyEvent.VK_ALT);
-		        robot.keyPress(KeyEvent.VK_SPACE);
-		        robot.keyRelease(KeyEvent.VK_ALT);
-		        robot.keyRelease(KeyEvent.VK_SPACE);
-		        robot.keyPress(KeyEvent.VK_X);
-		        robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_SPACE);
+				robot.keyRelease(KeyEvent.VK_ALT);
+				robot.keyRelease(KeyEvent.VK_SPACE);
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
 			} catch (AWTException e) {
-			
+
 				e.printStackTrace();
 			}
-			
-			 System.out.println("******window maximized********");
+
+			System.out.println("******window maximized********");
 			System.out.println("URL = " + url);
-            driver.navigate().to(url + context);
-            try {
+			driver.navigate().to(url + context);
+			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
-			
-
-			// WebDriverWait(driver,5).until(alert_is_present()).dismiss()
-			// String currentWindowHandle = driver.getWindowHandle();
-
-			// close the popup windows
-			// driver.switchTo().window(currentWindowHandle);
-
-			/*
-			 * selenium = new WebDriverBackedSelenium(driver, url);
-			 * selenium.open(context);
-			 */
-
-} else if (browserName.equalsIgnoreCase(Constants.BROWSER_OPERA)) {
+		} else if (browserName.equalsIgnoreCase(Constants.BROWSER_OPERA)) {
 		} else {
 			throw new ScreenException(
 					"------Only FireFox,InternetExplore,Chrome and Opera  works-----------");
@@ -168,44 +131,38 @@ public class BaseScreen {
 	}
 
 	public void closeBrowser() {
-		log.info("-------------***BROWSER CLOSING***--------------");		
+		log.info("-------------***BROWSER CLOSING***--------------");
 		if (driver != null) {
-			driver.close();		
-		if(chromeService!=null){
-			chromeService.stop();
+			driver.close();
+			if (chromeService != null) {
+				chromeService.stop();
 			}
 		}
-		// selenium.stop();
-		/*
-		 * driver.quit(); selenium.stop();
-		 */
+
 	}
-	
-	public static String  getChromeLocation(){	
+
+	public static String getChromeLocation() {
 		log.info("getChromeLocation:*****CHROME TARGET LOCATION FOUND***");
 		String directory = System.getProperty("user.dir");
-		String targetDirectory = getChromeFile();		
-		String location = directory + targetDirectory;	
+		String targetDirectory = getChromeFile();
+		String location = directory + targetDirectory;
 		return location;
 	}
-	
-	
-	public static String getChromeFile(){
-	     if(System.getProperty("os.name").startsWith(Constants.WINDOWS_OS)){
+
+	public static String getChromeFile() {
+		if (System.getProperty("os.name").startsWith(Constants.WINDOWS_OS)) {
 			log.info("*******WINDOWS MACHINE FOUND*************");
-//			getChromeLocation("/chromedriver.exe");
-			return Constants.WINDOWS_DIRECTORY + "/chromedriver.exe" ;			
-		}else if(System.getProperty("os.name").startsWith(Constants.LINUX_OS)){
+			return Constants.WINDOWS_DIRECTORY + "/chromedriver.exe";
+		} else if (System.getProperty("os.name").startsWith(Constants.LINUX_OS)) {
 			log.info("*******LINUX MACHINE FOUND*************");
-			return Constants.LINUX_DIRECTORY_64+"/chromedriver";
-		}else if(System.getProperty("os.name").startsWith(Constants.MAC_OS)){
+			return Constants.LINUX_DIRECTORY_64 + "/chromedriver";
+		} else if (System.getProperty("os.name").startsWith(Constants.MAC_OS)) {
 			log.info("*******MAC MACHINE FOUND*************");
-			return Constants.MAC_DIRECTORY+"/chromedriver";
-		}else{
+			return Constants.MAC_DIRECTORY + "/chromedriver";
+		} else {
 			throw new NullPointerException("******PLATFORM NOT FOUND********");
 		}
-		
+
 	}
-	
-	
+
 }
