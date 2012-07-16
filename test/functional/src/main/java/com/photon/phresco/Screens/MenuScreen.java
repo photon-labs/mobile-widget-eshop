@@ -6,7 +6,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.photon.phresco.uiconstants.MobileWidgetData;
+import com.photon.phresco.uiconstants.WidgetData;
 import com.photon.phresco.uiconstants.UIConstants;
 
 
@@ -163,7 +163,7 @@ public class MenuScreen extends WebDriverAbstractBaseScreen{
     	waitForElementPresent(phrsc.REVIEW,methodName);
 		
 	}
-    public void BillingInfo(MobileWidgetData mobwigdata,String methodName)throws Exception {
+    public void BillingInfo(WidgetData mobwigdata,String methodName)throws Exception {
     	if (StringUtils.isEmpty(methodName)) {
 			methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
 		}
