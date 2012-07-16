@@ -12,7 +12,7 @@ import org.openqa.selenium.server.SeleniumServer;
 import com.photon.phresco.Screens.MenuScreen;
 import com.photon.phresco.Screens.WelcomeScreen;
 import com.photon.phresco.selenium.report.Reporter;
-import com.photon.phresco.uiconstants.MobileWidgetData;
+import com.photon.phresco.uiconstants.WidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 import com.thoughtworks.selenium.Selenium;
@@ -22,7 +22,7 @@ public class AudioDevicesAddcart extends TestCase {
 
 	private UIConstants phrsc;
 	private PhrescoUiConstants phr;
-	private MobileWidgetData mobwigdata;
+	private WidgetData mobwigdata;
 	private WelcomeScreen wel;
 	private int SELENIUM_PORT;
 	private String browserAppends;
@@ -36,7 +36,7 @@ public class AudioDevicesAddcart extends TestCase {
 		try {
 
 			phr = new PhrescoUiConstants();
-			mobwigdata = new MobileWidgetData();
+			mobwigdata = new WidgetData();
 			String serverURL = phr.PROTOCOL + "://"
 					+ phr.HOST + ":"
 					+ phr.PORT + "/";

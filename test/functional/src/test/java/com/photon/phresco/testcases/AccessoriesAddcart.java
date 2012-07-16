@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import com.photon.phresco.Screens.MenuScreen;
 import com.photon.phresco.Screens.WelcomeScreen;
-import com.photon.phresco.uiconstants.MobileWidgetData;
+import com.photon.phresco.uiconstants.WidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 
@@ -16,7 +16,7 @@ public class AccessoriesAddcart extends TestCase {
 
 	private UIConstants phrsc;
 	private PhrescoUiConstants phr;
-	private MobileWidgetData mobwigdata;
+	private WidgetData mobwigdata;
 	private WelcomeScreen wel;
 	private int SELENIUM_PORT;
 	private String browserAppends;
@@ -30,7 +30,7 @@ public class AccessoriesAddcart extends TestCase {
 		try {
 
 			phr = new PhrescoUiConstants();
-			mobwigdata = new MobileWidgetData();
+			mobwigdata = new WidgetData();
 			String serverURL = phr.PROTOCOL + "://"
 					+ phr.HOST + ":"
 					+ phr.PORT + "/";

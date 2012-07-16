@@ -2,7 +2,7 @@ package com.photon.phresco.uiconstants;
 
 import java.lang.reflect.Field;
 
-public class MobileWidgetData {
+public class WidgetData {
 
 	private ReadXMLFile readXml;
 	
@@ -18,7 +18,7 @@ public class MobileWidgetData {
 	public String EMAIL_VALUE="billInfoEmailValue";
 	public String PHONENUMBER_VALUE="billInfoPhoneNumberValue";
 	
-	public MobileWidgetData() {
+	public WidgetData() {
 		try {
 			readXml = new ReadXMLFile();
 			readXml.loadMobileWidgetData();

@@ -7,15 +7,7 @@
   <packaging>jar</packaging>
   <name>HTML5Mobile_Widget</name>
   <url>http://maven.apache.org</url>
-  
- <repositories>
-    <repository>      
-      <id>seleniumserver</id>
-      <name>seleniumserver</name>
-      <url>http://172.16.18.178:8080/nexus/content/groups/public/</url>
-    </repository>
-  </repositories>
-  
+   
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
