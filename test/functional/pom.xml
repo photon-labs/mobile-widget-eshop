@@ -27,10 +27,10 @@
 		
 		<!--  ***************For Windows operadriver ******************-->
 		<dependency>
-<groupId>com.opera</groupId>
-<artifactId>operadriver</artifactId>
-<version>0.14</version>
-</dependency>
+				<groupId>com.opera</groupId>
+				<artifactId>operadriver</artifactId>
+				<version>0.14</version>
+		</dependency>
 		
        
     <!--  ***************For Windows chromedriver ******************-->    
@@ -43,12 +43,13 @@
 		</dependency>
 	<!-- **************** For Mac machine chromedriver***************** -->   
 			<dependency>
-					  <groupId>org.seleniumhq.selenium</groupId>
-					  <artifactId>chromedriver</artifactId>
-					  <version>19.0.1068.0</version>
-					  <classifier>mac</classifier>
-					  <type>zip</type>
-				</dependency>
+					<groupId>org.seleniumhq.selenium</groupId>
+					<artifactId>chromedriver</artifactId>
+					<version>21.0.1180.4</version>
+					<classifier>mac</classifier>
+					<type>zip</type>
+		</dependency>
+
     <!-- **************** For Linux-32 machine chromedriver***************** -->     
         <dependency>
 			  <groupId>org.seleniumhq.selenium</groupId>
@@ -108,7 +109,7 @@
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<markersDirectory>target/test/chromedriver</markersDirectory>
+							<markersDirectory>chromedriver</markersDirectory>
 						<artifactItems>
 								<artifactItem>
 										 	  <groupId>org.seleniumhq.selenium</groupId>
@@ -117,16 +118,17 @@
 											   <classifier>win</classifier>
 											   <type>zip</type>
 											   <overWrite>false</overWrite>
-											   <outputDirectory>target/test/chromedriver/windows</outputDirectory>
+											   <outputDirectory>chromedriver/windows</outputDirectory>
 								  </artifactItem>
 								  <artifactItem>
-								                 <groupId>org.seleniumhq.selenium</groupId>
-												  <artifactId>chromedriver</artifactId>
-												  <version>19.0.1068.0</version>
-												  <classifier>mac</classifier>
-												  <type>zip</type>
-												  <overWrite>false</overWrite>
-											      <outputDirectory>target/test/chromedriver/mac</outputDirectory>
+								                 
+												<groupId>org.seleniumhq.selenium</groupId>
+												<artifactId>chromedriver</artifactId>
+												<version>21.0.1180.4</version>
+												<classifier>mac</classifier>
+												<type>zip</type>
+												<overWrite>false</overWrite>
+											    <outputDirectory>chromedriver/mac</outputDirectory>
 								</artifactItem>	
 								<artifactItem>
 											  <groupId>org.seleniumhq.selenium</groupId>
@@ -135,7 +137,7 @@
 											  <classifier>linux32</classifier>
 											  <type>zip</type>
 											  <overWrite>false</overWrite>
-											  <outputDirectory>target/test/chromedriver/linux-32</outputDirectory>
+											  <outputDirectory>chromedriver/linux-32</outputDirectory>
 								</artifactItem>
 								<artifactItem>
 											  <groupId>org.seleniumhq.selenium</groupId>
@@ -144,13 +146,29 @@
 											  <classifier>linux64</classifier>
 											  <type>zip</type>
 											  <overWrite>false</overWrite>
-											  <outputDirectory>target/test/chromedriver/linux-64</outputDirectory>
+											  <outputDirectory>chromedriver/linux-64</outputDirectory>
 								</artifactItem>
 						</artifactItems>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>  
+                <artifactId>maven-antrun-plugin</artifactId>  
+                <executions>  
+                  <execution>  
+                  <phase>compile</phase>  
+                    <configuration>  
+                      <tasks>                     
+                        <chmod file="${project.basedir}/chromedriver/mac/chromedriver" perm="777"/>
+                      </tasks>  
+                    </configuration>  
+                    <goals>  
+                      <goal>run</goal>  
+                    </goals>  
+                  </execution>  
+                </executions>  
+              </plugin>  
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
