@@ -31,7 +31,7 @@ YUI.add("registrationSuccessWidget", function(Y) {
         }
     };
 
-    Y.extend(RegistrationSuccessWidget, Y.Phresco.PhrescoWidget, {
+    Y.extend(RegistrationSuccessWidget, Y.Phresco.PhrescoWidget {
         initializer: function() {
             /*
              * initializer is part of the lifecycle introduced by 

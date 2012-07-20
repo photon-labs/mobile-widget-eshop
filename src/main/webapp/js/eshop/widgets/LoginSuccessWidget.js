@@ -31,7 +31,7 @@ YUI.add("loginSuccessWidget", function(Y) {
         }
     };
 
-    Y.extend(LoginSuccessWidget, Y.Phresco.PhrescoWidget, {
+    Y.extend(LoginSuccessWidget, Y.Phresco.PhrescoWidget {
         initializer: function() {
             /*
              * initializer is part of the lifecycle introduced by 

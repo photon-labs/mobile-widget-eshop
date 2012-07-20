@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -17,13 +17,11 @@
  * limitations under the License.
  * ###
  */
-// Create new HTML5 elements ===================================================
-// -----------------------------------------------------------------------------
-// This script should load before any others. We want the new elements to be
-// parsed before pretty much anything happens.
-// Plus, IE does not behave otherwise. The cost of being progressive...
-// -----------------------------------------------------------------------------
-
+/* Create new HTML5 elements 
+* This script should load before any others. We want the new elements to be
+* parsed before pretty much anything happens.
+* Plus, IE does not behave otherwise. The cost of being progressive...
+*/
 document.createElement("article");
 document.createElement("aside");
 document.createElement("audio");

@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -43,10 +43,7 @@ YUI.add("shoppingCartWidget", function(Y) {
              * It does not need to invoke the superclass initializer. 
              * init() will call initializer() for all classes in the hierarchy.
              */
-             /* this.publish("myEvent", {
-                defaultFn: this._defMyEventFn,
-                bubbles:false
-             }); */
+
 
         },
 
@@ -106,7 +103,6 @@ YUI.add("shoppingCartWidget", function(Y) {
              * will take over.
              */
 
-            // this._uiSetAttrA(this.get("attrA"));
         },
 
         captureData : function(jsonData) {
@@ -161,7 +157,7 @@ YUI.add("shoppingCartWidget", function(Y) {
                                 var product_head = this.createElement('<div class="product_head">');
                                     var review_cont = this.createElement('<div class="review_cont">');
                                         var product_contleft =  this.createElement('<div class="product_contleft"><p><b>'+productDetails[j].name+'</b></p></div>');
-                                        var quality_div =  this.createElement('<div class="quality_div">')
+                                        var quality_div =  this.createElement('<div class="quality_div">');
                                             var mycart_remove_bu =  this.createElement('<div class="mycart_remove_bu">');
                                                 var mycart_remove =  Y.Node.create('<div class="mycart_remove"><a href="#">Remove</a></div>');
                                                     mycart_remove.obj = this;
@@ -196,7 +192,6 @@ YUI.add("shoppingCartWidget", function(Y) {
             
             mycart_quality_div.appendChild(mycart_qua_div);
             myCart.appendChild(mycart_quality_div);
-            //productTotal = 
             subTotal = (Number(subTotal) + (Number(productDetails[j].quantity) * Number(productDetails[j].price)));
         }
 
@@ -273,16 +268,10 @@ YUI.add("shoppingCartWidget", function(Y) {
            apiRef.set("productQty", productQty);
         },
 		focusIt:function(){
-			//console.info('this.data = ' ,this.data);
 			$('#'+this.data).focus();
 		},
 		checkNum:function(e){
 				$(this.data).focus();
-			/*var charCode = (e.which) ? e.which : event.keyCode;
-			 if (charCode > 31 && (charCode < 48 || charCode > 57))
-				return false;
-			return true;
-			*/
 			var cVal = $("#productQuantity_"+this.productId).val();
 			if(!(/^ *[0-9]+ *$/.test(cVal))){
 				document.getElementById(this.data).value = 1;
@@ -292,7 +281,6 @@ YUI.add("shoppingCartWidget", function(Y) {
             var widgetObj = this.obj;
             var apiRef = widgetObj.get("apiReference");
             var productQty = apiRef.get("productQty");
-            //console.info(productQty.productDetail.length);
             var productArray = productQty.productDetail;
 
             var productId = this.pid;

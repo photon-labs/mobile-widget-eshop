@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -79,12 +79,9 @@ YUI.add("phrescoWidget", function(Y) {
         onShowmycartListeners : {
             value : []
         },
-        /*onSpecialprdListeners: {
-            value : []
-        },*/
         onRenderListeners : {
             value : []
-        },
+        }
     };
     Y.extend(PhrescoWidget, Y.Widget, {
         
@@ -112,7 +109,6 @@ YUI.add("phrescoWidget", function(Y) {
         },        
         getAmount : function (rate, fromNeeded, supportedCurrencies) {
             var currency = supportedCurrencies[0];
-            //rate = this.convertCurrencyValue(new Number(rate));
             var result = "";
 
             if (fromNeeded) {
@@ -125,7 +121,6 @@ YUI.add("phrescoWidget", function(Y) {
        },
         getAmountByCurrency : function (rate, fromNeeded) {
             var currency = "$";
-            //rate = this.convertCurrencyValue(new Number(rate));
             var result = "";
 
             if (fromNeeded) {
@@ -171,7 +166,7 @@ YUI.add("phrescoWidget", function(Y) {
         },
         loading : function(target){
             $(target).html("<div class='loading'></div>");
-            //$(target).mask("loading...");
+
             
         },
         showCategories : function() {
@@ -198,25 +193,7 @@ YUI.add("phrescoWidget", function(Y) {
                     }
                 }
         },
-         /*showSpecialprd : function() {
-            var widgetObj = this.obj;
-
-            var hideWidgets = widgetObj.get("hideWidgets");
-            for (var i = 0; i < hideWidgets.length; i++) {
-                $(hideWidgets[i]).hide();
-            }
-
-            var apiRef = widgetObj.get("apiReference");
-            var listeners = widgetObj.get("onSpecialprdListeners");
-
-            if (!$('#eshop').is(":visible")) {
-                for (var i = 0; i < listeners.length; i++) {
-                    var target = widgetObj.get("widgets").get("targetNode");
-                    $(target).html("<div class='loading'></div>");
-                    apiRef.getSpecialProducts([listeners[i]]);
-                }
-            }
-        },*/
+         
         showProducts : function() {
         
             var widgetObj = this.obj;
@@ -237,7 +214,6 @@ YUI.add("phrescoWidget", function(Y) {
 
         },
         showProductDetails : function() {
-         //console.info('showProductDetails');
             var widgetObj = this.obj;
             var hideWidgets = widgetObj.get("hideWidgets");
             for (var i = 0; i < hideWidgets.length; i++) {
@@ -247,7 +223,6 @@ YUI.add("phrescoWidget", function(Y) {
             var listeners = widgetObj.get("onSelectedListeners");
             for (var i = 0 ;i < listeners.length; i++) {
                 var target = listeners[i].get("targetNode");
-                //$(target).mask("Loading...");
                 widgetObj.loading(target);
                 apiRef.getProductDetails(listeners[i], this.data, listeners[i]);
             }
@@ -256,7 +231,6 @@ YUI.add("phrescoWidget", function(Y) {
             var widgetObj = this.obj;
             var hideWidgets = widgetObj.get("hideWidgets");
             var apiRef = widgetObj.get("apiReference");
-            //var orderDetailget = apiRef.get("orderDetail", orderDetailget);
             var orderdetailDeliveryget = apiRef.get("orderdetailDelivery", orderdetailDeliveryget); 
             var orderdetailBillingget = apiRef.get("orderdetailBilling", orderdetailBillingget);
             var productDetails = apiRef.get("productDetails", productDetails);
@@ -268,7 +242,6 @@ YUI.add("phrescoWidget", function(Y) {
                 $(hideWidgets[i]).hide();
             }
 
-           // var apiRef = widgetObj.get("apiReference");
             var listeners = widgetObj.get("onOrderSuccessListener");
             for (var i = 0 ;i < listeners.length; i++) {
               apiRef.postOrder(orderdetailDeliveryget,orderdetailBillingget, customerEmail, comments, productDetails, cartTotal, totalItem);
@@ -288,7 +261,6 @@ YUI.add("phrescoWidget", function(Y) {
 					productArray.splice(product,1);
                 }
             }
-			//productArray = new Array();
 			console.info('productArray i =',productArray);
 			productQty.productDetail = productArray;
 			productQty.totalItem = 0;    
@@ -319,27 +291,27 @@ YUI.add("phrescoWidget", function(Y) {
 
         showSubmitOrder : function() {
             var widgetObj = this.obj;
-            var orderFormFields = ["email", "deliveryfirstname", "deliveryaddress1","deliverycity", "deliverystate", "deliverycountry","deliverypostcode", "deliveryphonenumber","billingfirstname", "billingaddress1","billingcity", "billingstate", "billingcountry","billingpostcode", "billingphonenumber"]; //
+            var orderFormFields = ["email", "deliveryfirstname", "deliveryaddress1","deliverycity", "deliverystate", "deliverycountry","deliverypostcode", "deliveryphonenumber","billingfirstname", "billingaddress1","billingcity", "billingstate", "billingcountry","billingpostcode", "billingphonenumber"]; 
             var apiRef = widgetObj.get("apiReference");
             var validated = widgetObj.validateFormFields(orderFormFields, apiRef);
             if (validated) {                
-                var orderDetail = {}
+                var orderDetail = {};
                 orderDetail.email = $("#email").val();
-                orderDetail.deliveryfirstname =$("#deliveryfirstname").val()
-                orderDetail.deliverylastname = $("#deliverylastname").val()
-                orderDetail.deliverycompany = $("#deliverycompany").val()
-                orderDetail.deliveryaddress1 =  $("#deliveryaddress1").val()
-                orderDetail.deliveryaddress2 =  $("#deliveryaddress2").val()
+                orderDetail.deliveryfirstname =$("#deliveryfirstname").val();
+                orderDetail.deliverylastname = $("#deliverylastname").val();
+                orderDetail.deliverycompany = $("#deliverycompany").val();
+                orderDetail.deliveryaddress1 =  $("#deliveryaddress1").val();
+                orderDetail.deliveryaddress2 =  $("#deliveryaddress2").val();
                 orderDetail.deliverycity = $("#deliverycity").val();
                 orderDetail.deliverystate = $("#deliverystate").val();
                 orderDetail.deliverycountry =  $("#deliverycountry").val();
                 orderDetail.deliverypostcode = $("#deliverypostcode").val();
                 orderDetail.deliveryphonenumber =  $("#deliveryphonenumber").val();
-                orderDetail.billingfirstname =$("#billingfirstname").val()
-                orderDetail.billinglastname = $("#billinglastname").val()
-                orderDetail.billingcompany = $("#billingcompany").val()
-                orderDetail.billingaddress1 =  $("#billingaddress1").val()
-                orderDetail.billingaddress2 =  $("#billingaddress2").val()
+                orderDetail.billingfirstname =$("#billingfirstname").val();
+                orderDetail.billinglastname = $("#billinglastname").val();
+                orderDetail.billingcompany = $("#billingcompany").val();
+                orderDetail.billingaddress1 =  $("#billingaddress1").val();
+                orderDetail.billingaddress2 =  $("#billingaddress2").val();
                 orderDetail.billingcity = $("#billingcity").val();
                 orderDetail.billingstate = $("#billingstate").val();
                 orderDetail.billingcountry =  $("#billingcountry").val();
@@ -367,18 +339,17 @@ YUI.add("phrescoWidget", function(Y) {
             var fieldsLength = fieldSet.length;
             var errAllids = new Array();
             for (var i = 0; i < validateFormFields.length; i++)  {
-                    var field = validateFormFields[i]
+                    var field = validateFormFields[i];
                     var jsonField = "$." + field + "";
                     var fieldObj = jsonPath(fieldSet, jsonField);                    
                     if ("TRUE" == fieldObj[0].mandatory) {
                         var id = fieldObj[0].fieldId;
                         var type = fieldObj[0].type;
-                        //console.info("type", type, i);
                         var value = $(id).val();
                         var errMessage = id+"_err";
                         var errId = id+"_err_div";
                         if (value == "") {
-                            var text = id.split("#")
+                            var text = id.split("#");
                             $(errMessage).html("please enter "+ text[1]);
                             $(errId).addClass("error");
                             $(id).focus();
@@ -388,7 +359,7 @@ YUI.add("phrescoWidget", function(Y) {
                                 var regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
                                 if (!regex.test(value)) {
                                     $(errMessage).html("please enter valid email id ");
-                                    $(errId).addClass("error")
+                                    $(errId).addClass("error");
                                     $(id).focus();
                                   return false;
                                 } 
@@ -399,7 +370,7 @@ YUI.add("phrescoWidget", function(Y) {
                                 var character =  /^[a-zA-Z\s]+$/;
                                 if (!character.test(value)) {
                                     $(errMessage).html("please enter character only");
-                                    $(errId).addClass("error")
+                                    $(errId).addClass("error");
                                     $(id).focus();
                                     return false;
                                 }
@@ -410,7 +381,7 @@ YUI.add("phrescoWidget", function(Y) {
                                 var character =  /^[a-zA-Z0-9\s^,^.,^#,^(,^)]+$/;
                                 if (!character.test(value)) {
                                     $(errMessage).html("please enter character and number only");
-                                    $(errId).addClass("error")
+                                    $(errId).addClass("error");
                                     $(id).focus();
                                     return false;
                                 }
@@ -421,12 +392,12 @@ YUI.add("phrescoWidget", function(Y) {
                                 var character =  /^[0-9\s^+^-]+$/;
                                 if (!character.test(value)) {
                                     $(errMessage).html("please enter correct format");
-                                    $(errId).addClass("error")
+                                    $(errId).addClass("error");
                                     $(id).focus();
                                     return false;
                                 }
                                 $(errMessage).html('');
-                                $(errId).removeClass("error")
+                                $(errId).removeClass("error");
                             }                    
                         //} 
                             
@@ -437,24 +408,18 @@ YUI.add("phrescoWidget", function(Y) {
         },
         getReviews: function() {
             var widgetObj = this.obj;
-            //console.info('Inside review = ', widgetObj);
             var hideWidgets = widgetObj.get("hideWidgets");
             for (var i = 0; i < hideWidgets.length; i++) {
                 $(hideWidgets[i]).hide();
             }
             var apiRef = widgetObj.get("apiReference");
             var listeners = widgetObj.get("onReviewListener");
-                //console.info('listeners' , listeners);
             for (var i = 0 ;i < listeners.length; i++) {
-                //if (listeners[i] instanceof Y.Phresco.ReviewWidget) {
                     var target = listeners[i].get("targetNode");
                     widgetObj.loading(target);
-                    //  console.info(this.data);
                     apiRef.getProductReviews(listeners[i], this.data, listeners[i]);
-                //}
             }
             
-           // console.info('review end');
         },
         postReviewPage: function() {
             var widgetObj = this.obj;
@@ -477,7 +442,7 @@ YUI.add("phrescoWidget", function(Y) {
         },
         showTab : function() {
             var widgetObj = this.obj;
-            this.addClass("active")
+            this.addClass("active");
 
             var hideWidgets = widgetObj.get("hideWidgets");
             for (var i = 0; i < hideWidgets.length; i++) {
@@ -545,7 +510,6 @@ YUI.add("phrescoWidget", function(Y) {
                 }
             }
             else if (this.id == 'register-tab') {
-               // console.info("special-products");
                 $('#browse-tab').removeClass("active");
                 $('#cart-tab').removeClass("active");
                 $('#special-tab').removeClass("active");
@@ -560,7 +524,6 @@ YUI.add("phrescoWidget", function(Y) {
                 }
             }
             else if (this.id == 'login-tab') {
-               // console.info("special-products");
                 $('#browse-tab').removeClass("active");
                 $('#cart-tab').removeClass("active");
                 $('#special-tab').removeClass("active");
@@ -576,7 +539,7 @@ YUI.add("phrescoWidget", function(Y) {
             }           
         },
         showMyshoppingcart : function(){
-            this.addClass("active")
+            this.addClass("active");
             $('.footer li.browse').removeClass("browse_active");
             $('.footer li.spl_offer').removeClass("spl_offer_active");  
             $('.footer li.mycart').addClass("mycart_active");
@@ -588,15 +551,13 @@ YUI.add("phrescoWidget", function(Y) {
             var apiRef = widgetObj.get("apiReference");
             var listeners = widgetObj.get("onShowmycartListeners");
             for (var i = 0; i < listeners.length; i++) {
-                //if (listeners[i] instanceof Y.Phresco.ShoppingCartWidget) {
                     var target = listeners[i].get("targetNode");
                     widgetObj.loading(target);
                     listeners[i].onUpdateListener(null);
-                //}
             }
         },
         showShoppingCart  : function(widgets) {
-            this.addClass("active")
+            this.addClass("active");
             var widgetObj = this.obj;
             $('.footer li.browse').removeClass("browse_active");
             $('.footer li.spl_offer').removeClass("spl_offer_active");  
@@ -642,8 +603,7 @@ YUI.add("phrescoWidget", function(Y) {
             productQty.totalItem = totalItem;
             productQty.cartTotal = cartTotal;
             
-            //console.info('productQty ' , productQty);
-            
+           
             var hideWidgets = widgetObj.get("hideWidgets");
             for (var i = 0; i < hideWidgets.length; i++) {
                 $(hideWidgets[i]).hide();
@@ -653,11 +613,9 @@ YUI.add("phrescoWidget", function(Y) {
             var listeners = widgetObj.get("onCartListener");
             apiRef.set("productQty", productQty);     
             
-            //for (var i = 0 ;i < listeners.length; i++) {
                 var target = listeners.get("targetNode");
                 widgetObj.loading(target);
                 listeners.onUpdateListener(null);
-            //}
             
         },
         removeProduct : function() {
@@ -730,7 +688,7 @@ YUI.add("phrescoWidget", function(Y) {
             review.userId = userId;
             review.rating = $("#starValue").val();
             review.comment = $("#comments").val();
-            var currentTime = new Date()
+            var currentTime = new Date();
 				var currentYear = new Date(currentTime).getFullYear ();
 				var currentMonth = new Date(currentTime).getMonth () + 1;
 				var currentDate = new Date(currentTime).getDate ();
@@ -741,10 +699,9 @@ YUI.add("phrescoWidget", function(Y) {
 				currentHours = ( currentHours >= 10 ) ? currentHours : "0"+currentHours;
 				currentMinutes = ( currentMinutes >= 10) ? currentMinutes : "0"+ currentMinutes;
 				currentSeconds = ( currentSeconds >= 10) ? currentSeconds : "0"+ currentSeconds;
-				//console.info(currentYear+'-'+currentMonth+'-'+currentDate+' '+currentHours+':'+currentMinutes+':'+currentSeconds);
 				var commentDate = currentYear+'-'+currentMonth+'-'+currentDate+' '+currentHours+':'+currentMinutes+':'+currentSeconds;
             review.commentDate = commentDate;
-            var data = {}
+            var data = {};
             data.review = review;
             apiRef.set("data", data);
             var listeners = widgetObj.get("onReviewListener");
@@ -772,53 +729,31 @@ YUI.add("phrescoWidget", function(Y) {
                 register.email = $("#regemail").val();
                 register.password = $("#regpassword").val();
                 register.phoneNumber = $("#regphonenumber").val();
-                var data = {}
+                var data = {};
                 data.register = register;
-                /*
-                var review = {};
-                review.productId = $("#productId").val();
-                review.userId = 1;
-                review.rating = $("#starValue").val();
-                review.comment = $("#comments").val();
-                review.commentDate = "2010-12-26 00:00:00";
-                var reviewData = {}
-                reviewData.review = review;
-                */
                 var listeners = widgetObj.get("onSelectedListeners");
                 
-               /*for (var i = 0 ;i < listeners.length; i++) {
-                    var target = widgetObj.get("widgets").get("targetNode");
-                    widgetObj.loading(target);
-                */
+
                 apiRef.doRegister(listeners,data,listeners);
-                //}
-               // popup('none');
-                
-               
+
             }
         },
         userLoginWidget : function(){
             var widgetObj = this.obj;
             var apiRef = widgetObj.get("apiReference");
             var listeners = widgetObj.get("onLoginListener");
-               // console.info('listeners =' , listeners);
-            //for (var i = 0 ;i < listeners.length; i++) {
                 var target = listeners.get("targetNode");
                 widgetObj.loading(target);
                 listeners.onUpdateListener(null);
-            //}
 
         },
         userRegistrationWidget : function(){
             var widgetObj = this.obj;
             var apiRef = widgetObj.get("apiReference");
             var listeners = widgetObj.get("onLoginListener");
-             //   console.info('listeners =' , listeners);
-            //for (var i = 0 ;i < listeners.length; i++) {
                 var target = listeners.get("targetNode");
                 widgetObj.loading(target);
                 listeners.onUpdateListener(null);
-            //}
             
         },
         userLogin: function () {
@@ -832,7 +767,7 @@ YUI.add("phrescoWidget", function(Y) {
             login.loginEmail = $("#logEmail").val();
             login.password = $("#logpassword").val();
              
-            var data = {}
+            var data = {};
             data.login = login;
              var listeners = widgetObj.get("onSelectedListeners");
                 console.info('listeners ' , listeners);
@@ -840,7 +775,6 @@ YUI.add("phrescoWidget", function(Y) {
                     var target = widgetObj.get("widgets").get("targetNode");
                     widgetObj.loading(target);
                 
-					//apiRef.doLogin(listeners,data,reviewData);
 					apiRef.doLogin(listeners[i],data,listeners[i]);
 				}
           }            
@@ -851,9 +785,6 @@ YUI.add("phrescoWidget", function(Y) {
 			console.info(this.data);
 			apiRef.set("userId", 0);
 			apiRef.set("userData", "");
-			//var listeners = widgetObj.get("onTestListener");
-			//console.info(listeners);
-           // apiRef.logoutUser(listeners,this.data);
             $('#eshop').hide();
             $('#container').show();
             $('#browse-tab').addClass("active");
@@ -861,7 +792,6 @@ YUI.add("phrescoWidget", function(Y) {
             $('#special-tab').removeClass("active");
         },		
         registerFormFields : function (registerFields, apiRef) {
-         // console.info('registerFields[0]' , registerFields[0]);
           if(registerFields[0] == "logEmail"){
                 var fieldSet = apiRef.getLoginFieldset();
             }else {
@@ -870,7 +800,7 @@ YUI.add("phrescoWidget", function(Y) {
             var fieldsLength = fieldSet.length;
             var errAllids = new Array();
             for (var i = 0; i < registerFields.length; i++)  {  
-                    var field = registerFields[i]
+                    var field = registerFields[i];
                     var jsonField = "$." + field + "";
                     var fieldObj = jsonPath(fieldSet, jsonField);
                     if ("TRUE" == fieldObj[0].mandatory) {
@@ -892,13 +822,13 @@ YUI.add("phrescoWidget", function(Y) {
                                 var regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
                                 if (!regex.test(value)) {
                                     $(errMessage).html("Please enter valid email id ");
-                                    $(errId).addClass("error")
+                                    $(errId).addClass("error");
                                     $(id).focus();
                                   return false;
                                 } 
                             }
                             $(errMessage).html('');
-                            $(errId).removeClass("error")
+                            $(errId).removeClass("error");
                         }
                     }
             }
@@ -921,12 +851,6 @@ YUI.add("phrescoWidget", function(Y) {
                 $('#container').show();
         },
         
-        /*addSpecialprdListeners : function(widgets) {
-            var listeners = this.get("onSpecialprdListeners");
-            listeners= widgets;
-            this.set("widgets", widgets);
-            this.set("onSpecialprdListeners", listeners);
-        },*/
         addReviewListener : function(widgets) {
             var listeners = this.get("onReviewListener");
             listeners = widgets;
@@ -977,7 +901,6 @@ YUI.add("phrescoWidget", function(Y) {
         // Beyond this point is the MyWidget specific application and rendering logic
         /* Attribute state supporting methods (see attribute config above) */       
         _defAttrAVal : function() {
-            // this.get("id") + "foo";
         },
         addBackListener : function(widgets) {
             this.set("onBackListeners", widgets);
@@ -1054,15 +977,12 @@ YUI.add("phrescoWidget", function(Y) {
             $('#eshop').show();
         },
         _setAttrA : function(attrVal, attrName) {
-            // return attrVal.toUpperCase();
         },
 
         _getAttrA : function(attrVal, attrName) {
-            // return attrVal.toUpperCase();
         },
 
         _validateAttrA : function(attrVal, attrName) {
-            // return Lang.isString(attrVal);
         },
 
         /* Listeners, UI update methods */
@@ -1070,13 +990,11 @@ YUI.add("phrescoWidget", function(Y) {
         _afterAttrAChange : function(e) {
             /* Listens for changes in state, and asks for a UI update (controller). */
 
-            // this._uiSetAttrA(e.newVal);
         },
 
         _uiSetAttrA : function(val) {
             /* Update the state of attrA in the UI (view) */
 
-            // this._mynode.set("innerHTML", val);
         },
 
         _defMyEventFn : function(e) {
