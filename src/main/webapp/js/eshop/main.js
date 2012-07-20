@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -22,8 +22,6 @@ $(document).ready(function(){
     $(window).bind("resize", resizeWindow);
     function resizeWindow( e ) {
         var newWindowHeight = $(window).height();
-        //if(newWindowHeight < 640) {
             $(".cat_lister").css("height", newWindowHeight - 140);
-        //}
     }
 });

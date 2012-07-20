@@ -27,10 +27,6 @@ YUI.add("productsWidget", function(Y) {
              * It does not need to invoke the superclass initializer. 
              * init() will call initializer() for all classes in the hierarchy.
              */
-             /* this.publish("myEvent", {
-                defaultFn: this._defMyEventFn,
-                bubbles:false
-             }); */
 
         },
 
@@ -75,7 +71,6 @@ YUI.add("productsWidget", function(Y) {
              * to activate the UI.
              */
 
-            // this.after("attrAChange", this._afterAttrAChange);
         },
 
         sync : function() {
@@ -86,7 +81,6 @@ YUI.add("productsWidget", function(Y) {
              * will take over.
              */
 
-            // this._uiSetAttrA(this.get("attrA"));
         },
 
         captureData : function(jsonData) {
@@ -117,7 +111,7 @@ YUI.add("productsWidget", function(Y) {
 					productImage.obj = this;
                     productImage.data = product.id;
                     Y.on('click' , this.showProductDetails , productImage);
-                    var productName = Y.Node.create('<div class="cat_listerDetail_imagetxt"><h3><a href="javascript:void(0);">' + product.name + '</a></h3>')
+                    var productName = Y.Node.create('<div class="cat_listerDetail_imagetxt"><h3><a href="javascript:void(0);">' + product.name + '</a></h3>');
                     productName.obj = this;
                     productName.data = product.id;
                     Y.on('click' , this.showProductDetails , productName);
@@ -159,14 +153,12 @@ YUI.add("productsWidget", function(Y) {
                     reviewHolder.appendChild(reviewButtonDiv);
 					
 					reviewDiv.appendChild(reviewHolder);
-                    //productName.appendChild(reviewHolder);
                     productsHolder.appendChild(productImage);
                     productsHolder.appendChild(productName);
 					productsHolder.appendChild(reviewDiv);
 					productsHolder.appendChild(arrow);
 
                     li.appendChild(productsHolder);
-					//li.appendChild(reviewHolder);
                     newProductsUL.appendChild(li);
                 } 
                 
@@ -182,13 +174,10 @@ YUI.add("productsWidget", function(Y) {
                     this.renderWidgets();
                 }
             } else {
-                //var loading = this.createElement('<label>Loading...</label>');
-                //targetNode.appendChild(loading);
             }
             
                 /* for highlighting purpose */
                 var specialbt = apiRef.get("special-tab");
-              // console.info("specialbt", specialbt);
                 if(specialbt == "special-tab"){
                     $('#browse-tab').removeClass("active");
                     $('#cart-tab').removeClass("active");

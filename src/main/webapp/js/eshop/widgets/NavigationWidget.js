@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -106,7 +106,6 @@ YUI.add("navigationWidget", function(Y) {
             var headerTabLICart = Y.Node.create('<li id="cart-tab" class="cart"><a href="#">My Cart</a></li>');
             headerTabLICart.obj = this;
             headerTabLICart.id = 'cart-tab';
-            //Y.on('click' , this.showTab, headerTabLICart);
 			Y.on('click' , this.showMyshoppingcart, headerTabLICart);
 
             headerTabUL.appendChild(headerTabLIBrowse);

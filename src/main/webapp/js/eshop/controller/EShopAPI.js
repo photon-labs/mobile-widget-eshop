@@ -63,10 +63,10 @@ YUI.add("eshopAPI", function(Y) {
         },
 		wsURL : {
 			value : []
-		},
+		}
     };
 
-    Y.extend(EShopAPI, Y.Base, {
+    Y.extend(EShopAPI, Y.Base {
         
         initializer: function() {
         },
@@ -146,7 +146,7 @@ YUI.add("eshopAPI", function(Y) {
                 dataType: 'jsonp',
                 converters: {
                     'jsonp': jQuery.parseJSON,
-                },
+                }
                 success: function(data) {
                     var args = {};
                     args.complete = uiWidgetsToPopulate;
@@ -171,7 +171,7 @@ YUI.add("eshopAPI", function(Y) {
                 data: callbackData,
                 converters: {
                     'jsonp': jQuery.parseJSON,
-                },
+                }
                 success: function(data) {
                 var args = {};
                 args.complete = uiWidgetsToPopulate;
@@ -197,7 +197,7 @@ YUI.add("eshopAPI", function(Y) {
                 data: callbackData,
                 converters: {
                     'jsonp': jQuery.parseJSON,
-                },
+                }
                 success: function(data) {
 					//console.log('ProductDetails');
 					//console.log(data);
@@ -226,7 +226,7 @@ YUI.add("eshopAPI", function(Y) {
                 jsonp: 'callback',
                 converters: {
                     'jsonp': jQuery.parseJSON,
-                },
+                }
                 success: function(data) {
 					//console.log('ProductReviews ');
 					console.log(data);
@@ -266,7 +266,7 @@ YUI.add("eshopAPI", function(Y) {
                 dataType: 'jsonp',
                 converters: {
                     'jsonp': jQuery.parseJSON,
-                },
+                }
                 success: function(data) {
                 console.log('success');
                 console.log(data);    

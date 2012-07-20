@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -99,38 +99,28 @@ YUI.add("footerWidget", function(Y) {
             var footerContainer = this.createElement('<div id="container-foot" class="footer">');
 
             var ul = this.createElement('<ul>');
-            //var homeLI = this.createElement('<li class="home active">');
             var homeLI = Y.Node.create('<li class="home"></li>');
 			homeLI.obj = this;
             Y.on('click' , this.showHome , homeLI);
-           // homeLI.appendChild(homeLIA);
 			
 
-            //var browseLI = this.createElement('<li class="offerttab">');
             var browseLI = Y.Node.create('<li class="browse" ></li>');
             browseLI.obj = this;
 			browseLI.id= 'browse-tab';
             Y.on('click' , this.showCategories , browseLI);
-           // browseLI.appendChild(browseLIA);
 
-           // var specialOffersLI = this.createElement('<li class="searchtab">');
             var specialOffersLI = Y.Node.create('<li class="spl_offer"></li>');
             specialOffersLI.obj = this; 
             specialOffersLI.id= 'special-tab';
             Y.on('click' , this.showTab , specialOffersLI);
-            //specialOffersLI.appendChild(specialOffersLIA);
 
-           // var myCartLI = this.createElement('<li class="mucarttab">');
             var myCartLI = Y.Node.create('<li class="mycart"></li>');
             myCartLI.obj = this;
             myCartLI.id = 'cart-tab';
             Y.on('click' , this.showMyshoppingcart, myCartLI);
             
-            //myCartLI.appendChild(myCartLIA);
 
-           // var moreLI = this.createElement('<li class="moretab">');
             var moreLI = this.createElement('<li class="more"></li>');
-           // moreLI.appendChild(moreLIA);
 
             ul.appendChild(homeLI);
             ul.appendChild(browseLI);

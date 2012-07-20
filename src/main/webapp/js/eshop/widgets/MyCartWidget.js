@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -43,10 +43,6 @@ YUI.add("myCartWidget", function(Y) {
              * It does not need to invoke the superclass initializer. 
              * init() will call initializer() for all classes in the hierarchy.
              */
-             /* this.publish("myEvent", {
-                defaultFn: this._defMyEventFn,
-                bubbles:false
-             }); */
 
         },
 
@@ -106,7 +102,6 @@ YUI.add("myCartWidget", function(Y) {
              * will take over.
              */
 
-            // this._uiSetAttrA(this.get("attrA"));
         },
 
         captureData : function(jsonData) {
@@ -211,14 +206,8 @@ YUI.add("myCartWidget", function(Y) {
         },
 
         addTotal:function(){
-            //alert(this.pid);
             var productId = this.pid;
-            //alert($("#productQuantity").val());
-            //$("#totalAmount").hide();
-                //var productQty = $("#productQuantity").val();
-                //var totalAmt = $("#totalAmount").val();
             var total = this.data * $("#productQuantity_"+productId).val();
-            //alert(total);
             $("#totalAmount_"+productId).html(total);
             $("#subToal").html(total);
         }

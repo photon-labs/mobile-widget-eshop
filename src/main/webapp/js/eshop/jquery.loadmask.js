@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -41,7 +41,9 @@
 		$(this).each(function() {
 			if(delay !== undefined && delay > 0) {
 		        var element = $(this);
-		        element.data("_mask_timeout", setTimeout(function() { $.maskElement(element, label)}, delay));
+		        element.data("_mask_timeout", setTimeout(function() { 
+		        	$.maskElement(element, label);
+		        }, delay));
 			} else {
 				$.maskElement($(this), label);
 			}

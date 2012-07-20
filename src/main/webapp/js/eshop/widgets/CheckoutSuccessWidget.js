@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -46,10 +46,7 @@ YUI.add("checkoutSuccessWidget", function(Y) {
              * It does not need to invoke the superclass initializer. 
              * init() will call initializer() for all classes in the hierarchy.
              */
-             /* this.publish("myEvent", {
-                defaultFn: this._defMyEventFn,
-                bubbles:false
-             }); */
+
 
         },
 
@@ -94,7 +91,6 @@ YUI.add("checkoutSuccessWidget", function(Y) {
              * to activate the UI.
              */
 
-            // this.after("attrAChange", this._afterAttrAChange);
         },
 
         sync : function() {
@@ -105,7 +101,6 @@ YUI.add("checkoutSuccessWidget", function(Y) {
              * will take over.
              */
 
-            // this._uiSetAttrA(this.get("attrA"));
         },
 
         captureData : function(jsonData) {
@@ -122,8 +117,6 @@ YUI.add("checkoutSuccessWidget", function(Y) {
                 var url = apiRef.get("wsURLWithoutContext");
                 var apiRef = this.get("apiReference");
                 var orderDetail = apiRef.get("orderDetail", orderDetail); 
-                //var config = apiRef._getConfigData();
-               // var webImage = config.web.web;
                 var mycart = this.createElement('<div class="mycart_div">');
                 var mycart_head = this.createElement('<div class="mycart_head">Order Status</div>');                
                 var emailblock = this.createElement('<div class="status_cond">');
@@ -143,8 +136,6 @@ YUI.add("checkoutSuccessWidget", function(Y) {
                 targetNode.appendChild(mycart);
                 
             } else {
-                //var loading = this.createElement('<label>Loading...</label>');
-                //targetNode.appendChild(loading);
             }
 
             $(document).ready(function(){

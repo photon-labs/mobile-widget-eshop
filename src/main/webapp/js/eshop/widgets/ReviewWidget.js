@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -43,10 +43,7 @@ YUI.add("reviewWidget", function(Y) {
              * It does not need to invoke the superclass initializer. 
              * init() will call initializer() for all classes in the hierarchy.
              */
-             /* this.publish("myEvent", {
-                defaultFn: this._defMyEventFn,
-                bubbles:false
-             }); */
+
 
         },
 
@@ -91,7 +88,6 @@ YUI.add("reviewWidget", function(Y) {
              * to attribute value changes, and also attach any DOM events,
              * to activate the UI.
              */
-            // this.after("attrAChange", this._afterAttrAChange);
         },
 
         sync : function() {
@@ -102,7 +98,6 @@ YUI.add("reviewWidget", function(Y) {
              * will take over.
              */
 
-            // this._uiSetAttrA(this.get("attrA"));
         },
 
         captureData : function(jsonData) {
@@ -119,15 +114,12 @@ YUI.add("reviewWidget", function(Y) {
                 apiRef.set("backPage", "ProductDetails");
                 var url = apiRef.get("wsURLWithoutContext");
                 var config = apiRef._getConfigData();
-                //var webImage = config.web.web;
                 var productReview = jsonData.reviewData.review;
-                //console.info('productId = ', jsonData.productId);
             
                 var userId = 0;
                 if(apiRef.get("userId")){
                      userId = apiRef.get("userId");
                      }
-                //console.info('uid = ', userId);    
 
                 var mainDiv = this.createElement('<div class="mycart_div">');
                     var reviedTitleDiv = this.createElement('<div class="mycart_head">Customer Reviews </div>');
@@ -140,7 +132,7 @@ YUI.add("reviewWidget", function(Y) {
                        reviedTitleDiv.appendChild(postReviewText);
                     }
 
-                    mainDiv.appendChild(reviedTitleDiv)
+                    mainDiv.appendChild(reviedTitleDiv);
                     
                     var reviewDiv = this.createElement('<div class="review_div">');
                     
@@ -156,9 +148,7 @@ YUI.add("reviewWidget", function(Y) {
                         
                         for(var i=productReview.ratings.rating.length-1; i >= 0; i--){
                             var ratingValue = productReview.ratings.rating[i];
-                            //console.info('rating value ', ratingValue['value']);
-                            //console.info('starTotal = ',starTotal);
-                            var barWidth = 0;
+                                                  var barWidth = 0;
                             barWidth = (Number(ratingValue['value']) * Number(100))/ Number(starTotal);
                             // To menion the star count in %
                             if(barWidth > 0 ){
@@ -179,7 +169,6 @@ YUI.add("reviewWidget", function(Y) {
                                 review_star_rht1.appendChild(review_ratio_bar1);
                                 review_star_lft1Div1.appendChild(review_star_rht1);
                             review_star_ratio1.appendChild(review_star_lft1Div1);
-                            //review_star_ratio1.appendChild(review_ratio_bar1);
                            reviewDiv.appendChild(review_star_ratio1);
                         }   
                     
@@ -192,7 +181,6 @@ YUI.add("reviewWidget", function(Y) {
                             var star_bar_arrow = this.createElement('<div class="star_bar_arrow">');
                                 var aLink = this.createElement('<a href="#">');
                                     var ratingDone = false;
-                                    //console.info('rating = ', reviewDetail.rating);
                                     for (var i = 0; i < 5; i++) {
                                         var starImage = 'start.png';
                                         if (reviewDetail.rating == i) {
@@ -201,7 +189,6 @@ YUI.add("reviewWidget", function(Y) {
                                     if (ratingDone == true) {
                                         starImage = 'start_dis.png';
                                     }
-                                    //console.info('ratingDone = ', ratingDone);
                                     var aSpan1 = this.createElement('<span ><img src="images/eshop/' + starImage + '" border="0" alt="image" /></span>');
                                     aLink.appendChild(aSpan1);
 

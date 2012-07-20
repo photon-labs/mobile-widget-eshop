@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -47,11 +47,7 @@ YUI.add("checkoutFormWidget", function(Y) {
              * It does not need to invoke the superclass initializer. 
              * init() will call initializer() for all classes in the hierarchy.
              */
-             /* this.publish("myEvent", {
-                defaultFn: this._defMyEventFn,
-                bubbles:false
-             }); */
-
+            
         },
 
         destructor : function() {
@@ -95,44 +91,16 @@ YUI.add("checkoutFormWidget", function(Y) {
              * to activate the UI.
              */
 
-            // this.after("attrAChange", this._afterAttrAChange);
             $(document).ready(function() {
                 //ACCORDION BUTTON ACTION (ON CLICK DO THE FOLLOWING)
 				
-             /*   $('.checkout_tab').click(function(e) {
-            		
-                    //REMOVE THE ON CLASS FROM ALL BUTTONS
-                    $('.checkout_tab').removeClass('on');
-                      
-                    //NO MATTER WHAT WE CLOSE ALL OPEN SLIDES
-                   // $('.bill_div').slideUp('normal');
-				   $('.bill_div').slideUp('normal');
-               
-                    //IF THE NEXT SLIDE WASN'T OPEN THEN OPEN IT
-                    if($(this).next().is(':hidden') == true) {
-                        
-                        //ADD THE ON CLASS TO THE BUTTON
-                        $(this).addClass('on');
                           
-                        //OPEN THE SLIDE
-                        $(this).next().slideDown('normal');
-						e.stopPropagation();
-						e.preventDefault();
-                     } 
-                      
-                 });                  
-	*/
-                
                 /*** REMOVE IF MOUSEOVER IS NOT REQUIRED ***/
                 
                 //ADDS THE .OVER CLASS FROM THE STYLESHEET ON MOUSEOVER 
-           /*     $('.checkout_tab').mouseover(function() {
-                    $(this).addClass('over');
-                    
+       
                 //ON MOUSEOUT REMOVE THE OVER CLASS
-                }).mouseout(function() {
-                    $(this).removeClass('over');                                        
-                });
+               
                 
                 /*** END REMOVE IF MOUSEOVER IS NOT REQUIRED ***/
                 
@@ -140,20 +108,19 @@ YUI.add("checkoutFormWidget", function(Y) {
                 /********************************************************************************************************************
                 CLOSES ALLS ON PAGE LOAD
                 ********************************************************************************************************************/   
-             //   $('.bill_div').hide();
                 
-                $('#revieworder').click(function() {                                            
+                $('#revieworder').click(function() {                                           
 					var email = $('#email').val();
 					var dfirstname = $('#deliveryfirstname').val();
-					var daddress1 = $("#deliveryaddress1").val()
+					var daddress1 = $("#deliveryaddress1").val();
 					var dcity = $("#deliverycity").val();
 					var dstate = $("#deliverystate").val();
 					var dcountry =  $("#deliverycountry").val();
 					var dpostcode = $("#deliverypostcode").val();
 					var dphonenumber =  $("#deliveryphonenumber").val();
 					
-					var bfirstname =$("#billingfirstname").val()
-					var baddress1 =  $("#billingaddress1").val()
+					var bfirstname =$("#billingfirstname").val();
+					var baddress1 =  $("#billingaddress1").val();
 					var bcity = $("#billingcity").val();
 					var bstate = $("#billingstate").val();
 					var bcountry =  $("#billingcountry").val();
@@ -182,29 +149,23 @@ YUI.add("checkoutFormWidget", function(Y) {
 					else if(bfirstname == "" || bcity == "" || bstate == "" || !text.test(bfirstname) || !text.test(bcity) || !text.test(bstate)){                       
 						$('#checkoutblock_1').css("display", "none");
 						$('#checkoutblock_2').css("display", "none"); 
-						$('#checkoutblock_3').css("display", "block") 
+						$('#checkoutblock_3').css("display", "block");
 					}					
 					else if(baddress1 == "" || !string.test(baddress1)){
 						$('#checkoutblock_1').css("display", "none");
 						$('#checkoutblock_2').css("display", "none"); 
-						$('#checkoutblock_3').css("display", "block")
+						$('#checkoutblock_3').css("display", "block");
 					}
 					else if(bpostcode == "" || bphonenumber == "" || !number.test(bpostcode) || !number.test(bphonenumber)){
 						$('#checkoutblock_1').css("display", "none");
 						$('#checkoutblock_2').css("display", "none"); 
-						$('#checkoutblock_3').css("display", "block")
+						$('#checkoutblock_3').css("display", "block");
 					}					
-					/*else if(bfirstname == "" || baddress1 == "" || bcity == "" || bstate == "" || bcountry == "" || bpostcode == "" || bphonenumber == ""){
-						$('#emailblock').css("display", "none");
-						$('#deliveryblock').css("display", "none"); 
-						$('#billingblock').css("display", "block"); 
-					}*/
-					
-                }) 
-				$('#checkaddress').click(function() { 
-					//this.focusIt();
+									
+                })
 
-					
+				$('#checkaddress').click(function() {
+				
 					$("#checkaddress").attr("checked", "checked"); 
 					
 					if ($('#checkaddress').attr('checked')) {
@@ -232,7 +193,6 @@ YUI.add("checkoutFormWidget", function(Y) {
              * will take over.
              */
 
-            // this._uiSetAttrA(this.get("attrA"));
         },
 
         captureData : function(jsonData) {
@@ -306,7 +266,6 @@ YUI.add("checkoutFormWidget", function(Y) {
 				var commentsbk = (commentsbk != undefined)?orderDetailback.comments : "";
 				
 				
-               // var webImage = config.web.web;
                 var mycart = this.createElement('<div class="mycart_div" >');
                 var mycart_head = this.createElement('<div class="mycart_head">Checkout</div>');
                 var checkout_tab = Y.Node.create('<div class="checkout_tab"><a href="#">Customer Information</a></div>');
@@ -344,13 +303,6 @@ YUI.add("checkoutFormWidget", function(Y) {
                 var addressblocksub = this.createElement('<div class="bill_details">');
                 var addressblocksubul = this.createElement('<ul>');
                 
-             /*   var addressblocksubli = this.createElement('<li>');
-                var addressblocksubspan1 = this.createElement('<span class="bill_details_lft">Save address</span>');
-                var addressblocksubspan2 = this.createElement('<span class="bill_details_rht"><select name="">');
-                var addressblocksuboption = this.createElement('<option> </option></select></span>');
-                addressblocksubli.appendChild(addressblocksubspan1);
-                addressblocksubli.appendChild(addressblocksubspan2);
-                addressblocksubli.appendChild(addressblocksuboption);*/
                 
                 var firstnameli = this.createElement('<li class="">');
 				var labelfirstname = this.createElement('<label  id="deliveryfirstname_err_div">');
@@ -408,11 +360,6 @@ YUI.add("checkoutFormWidget", function(Y) {
 				citylispan2.data = 'deliverycity';
 				Y.on('click' , this.focusIt , citylispan2);
                 
-/*                var stateli = this.createElement('<li class="">');
-                var statelispan1 = this.createElement('<span class="bill_details_lft">State/Province *</span>');                                      
-                var statelispan2 = Y.Node.create('<span class="bill_details_rht"><select name="deliverystate" id="deliverystate"><option value="states1">states 1</option> <option value="states2">states 2</option><option value="states3">states 3</option></select></span>');
-                stateli.appendChild(statelispan1);
-                stateli.appendChild(statelispan2);*/
 				
                 var stateli = this.createElement('<li class="">');
 				var labelstateli = this.createElement('<label  id="deliverystate_err_div">');
@@ -432,16 +379,13 @@ YUI.add("checkoutFormWidget", function(Y) {
 				for(var i= 0; i < countryArray.length; i++) {
 				var selected = (dcountrybk == countryArray[i])?"selected='selected'": "";
 				var countryvalue1 = this.createElement('<option value="'+ countryArray[i] +'" '+selected+'>'+ countryArray[i] +'</option>');
-				countryselect.appendChild(countryvalue1)
+				countryselect.appendChild(countryvalue1);
 				}
 				countryli.appendChild(countrylispan1);
                 countryli.appendChild(countryselect);
 				countryselect.data = 'deliverycountry';
 				Y.on('click' , this.focusIt , countryselect);
 				
-/*                var countrylispan2 = Y.Node.create('<span class="bill_details_rht"><select name="deliverycountry" id="deliverycountry"><option value="USA">USA</option> <option value="India">India</option> <option value="Australia">Australia</option></select></span>');
-                countryli.appendChild(countrylispan1);
-                countryli.appendChild(countrylispan2);*/
                 
                 var postcodeli = this.createElement('<li class="">');
 				var labelpostcode = this.createElement('<label  id="deliverypostcode_err_div">');
@@ -463,7 +407,6 @@ YUI.add("checkoutFormWidget", function(Y) {
 				phonenumberlispan2.data = 'deliveryphonenumber';
 				Y.on('click' , this.focusIt , phonenumberlispan2);
                 
-               // addressblocksubul.appendChild(addressblocksubli);
                 addressblocksubul.appendChild(firstnameli);
                 addressblocksubul.appendChild(lastnameli);
                 addressblocksubul.appendChild(companyli);
@@ -491,10 +434,7 @@ YUI.add("checkoutFormWidget", function(Y) {
                 var billaddressblock = this.createElement('<div class="bill_text_div">');
 				var billinginfosame= this.createElement('<div class="bill_text">My billing information is the same as my delivery information</div>');
 				var billcheckbox = Y.Node.create('<input type="checkbox" id="checkaddress" name="checkaddress">');           
-                //billcheckbox.obj = this; 
-				//billcheckbox.data = "checkaddress";
-                //Y.on('click' , this.setBilling , billcheckbox);
-				
+ 				
                 var billaddressblocksub = this.createElement('<div class="bill_details">');
                 var billaddressblocksubul = this.createElement('<ul>');
                 
@@ -555,11 +495,6 @@ YUI.add("checkoutFormWidget", function(Y) {
 				billcitylispan2.data = 'billingcity';
 				Y.on('click' , this.focusIt , billcitylispan2);
                 
-/*                var billstateli = this.createElement('<li>');
-                var billstatelispan1 = this.createElement('<span class="bill_details_lft">State/Province *</span>');                                      
-                var billstatelispan2 = Y.Node.create('<span class="bill_details_rht"><select name="billingstate" id="billingstate"><option value="states1">states 1</option> <option value="states2">states 2</option><option value="states3">states 3</option></select></span>');
-                billstateli.appendChild(billstatelispan1);
-                billstateli.appendChild(billstatelispan2);*/
 				
 				var billstateli = this.createElement('<li>');
 				var label_billstate = this.createElement('<label id="billingstate_err_div">');
@@ -571,11 +506,6 @@ YUI.add("checkoutFormWidget", function(Y) {
 				billstatelispan2.data = 'billingstate';
 				Y.on('click' , this.focusIt , billstatelispan2);
                 
-/*                var billcountryli = this.createElement('<li>');
-                var billcountrylispan1 = this.createElement('<span class="bill_details_lft">Country *</span>');                                   
-                var billcountrylispan2 = Y.Node.create('<span class="bill_details_rht"><select name="billingcountry" id="billingcountry" ><option value="USA">USA</option> <option value="India">India</option> <option value="Australia">Australia</option></select></span>');
-                billcountryli.appendChild(billcountrylispan1);
-                billcountryli.appendChild(billcountrylispan2);*/
 				
 				var billcountryli = this.createElement('<li class="">');
                 var billcountrylispan1 = this.createElement('<span class="bill_details_lft">Country *</span>');  
@@ -585,7 +515,7 @@ YUI.add("checkoutFormWidget", function(Y) {
 				for(var i= 0; i < bcountryArray.length; i++) {
 				var bselected = (bcountrybk == bcountryArray[i])?"selected='selected'": "";
 				var bcountryvalue1 = this.createElement('<option value="'+ bcountryArray[i] +'" '+ bselected +'>'+ bcountryArray[i] +'</option>');
-				bcountryselect.appendChild(bcountryvalue1)
+				bcountryselect.appendChild(bcountryvalue1);
 				}
 				billcountryli.appendChild(billcountrylispan1);
                 billcountryli.appendChild(bcountryselect);
@@ -615,7 +545,6 @@ YUI.add("checkoutFormWidget", function(Y) {
 				Y.on('click' , this.focusIt , billphonenumberlispan2);
 
                 
-               // billaddressblocksubul.appendChild(billaddressblocksubli);
                 billaddressblocksubul.appendChild(billfirstnameli);
                 billaddressblocksubul.appendChild(billlastnameli);
                 billaddressblocksubul.appendChild(billcompanyli);
@@ -671,7 +600,7 @@ YUI.add("checkoutFormWidget", function(Y) {
                 selectpayment.appendChild(ordertotal);  
                 selectpayment.appendChild(comments);                    
                 
-                var ordercomments = Y.Node.create('<div class="checkout_tab"><a href="#">Order Comments</a></div>')
+                var ordercomments = Y.Node.create('<div class="checkout_tab"><a href="#">Order Comments</a></div>');
 				ordercomments.obj = this;
 				ordercomments.openDiv = "5";
                 Y.on('click' , this.showCurrentTab , ordercomments);
@@ -680,7 +609,7 @@ YUI.add("checkoutFormWidget", function(Y) {
 				
                 var commnettext = this.createElement('<div class="comments_text">Use this area for special instructions or question regards your order</div>'); 
                 var commnethead = this.createElement('<div class="comments_head">Order Comments</div>');
-                var commentbox = Y.Node.create('<div class="com_commentbox"><textarea name="comments" id="comments" cols="" rows="" value="'+ commentsbk +'" ></textarea></div>')
+                var commentbox = Y.Node.create('<div class="com_commentbox"><textarea name="comments" id="comments" cols="" rows="" value="'+ commentsbk +'" ></textarea></div>');
                 ordercmdblock.appendChild(commnettext);
                 ordercmdblock.appendChild(commnethead);
                 ordercmdblock.appendChild(commentbox);
@@ -725,9 +654,7 @@ YUI.add("checkoutFormWidget", function(Y) {
                 targetNode.appendChild(mycart);
 
             } else {
-                //var loading = this.createElement('<label>Loading...</label>');
-                //targetNode.appendChild(loading);
-            }
+             }
 
             $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
@@ -741,7 +668,6 @@ YUI.add("checkoutFormWidget", function(Y) {
 			$('#'+this.data).focus();
 		},
 		setBilling : function(){
-				//alert($("#checkaddress").attr("checked"));
 			if ($("#checkaddress").attr("checked") == undefined ) {
 				$("#checkaddress").removeAttr("checked");
 			}else{
@@ -749,10 +675,8 @@ YUI.add("checkoutFormWidget", function(Y) {
 			}
 		},
        	showCurrentTab: function(){
-//			console.info('showCurrentTab = ' , this.openDiv);
-			//alert(this.openDiv);
+
 			for(var i=1; i<=5; i++){
-				//alert("#checkoutblock_"+i);
 				$("#checkoutblock_"+i).hide();
 			}
 			$("#checkoutblock_"+this.openDiv).show();

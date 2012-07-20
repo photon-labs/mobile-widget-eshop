@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -43,10 +43,7 @@ YUI.add("newProductsWidget", function(Y) {
              * It does not need to invoke the superclass initializer. 
              * init() will call initializer() for all classes in the hierarchy.
              */
-             /* this.publish("myEvent", {
-                defaultFn: this._defMyEventFn,
-                bubbles:false
-             }); */
+
 
         },
 
@@ -91,7 +88,6 @@ YUI.add("newProductsWidget", function(Y) {
              * to activate the UI.
              */
 
-            // this.after("attrAChange", this._afterAttrAChange);
         },
 
         sync : function() {
@@ -102,7 +98,6 @@ YUI.add("newProductsWidget", function(Y) {
              * will take over.
              */
 
-            // this._uiSetAttrA(this.get("attrA"));
         },
 
         captureData : function(jsonData) {
@@ -131,7 +126,6 @@ YUI.add("newProductsWidget", function(Y) {
                         var divInfo = this.createElement('<div class="info">');
 
                         var productA = this.createElement('<a class="title" href="#">' + jsonData[i].name + '</a>');
-                        //var productDesc = this.createElement('<p>' + jsonData[i].description + '</p>');
 
                         var priceDiv = this.createElement('<div class="price">');
                         var priceSpan = this.createElement('<span class="st">Our price:</span><strong>' + this.getAmountByCurrency(jsonData[i].listPrice) + '</strong><br>');
@@ -147,7 +141,6 @@ YUI.add("newProductsWidget", function(Y) {
 
                         li.appendChild(divImg);
                         divInfo.appendChild(productA);
-                        //divInfo.appendChild(productDesc);
                         divInfo.appendChild(priceDiv);
                         divInfo.appendChild(actionsDiv);
 
@@ -159,8 +152,6 @@ YUI.add("newProductsWidget", function(Y) {
                 targetNode.appendChild(h3);
                 targetNode.appendChild(newProductsUL);
             } else {
-                //var loading = this.createElement('<label>Loading...</label>');
-                //targetNode.appendChild(loading);
             }
 
         },

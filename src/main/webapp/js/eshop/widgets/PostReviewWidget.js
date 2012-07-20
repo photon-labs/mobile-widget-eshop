@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -43,11 +43,7 @@ YUI.add("postReviewWidget", function(Y) {
              * It does not need to invoke the superclass initializer. 
              * init() will call initializer() for all classes in the hierarchy.
              */
-             /* this.publish("myEvent", {
-                defaultFn: this._defMyEventFn,
-                bubbles:false
-             }); */
-
+            
         },
 
         destructor : function() {
@@ -106,7 +102,6 @@ YUI.add("postReviewWidget", function(Y) {
              * will take over.
              */
 
-            // this._uiSetAttrA(this.get("attrA"));
         },
 
         captureData : function(jsonData) {
@@ -152,7 +147,7 @@ YUI.add("postReviewWidget", function(Y) {
 					reviewRating.appendChild(productId);
 					reviewRating.appendChild(starValueBox);
 					
-                    var reviewComment = this.createElement('<label for="comments"><span class="comments_text">Comments</span></label>')
+                    var reviewComment = this.createElement('<label for="comments"><span class="comments_text">Comments</span></label>');
 					var reviewCommentBox = this.createElement('<textarea  autofocus="autofocus" name="comments" id="comments" placeholder="Your comments" cols="60" rows="7" scale="no" class="com_commentbox"</textarea>');
 					reviewComment.appendChild(reviewCommentBox);
 					
@@ -164,10 +159,7 @@ YUI.add("postReviewWidget", function(Y) {
                     reviewSubmitButton.obj = this;
 					reviewSubmitButton.data = jsonData.id;
 					Y.on('click' , this.reviewSubmitFn , reviewSubmitButton);
-					/*if(userId)
-						Y.on('click' , this.reviewSubmitFn , reviewSubmitButton);
-					else
-						Y.on('click' , this.loginPop , reviewSubmitButton);*/
+					
 						
 					var reviewCancelButton = Y.Node.create('<input type="button" value="Cancel" class="buttonstyle"/>');
                     reviewCancelButton.obj = this;
@@ -182,8 +174,6 @@ YUI.add("postReviewWidget", function(Y) {
 
                 writeareviewDiv.appendChild(reviewForm);
 				
-			 //myCart.appendChild(myCartHead);
-			 //myCart.appendChild(writeareviewDiv);
             targetNode.appendChild(writeareviewDiv);
             
             if ($('#container').is(":visible")) {
@@ -212,20 +202,13 @@ YUI.add("postReviewWidget", function(Y) {
         },
 
         addTotal:function(){
-            //alert(this.pid);
             var productId = this.pid;
-            //alert($("#productQuantity").val());
-            //$("#totalAmount").hide();
-                //var productQty = $("#productQuantity").val();
-                //var totalAmt = $("#totalAmount").val();
             var total = this.data * $("#productQuantity_"+productId).val();
-            //alert(total);
             $("#totalAmount_"+productId).html(total);
             $("#subToal").html(total);
         },
 		addRating:function(){
            var starId = this.data;
-		   //alert(starId);
 		  $("#starValue").val(starId);
 		   for(var i=1; i<= starId; i++){
 			$("#starImage_"+i).html('<img src="images/eshop/start.png" width="16" height="16" title="' + i + '">');

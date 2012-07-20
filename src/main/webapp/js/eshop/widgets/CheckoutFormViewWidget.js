@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -46,10 +46,7 @@ YUI.add("checkoutFormViewWidget", function(Y) {
              * It does not need to invoke the superclass initializer. 
              * init() will call initializer() for all classes in the hierarchy.
              */
-             /* this.publish("myEvent", {
-                defaultFn: this._defMyEventFn,
-                bubbles:false
-             }); */
+
 
         },
 
@@ -94,40 +91,18 @@ YUI.add("checkoutFormViewWidget", function(Y) {
              * to activate the UI.
              */
 
-            // this.after("attrAChange", this._afterAttrAChange);
 			$(document).ready(function() {
                 //ACCORDION BUTTON ACTION (ON CLICK DO THE FOLLOWING)
-                /*$('.checkout_tab').click(function() {
-            
-                    //REMOVE THE ON CLASS FROM ALL BUTTONS
-                    $('.checkout_tab').removeClass('on');
-                      
-                    //NO MATTER WHAT WE CLOSE ALL OPEN SLIDES
-                    $('.bill_div').slideUp('normal');
                
-                    //IF THE NEXT SLIDE WASN'T OPEN THEN OPEN IT
-                    if($(this).next().is(':hidden') == true) {
-                        
-                        //ADD THE ON CLASS TO THE BUTTON
-                        $(this).addClass('on');
-                          
-                        //OPEN THE SLIDE
-                        $(this).next().slideDown('normal');
-                     } 
-                      
-                 });*/
                   
                 
                 /*** REMOVE IF MOUSEOVER IS NOT REQUIRED ***/
                 
                 //ADDS THE .OVER CLASS FROM THE STYLESHEET ON MOUSEOVER 
-               /* $('.checkout_tab').mouseover(function() {
-                    $(this).addClass('over');
+              
                     
                 //ON MOUSEOUT REMOVE THE OVER CLASS
-                }).mouseout(function() {
-                    $(this).removeClass('over');                                        
-                });*/
+              
                 
                 /*** END REMOVE IF MOUSEOVER IS NOT REQUIRED ***/
                 
@@ -135,7 +110,6 @@ YUI.add("checkoutFormViewWidget", function(Y) {
                 /********************************************************************************************************************
                 CLOSES ALLS ON PAGE LOAD
                 ********************************************************************************************************************/   
-                //$('.bill_div').hide();
 			});
                 
 
@@ -149,7 +123,6 @@ YUI.add("checkoutFormViewWidget", function(Y) {
              * will take over.
              */
 
-            // this._uiSetAttrA(this.get("attrA"));
         },
 
         captureData : function(jsonData) {
@@ -441,14 +414,14 @@ YUI.add("checkoutFormViewWidget", function(Y) {
                 selectpayment.appendChild(ordertotal);  
                 selectpayment.appendChild(comments);                    
                 
-				var ordercomments = Y.Node.create('<div class="checkout_tab"><a href="#">Order Comments</a></div>')
+				var ordercomments = Y.Node.create('<div class="checkout_tab"><a href="#">Order Comments</a></div>');
 				ordercomments.obj = this;
 				ordercomments.openDiv = "5";
                 Y.on('click' , this.showCurrentTab , ordercomments);
                 var ordercmdblock = this.createElement('<div class="bill_div" id="checkoutblock_5" style="display:none;">'); 
                 var commnettext = this.createElement('<div class="comments_text">Use this area for special instructions or question regards your order</div>'); 
                 var commnethead = this.createElement('<div class="comments_head">Order Comments</div>');
-                var commentbox = this.createElement('<div class="com_commentbox">'+ orderDetail.comments +'</div>')
+                var commentbox = this.createElement('<div class="com_commentbox">'+ orderDetail.comments +'</div>');
                 ordercmdblock.appendChild(commnettext);
                 ordercmdblock.appendChild(commnethead);
                 ordercmdblock.appendChild(commentbox);
@@ -484,8 +457,6 @@ YUI.add("checkoutFormViewWidget", function(Y) {
                 targetNode.appendChild(mycart);
                 
             } else {
-                //var loading = this.createElement('<label>Loading...</label>');
-                //targetNode.appendChild(loading);
             }
 
             $(document).ready(function(){
@@ -497,10 +468,7 @@ YUI.add("checkoutFormViewWidget", function(Y) {
         },
 		
        	showCurrentTab: function(){
-//			console.info('showCurrentTab = ' , this.openDiv);
-			//alert(this.openDiv);
 			for(var i=1; i<=5; i++){
-				//alert("#checkoutblock_"+i);
 				$("#checkoutblock_"+i).hide();
 			}
 			$("#checkoutblock_"+this.openDiv).show();
