@@ -20,12 +20,10 @@
         <script type="text/javascript" charset="utf-8" src="lib/jquery/jquery.js"></script>
 		<script type="text/javascript" src="lib/xml2json/jquery.xml2json.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/eshop/jquery.loadmask.js"></script>
-        <script type="text/javascript" src="lib/phonegap/phonegap-1.2.0.js"></script>
         <script type="text/javascript" src="lib/yui/build/yui/yui-min.js"></script>
         <script type="text/javascript" src="lib/iscroll/iscroll.js"></script>
 <!--    <script type="text/javascript" src="lib/iscroll/iscrollnew.js"></script>-->
         <script type="text/javascript" src="lib/jsonpath/jsonpath.js"></script> 
-        <script type="text/javascript" src="lib/jquery.menubf.js"></script> 
         <!--<script type="text/javascript" src="lib/others/javascript.js"></script>-->
         <script type="text/javascript" src="js/eshop/controller/EShopAPI.js"></script>
 
@@ -55,8 +53,7 @@
 			File file = new File(path);
 			ConfigReader reader = new ConfigReader(file);
 			String configJson = reader.getConfigAsJSON(currentEnv, "WebService");
-			
-		%>
+			%>
 
         <script type="text/javascript">
             YUI().use('node', 'widget', 'eshopAPI', 'phrescoWidget', 'menuWidget', 'headerWidget', 'navigationWidget',
@@ -64,7 +61,6 @@
 
                 Y.on("domready", function () {
 					var configJson = '<%= configJson %>';
-					console.info('configJson = ' , configJson);
                     var eshopAPI = new Y.Phresco.EShopAPI($.parseJSON(configJson));
 
                     // instantiate MenuWidget with the HTML

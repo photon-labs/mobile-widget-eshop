@@ -31,7 +31,7 @@ YUI.add("categoryWidget", function(Y) {
         }
     };
 
-    Y.extend(CategoryWidget, Y.Phresco.PhrescoWidget {
+    Y.extend(CategoryWidget, Y.Phresco.PhrescoWidget, {
         initializer: function() {
         /*
          * initializer is part of the lifecycle introduced by 
