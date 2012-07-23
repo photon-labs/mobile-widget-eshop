@@ -12,7 +12,7 @@ YUI.add("loginWidget", function(Y) {
         }
     };
 
-    Y.extend(LoginWidget, Y.Phresco.PhrescoWidget {
+    Y.extend(LoginWidget, Y.Phresco.PhrescoWidget, {
         initializer: function() {
             /*
              * initializer is part of the lifecycle introduced by 
