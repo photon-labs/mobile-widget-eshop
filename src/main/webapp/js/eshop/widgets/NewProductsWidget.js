@@ -108,7 +108,7 @@ YUI.add("newProductsWidget", function(Y) {
         },
 
         createContent : function(targetNode, jsonData) {
-            if (jsonData != null) {
+            if (jsonData !== null) {
                 targetNode.empty();
                 var apiRef = this.get("apiReference");
                 var url = apiRef.get("wsURLWithoutContext");
@@ -118,7 +118,7 @@ YUI.add("newProductsWidget", function(Y) {
                 var newProductsUL = this.createElement('<ul>');
 
                 for (i = 1; i <= jsonData.length; i++) {
-                    if (jsonData[i] != undefined) {
+                    if (jsonData[i] !== undefined) {
                         var imageURL = url + '/' + webImage + jsonData[i].image;
                         var li = this.createElement('<li>');
 

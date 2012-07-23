@@ -140,7 +140,10 @@ YUI.add("checkoutSuccessWidget", function(Y) {
 
             $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
-                document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+                document.addEventListener('touchmove', function (e) { 
+                    e.preventDefault(); 
+                }, 
+                false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
             });
                 

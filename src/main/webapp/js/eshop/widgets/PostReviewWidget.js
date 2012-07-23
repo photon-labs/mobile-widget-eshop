@@ -89,7 +89,10 @@ YUI.add("postReviewWidget", function(Y) {
              */
             $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
-                document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+                document.addEventListener('touchmove', function (e) { 
+                    e.preventDefault(); 
+                },
+                false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
             });
         },
@@ -118,9 +121,9 @@ YUI.add("postReviewWidget", function(Y) {
             var config = apiRef._getConfigData();
             var webImage = config.web.web;
 			console.info('jason data =' , jsonData.id);
-			if(apiRef.get("userId"))
-					var userId = apiRef.get("userId");
-					
+			if(apiRef.get("userId")){
+				var userId = apiRef.get("userId");
+			}		
             var myCart = this.createElement('<div class="mycart_div">');
             var myCartHead = this.createElement('<div class="product_name">Post Review</div>');
            

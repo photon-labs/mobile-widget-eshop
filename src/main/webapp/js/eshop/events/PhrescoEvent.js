@@ -43,9 +43,11 @@ YUI.add("phrescoEvent", function(Y) {
             
             var tcEvnts = this.get("phrescoEvents");
             
-            if (tcEvnts == null) tcEvnts = new Array();
+            if (tcEvnts === null) {
+                tcEvnts = array();
+            }    
             
-            if (tcEvnts[event]== null){
+            if (tcEvnts[event] === null){
                 tcEvnts[event] = new Y.CustomEvent(event, this);
             }
             for (var i = 0; i < listeners.length; i++) {

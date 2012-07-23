@@ -78,7 +78,7 @@
 			$.unmaskElement(element);
 		}
 		
-		if(element.css("position") == "static") {
+		if(element.css("position") === "static") {
 			element.addClass("masked-relative");
 		}
 		

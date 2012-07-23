@@ -90,7 +90,7 @@ YUI.add("productsWidget", function(Y) {
         },
 
         createContent : function(targetNode, jsonData) {
-            if (jsonData != null) {
+            if (jsonData !== null) {
                 targetNode.empty();
                 var apiRef = this.get("apiReference");
                 apiRef.set("backPage", "Products");
@@ -131,10 +131,10 @@ YUI.add("productsWidget", function(Y) {
 
                     for (var j = 0; j < 5; j++) {
                         var starImage = 'start.png';
-                        if (product.rating == j) {
+                        if (product.rating === j) {
                             ratingDone = true;
                         }
-                        if (ratingDone == true) {
+                        if (ratingDone === true) {
                             starImage = 'start_dis.png';
                         }
                         var star = this.createElement('<span ><img src="images/eshop/' + starImage + '" border="0" title="image" /></span>');
@@ -162,7 +162,7 @@ YUI.add("productsWidget", function(Y) {
                     newProductsUL.appendChild(li);
                 } 
                 
-                if (jsonData.length == 0) {
+                if (jsonData.length === 0) {
                     var productsUnavailable = this.createElement('<span>No products available</span>');        
                     targetNode.appendChild(productsUnavailable);
                 } else {
@@ -178,7 +178,7 @@ YUI.add("productsWidget", function(Y) {
             
                 /* for highlighting purpose */
                 var specialbt = apiRef.get("special-tab");
-                if(specialbt == "special-tab"){
+                if(specialbt === "special-tab"){
                     $('#browse-tab').removeClass("active");
                     $('#cart-tab').removeClass("active");
                     $('#special-tab').addClass("active");
@@ -190,7 +190,10 @@ YUI.add("productsWidget", function(Y) {
                 }
             $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
-                document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+                document.addEventListener('touchmove', function (e) { 
+                    e.preventDefault(); 
+                }, 
+                false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
             });
                 

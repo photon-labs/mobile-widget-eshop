@@ -130,39 +130,40 @@ YUI.add("checkoutFormWidget", function(Y) {
 					var text = /^[a-zA-Z\s]+$/;
 					var string = /^[a-zA-Z0-9\s^,^.,^#,^(,^)]+$/;
 					var number =  /^[0-9\s^+^-]+$/;
-					if(email == "" || !regex.test(email)){ 
+
+					if(email === "" || !regex.test(email)){ 
 						$('#checkoutblock_1').css("display", "block");
 					}
-					else if(dfirstname == "" || dcity == "" || dstate == "" || !text.test(dfirstname) || !text.test(dcity) || !text.test(dstate)){                       
+					else if(dfirstname === "" || dcity === "" || dstate === "" || !text.test(dfirstname) || !text.test(dcity) || !text.test(dstate)){                       
 						$('#checkoutblock_1').css("display", "none"); 
 						$('#checkoutblock_2').css("display", "block"); 
 					}					
-					else if(daddress1 == "" || !string.test(daddress1)){
+					else if(daddress1 === "" || !string.test(daddress1)){
 						$('#checkoutblock_1').css("display", "none"); 
 						$('#checkoutblock_2').css("display", "block");
 					}
-					else if(dpostcode == "" || dphonenumber == "" || !number.test(dpostcode) || !number.test(dphonenumber)){
+					else if(dpostcode === "" || dphonenumber === "" || !number.test(dpostcode) || !number.test(dphonenumber)){
 						$('#checkoutblock_1').css("display", "none"); 
 						$('#checkoutblock_2').css("display", "block");
 					}
 					
-					else if(bfirstname == "" || bcity == "" || bstate == "" || !text.test(bfirstname) || !text.test(bcity) || !text.test(bstate)){                       
+					else if(bfirstname === "" || bcity === "" || bstate === "" || !text.test(bfirstname) || !text.test(bcity) || !text.test(bstate)){                       
 						$('#checkoutblock_1').css("display", "none");
 						$('#checkoutblock_2').css("display", "none"); 
 						$('#checkoutblock_3').css("display", "block");
 					}					
-					else if(baddress1 == "" || !string.test(baddress1)){
+					else if(baddress1 === "" || !string.test(baddress1)){
 						$('#checkoutblock_1').css("display", "none");
 						$('#checkoutblock_2').css("display", "none"); 
 						$('#checkoutblock_3').css("display", "block");
 					}
-					else if(bpostcode == "" || bphonenumber == "" || !number.test(bpostcode) || !number.test(bphonenumber)){
+					else if(bpostcode === "" || bphonenumber === "" || !number.test(bpostcode) || !number.test(bphonenumber)){
 						$('#checkoutblock_1').css("display", "none");
 						$('#checkoutblock_2').css("display", "none"); 
 						$('#checkoutblock_3').css("display", "block");
 					}					
 									
-                })
+                });
 
 				$('#checkaddress').click(function() {
 				
@@ -181,7 +182,7 @@ YUI.add("checkoutFormWidget", function(Y) {
 					   $("#billingphonenumber").val($('#deliveryphonenumber').val());
 						
 					}
-				})				
+				});			
             });           
         },
 
@@ -216,7 +217,7 @@ YUI.add("checkoutFormWidget", function(Y) {
                 var totalItem = productQty.totalItem;
                                 
                 var orderDetailback = apiRef.get("orderDetailback"); 
-				if(orderDetailback != undefined){
+				if(orderDetailback !== undefined){
 					var emailbk = orderDetailback.email;
 					var dfirstNamebk = orderDetailback.deliveryfirstname;
 					var dlastNamebk  =  orderDetailback.deliverylastname;
@@ -241,29 +242,29 @@ YUI.add("checkoutFormWidget", function(Y) {
 					var bphonenumberbk =  orderDetailback.billingphonenumber;
 					var commentsbk =  orderDetailback.comments;
 				}
-				var emailbk = (emailbk != undefined)?orderDetailback.email : "";
-				var dfirstNamebk = (dfirstNamebk != undefined)?orderDetailback.deliveryfirstname : "";
-				var dlastNamebk = (dlastNamebk != undefined)?orderDetailback.deliverylastname : "";
-				var dcompanybk = (dcompanybk != undefined)?orderDetailback.deliverycompany : "";
-				var daddress1bk = (daddress1bk != undefined)?orderDetailback.deliveryaddress1 : "";
-				var daddress2bk = (daddress2bk != undefined)?orderDetailback.deliveryaddress2 : "";
-				var dcitybk = (dcitybk != undefined)?orderDetailback.deliverycity : "";
-				var dstatebk = (dstatebk != undefined)?orderDetailback.deliverystate : "";
-				var dcountrybk = (dcountrybk != undefined)?orderDetailback.deliverycountry : "";
-				var dpostcodebk = (dpostcodebk != undefined)?orderDetailback.deliverypostcode : "";
-				var dphonenumberbk = (dphonenumberbk != undefined)?orderDetailback.deliveryphonenumber : "";
+				var emailbk = (emailbk !== undefined)?orderDetailback.email : "";
+				var dfirstNamebk = (dfirstNamebk !== undefined)?orderDetailback.deliveryfirstname : "";
+				var dlastNamebk = (dlastNamebk !== undefined)?orderDetailback.deliverylastname : "";
+				var dcompanybk = (dcompanybk !== undefined)?orderDetailback.deliverycompany : "";
+				var daddress1bk = (daddress1bk !== undefined)?orderDetailback.deliveryaddress1 : "";
+				var daddress2bk = (daddress2bk !== undefined)?orderDetailback.deliveryaddress2 : "";
+				var dcitybk = (dcitybk !== undefined)?orderDetailback.deliverycity : "";
+				var dstatebk = (dstatebk !== undefined)?orderDetailback.deliverystate : "";
+				var dcountrybk = (dcountrybk !== undefined)?orderDetailback.deliverycountry : "";
+				var dpostcodebk = (dpostcodebk !== undefined)?orderDetailback.deliverypostcode : "";
+				var dphonenumberbk = (dphonenumberbk !== undefined)?orderDetailback.deliveryphonenumber : "";
 				
-				var bfirstNamebk = (bfirstNamebk != undefined)?orderDetailback.billingfirstname : "";
-				var blastNamebk = (blastNamebk != undefined)?orderDetailback.billinglastname : "";
-				var bcompanybk = (bcompanybk != undefined)?orderDetailback.billingcompany : "";
-				var baddress1bk = (baddress1bk != undefined)?orderDetailback.billingaddress1 : "";
-				var baddress2bk = (baddress2bk != undefined)?orderDetailback.billingaddress2 : "";
-				var bcitybk = (bcitybk != undefined)?orderDetailback.billingcity : "";
-				var bstatebk = (bstatebk != undefined)?orderDetailback.billingstate : "";
-				var bcountrybk = (bcountrybk != undefined)?orderDetailback.billingcountry : "";
-				var bpostcodebk = (bpostcodebk != undefined)?orderDetailback.billingpostcode : "";
-				var bphonenumberbk = (bphonenumberbk != undefined)?orderDetailback.billingphonenumber : "";
-				var commentsbk = (commentsbk != undefined)?orderDetailback.comments : "";
+				var bfirstNamebk = (bfirstNamebk !== undefined)?orderDetailback.billingfirstname : "";
+				var blastNamebk = (blastNamebk !== undefined)?orderDetailback.billinglastname : "";
+				var bcompanybk = (bcompanybk !== undefined)?orderDetailback.billingcompany : "";
+				var baddress1bk = (baddress1bk !== undefined)?orderDetailback.billingaddress1 : "";
+				var baddress2bk = (baddress2bk !== undefined)?orderDetailback.billingaddress2 : "";
+				var bcitybk = (bcitybk !== undefined)?orderDetailback.billingcity : "";
+				var bstatebk = (bstatebk !== undefined)?orderDetailback.billingstate : "";
+				var bcountrybk = (bcountrybk !== undefined)?orderDetailback.billingcountry : "";
+				var bpostcodebk = (bpostcodebk !== undefined)?orderDetailback.billingpostcode : "";
+				var bphonenumberbk = (bphonenumberbk !== undefined)?orderDetailback.billingphonenumber : "";
+				var commentsbk = (commentsbk !== undefined)?orderDetailback.comments : "";
 				
 				
                 var mycart = this.createElement('<div class="mycart_div" >');
@@ -373,11 +374,11 @@ YUI.add("checkoutFormWidget", function(Y) {
                 
                 var countryli = this.createElement('<li class="">');
                 var countrylispan1 = this.createElement('<span class="bill_details_lft">Country *</span>');  
-				var countryArray = new Array("USA","India","Australia","Canada","Bangladesh");	
+				var countryArray = array("USA","India","Australia","Canada","Bangladesh");	
 				
 				var countryselect = this.createElement('<select name="deliverycountry" id="deliverycountry">');
 				for(var i= 0; i < countryArray.length; i++) {
-				var selected = (dcountrybk == countryArray[i])?"selected='selected'": "";
+				var selected = (dcountrybk === countryArray[i])?"selected='selected'": "";
 				var countryvalue1 = this.createElement('<option value="'+ countryArray[i] +'" '+selected+'>'+ countryArray[i] +'</option>');
 				countryselect.appendChild(countryvalue1);
 				}
@@ -509,11 +510,11 @@ YUI.add("checkoutFormWidget", function(Y) {
 				
 				var billcountryli = this.createElement('<li class="">');
                 var billcountrylispan1 = this.createElement('<span class="bill_details_lft">Country *</span>');  
-				var bcountryArray = new Array("USA","India","Australia","Canada","Bangladesh");	
+				var bcountryArray = array("USA","India","Australia","Canada","Bangladesh");	
 				
 				var bcountryselect = this.createElement('<select name="billingcountry" id="billingcountry">');
 				for(var i= 0; i < bcountryArray.length; i++) {
-				var bselected = (bcountrybk == bcountryArray[i])?"selected='selected'": "";
+				var bselected = (bcountrybk === bcountryArray[i])?"selected='selected'": "";
 				var bcountryvalue1 = this.createElement('<option value="'+ bcountryArray[i] +'" '+ bselected +'>'+ bcountryArray[i] +'</option>');
 				bcountryselect.appendChild(bcountryvalue1);
 				}
@@ -658,7 +659,10 @@ YUI.add("checkoutFormWidget", function(Y) {
 
             $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
-                document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+                document.addEventListener('touchmove', function (e) { 
+                    e.preventDefault(); 
+                }, 
+                false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
             });
 
@@ -668,7 +672,7 @@ YUI.add("checkoutFormWidget", function(Y) {
 			$('#'+this.data).focus();
 		},
 		setBilling : function(){
-			if ($("#checkaddress").attr("checked") == undefined ) {
+			if ($("#checkaddress").attr("checked") === undefined ) {
 				$("#checkaddress").removeAttr("checked");
 			}else{
 				$("#checkaddress").attr("checked", "checked"); 
