@@ -104,9 +104,9 @@ YUI.add("headerWidget", function(Y) {
 
             var apiRef = this.get("apiReference");
             var userId = 0;
-			if(apiRef.get("userId"))
+			if(apiRef.get("userId")){
 				userId = apiRef.get("userId");
-			
+			}
             var headerInner = this.createElement('<div class="headerInner">');
             var btnContainer = this.createElement('<div class="btn_container">');
 

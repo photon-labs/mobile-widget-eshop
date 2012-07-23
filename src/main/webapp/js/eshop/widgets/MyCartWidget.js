@@ -89,7 +89,10 @@ YUI.add("myCartWidget", function(Y) {
              */
             $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
-                document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+                document.addEventListener('touchmove', function (e) { 
+                    e.preventDefault(); 
+                },
+                false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
             });
         },
@@ -121,14 +124,17 @@ YUI.add("myCartWidget", function(Y) {
             var productQty = apiRef.get("productQty");
             var productDetails = productQty.productDetail;
             console.info("productDetails*****",productDetails);
-            if(productQty.quantity)
+            if(productQty.quantity){
                 var quantity = productQty.quantity;
-            else var quantity = 1;
+            }    
+            else {
+                var quantity = 1;
+            }    
             
             var totalItem = productQty.totalItem;
 
             var currentProductId = 0;
-            if(apiRef.get("currentProductId") != 0 ){
+            if(apiRef.get("currentProductId") !== 0 ){
                 var currentProductId = apiRef.get("currentProductId");
                 console.info('currentProductId = ',currentProductId);
             }
@@ -165,9 +171,9 @@ YUI.add("myCartWidget", function(Y) {
                     myCartCheckOut.obj = this;
                     Y.on('click' , this.showProductOrder, myCartCheckOut);
                     
-                if(subTotal > 0)
+                if(subTotal > 0){
                     myCartButtonMid.appendChild(myCartCheckOut);
-                
+                }
                 
                 myCartButton.appendChild(myCartButtonMid);
 

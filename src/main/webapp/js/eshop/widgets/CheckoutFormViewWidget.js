@@ -461,7 +461,10 @@ YUI.add("checkoutFormViewWidget", function(Y) {
 
             $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
-                document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+                document.addEventListener('touchmove', function (e) { 
+                    e.preventDefault(); 
+                }, 
+                false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
             });
            this.bind();     

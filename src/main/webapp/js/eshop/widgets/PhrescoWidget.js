@@ -132,23 +132,25 @@ YUI.add("phrescoWidget", function(Y) {
            return result;
        },
        _getValueFromSession : function (key, dflt) {
-            if (!dflt)
+            if (!dflt){
                 dflt = 0;
-            var val = (this.getSessionValue(key) != null && this.getSessionValue(key) != undefined) ? this.getSessionValue(key) : dflt;
+            }    
+            var val = (this.getSessionValue(key) !== null && this.getSessionValue(key) !== undefined) ? this.getSessionValue(key) : dflt;
             return val;
        },
        _getParamValueFromSession : function (key, param) {
-            var val = (this.getSessionValue(key) != null && this.getSessionValue(key) != undefined) ? this.getSessionValue(key) : 0;
-            if (val ==0)
+            var val = (this.getSessionValue(key) !== null && this.getSessionValue(key) !== undefined) ? this.getSessionValue(key) : 0;
+            if (val === 0){
                 return "";
+            }    
             return "&" + param + "=" + val;
        },
        _isEmpty : function(str) {
-            return (str == "" || str == null);
+            return (str === "" || str === null);
        },
         createElement : function (contentHTML) {
             var element = Y.Node.create(contentHTML);
-            if (element == null) {
+            if (element === null) {
                 element = Y.Node.create(this.getHTML4Content(contentHTML));
             }
             return element;
@@ -243,7 +245,7 @@ YUI.add("phrescoWidget", function(Y) {
             }
 
             var listeners = widgetObj.get("onOrderSuccessListener");
-            for (var i = 0 ;i < listeners.length; i++) {
+            for (var i = 0; i < listeners.length; i++) {
               apiRef.postOrder(orderdetailDeliveryget,orderdetailBillingget, customerEmail, comments, productDetails, cartTotal, totalItem);
                listeners[i].captureData(null);
             }
@@ -252,16 +254,13 @@ YUI.add("phrescoWidget", function(Y) {
 			
 			// To empty the productQty json
 			var productArray = productQty.productDetail;
-			console.info('productArray.length=',productArray);
-            if (productArray.length != 0) {
-                for (var j = 0; j = productArray.length; j++) {
+
+            if (productArray.length !== 0) {
+                for (var j = 0; j < productArray.length; j++) {
                     var product = productArray[j];
-					console.info('product i =',product);
-					console.info('product i =',j);
 					productArray.splice(product,1);
                 }
             }
-			console.info('productArray i =',productArray);
 			productQty.productDetail = productArray;
 			productQty.totalItem = 0;    
             productQty.cartTotal = 0;    
@@ -342,20 +341,20 @@ YUI.add("phrescoWidget", function(Y) {
                     var field = validateFormFields[i];
                     var jsonField = "$." + field + "";
                     var fieldObj = jsonPath(fieldSet, jsonField);                    
-                    if ("TRUE" == fieldObj[0].mandatory) {
+                    if ("TRUE" === fieldObj[0].mandatory) {
                         var id = fieldObj[0].fieldId;
                         var type = fieldObj[0].type;
                         var value = $(id).val();
                         var errMessage = id+"_err";
                         var errId = id+"_err_div";
-                        if (value == "") {
+                        if (value === "") {
                             var text = id.split("#");
                             $(errMessage).html("please enter "+ text[1]);
                             $(errId).addClass("error");
                             $(id).focus();
                             return false;
                         } 
-                            else if(value != "" && type == "EMAIL") {
+                            else if(value !== "" && type === "EMAIL") {
                                 var regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
                                 if (!regex.test(value)) {
                                     $(errMessage).html("please enter valid email id ");
@@ -366,7 +365,7 @@ YUI.add("phrescoWidget", function(Y) {
                                 $(errMessage).html('');
                                 $(errId).removeClass("error");
                             }
-                            else if(value != "" && type == "TEXT"){ 
+                            else if(value !== "" && type === "TEXT"){ 
                                 var character =  /^[a-zA-Z\s]+$/;
                                 if (!character.test(value)) {
                                     $(errMessage).html("please enter character only");
@@ -377,7 +376,7 @@ YUI.add("phrescoWidget", function(Y) {
                                 $(errMessage).html('');
                                 $(errId).removeClass("error");
                             }
-                             else if(value != "" && type == "STRING"){ 
+                             else if(value !== "" && type === "STRING"){ 
                                 var character =  /^[a-zA-Z0-9\s^,^.,^#,^(,^)]+$/;
                                 if (!character.test(value)) {
                                     $(errMessage).html("please enter character and number only");
@@ -388,7 +387,7 @@ YUI.add("phrescoWidget", function(Y) {
                                 $(errMessage).html('');
                                 $(errId).removeClass("error");
                             }
-                           else if(value != "" && type == "NUMBER"){
+                           else if(value !== "" && type === "NUMBER"){
                                 var character =  /^[0-9\s^+^-]+$/;
                                 if (!character.test(value)) {
                                     $(errMessage).html("please enter correct format");
@@ -399,8 +398,7 @@ YUI.add("phrescoWidget", function(Y) {
                                 $(errMessage).html('');
                                 $(errId).removeClass("error");
                             }                    
-                        //} 
-                            
+                                            
 
                        }
                 }
@@ -451,7 +449,7 @@ YUI.add("phrescoWidget", function(Y) {
             var apiRef = widgetObj.get("apiReference");
             var listeners = widgetObj.get("onSelectedListeners");
             
-            if (this.id == 'browse-tab') {           
+            if (this.id === 'browse-tab') {           
 			
                 apiRef.set("special-tab", this.id); // for overwriting special-tab to browse-tab highlighted
 				
@@ -472,7 +470,7 @@ YUI.add("phrescoWidget", function(Y) {
                     }
                 }
 
-            } else if (this.id == 'cart-tab') {
+            } else if (this.id === 'cart-tab') {
                 
                 $('.footer li.browse').removeClass("browse_active");
                 $('.footer li.spl_offer').removeClass("spl_offer_active");  
@@ -490,7 +488,7 @@ YUI.add("phrescoWidget", function(Y) {
                     }
                 }
             }
-            else if (this.id == 'special-tab') {
+            else if (this.id === 'special-tab') {
                 apiRef.set("special-tab", this.id); 
                 $('.footer li.spl_offer').addClass("spl_offer_active"); 
                 $('.footer li.browse').removeClass("browse_active");
@@ -509,7 +507,7 @@ YUI.add("phrescoWidget", function(Y) {
                     }
                 }
             }
-            else if (this.id == 'register-tab') {
+            else if (this.id === 'register-tab') {
                 $('#browse-tab').removeClass("active");
                 $('#cart-tab').removeClass("active");
                 $('#special-tab').removeClass("active");
@@ -523,7 +521,7 @@ YUI.add("phrescoWidget", function(Y) {
                     }
                 }
             }
-            else if (this.id == 'login-tab') {
+            else if (this.id === 'login-tab') {
                 $('#browse-tab').removeClass("active");
                 $('#cart-tab').removeClass("active");
                 $('#special-tab').removeClass("active");
@@ -581,10 +579,10 @@ YUI.add("phrescoWidget", function(Y) {
                 this.data.totalPrice = this.data.quantity * this.data.price;
             }
             var updateProduct = 0;
-            if (productArray.length != 0) {
+            if (productArray.length !== 0) {
                 for (var i = 0; i < productArray.length; i++) {
                     var product = productArray[i];
-                    if (product.productId == this.data.productId) {
+                    if (product.productId === this.data.productId) {
                         product.quantity =  Number(product.quantity) + Number(this.data.quantity);
                         product.totalPrice = (product.quantity * this.data.price);
                         updateProduct = 1;
@@ -595,7 +593,7 @@ YUI.add("phrescoWidget", function(Y) {
             totalItem = Number(totalItem) + Number(this.data.quantity);
             cartTotal = Number(cartTotal) + Number(this.data.totalPrice);
             
-            if (updateProduct == 0)
+            if (updateProduct === 0)
                 productArray.push(this.data);
 
  
@@ -624,10 +622,10 @@ YUI.add("phrescoWidget", function(Y) {
             var productQty = apiRef.get("productQty");
             var productArray = productQty.productDetail;
 
-            if (productArray.length != 0) {
+            if (productArray.length !== 0) {
                 for (var i = 0; i < productArray.length; i++) {
                     var product = productArray[i];
-                    if (product.productId == this.productId) 
+                    if (product.productId === this.productId) 
                         var productIndex = i;
                 }
             }
@@ -635,7 +633,7 @@ YUI.add("phrescoWidget", function(Y) {
             var removedItem = productArray.splice(productIndex,1);
             var totalItem = 0; 
             var cartTotal = 0;
-            if (productArray.length != 0) {
+            if (productArray.length !== 0) {
                 for (var j = 0; j < productArray.length; j++) {
                     var product = productArray[j];
                     totalItem = Number(totalItem) + Number(product.quantity);
@@ -792,7 +790,7 @@ YUI.add("phrescoWidget", function(Y) {
             $('#special-tab').removeClass("active");
         },		
         registerFormFields : function (registerFields, apiRef) {
-          if(registerFields[0] == "logEmail"){
+          if(registerFields[0] === "logEmail"){
                 var fieldSet = apiRef.getLoginFieldset();
             }else {
                 var fieldSet = apiRef.getregFieldset();
@@ -803,13 +801,13 @@ YUI.add("phrescoWidget", function(Y) {
                     var field = registerFields[i];
                     var jsonField = "$." + field + "";
                     var fieldObj = jsonPath(fieldSet, jsonField);
-                    if ("TRUE" == fieldObj[0].mandatory) {
+                    if ("TRUE" === fieldObj[0].mandatory) {
                         var id = fieldObj[0].fieldId;
                         var type = fieldObj[0].type;
                         var value = $(id).val();
                         var errMessage = id+"_err";
                         var errId = id+"_err_div";
-                        if (value == "") {
+                        if (value === "") {
                             var text = id.split("#");
                             var textmsg = text[1].split("g");
                             $(errMessage).html("Please enter " + textmsg[1]);
@@ -818,7 +816,7 @@ YUI.add("phrescoWidget", function(Y) {
                             return false;
                         }
                         else{
-                            if(value != "" && type == "EMAIL") {
+                            if(value !== "" && type === "EMAIL") {
                                 var regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
                                 if (!regex.test(value)) {
                                     $(errMessage).html("Please enter valid email id ");
@@ -910,7 +908,7 @@ YUI.add("phrescoWidget", function(Y) {
             var apiRef = widgetObj.get("apiReference");
             var backPage = apiRef.get("backPage");
             var listeners = widgetObj.get("onBackListeners");   
-            if (backPage == "Products") {
+            if (backPage === "Products") {
                 $('#browse-tab').addClass("active");
                 $('#cart-tab').removeClass("active");
                 $('#special-tab').removeClass("active");
@@ -918,7 +916,7 @@ YUI.add("phrescoWidget", function(Y) {
                     var target = listeners[i].get("targetNode");
                     widgetObj.loading(target);
                     if (listeners[i] instanceof Y.Phresco.CategoryWidget) {
-                        if(apiRef.get("categories") != null){
+                        if(apiRef.get("categories") !== null){
                             listeners[i].captureData(apiRef.get("categories"));
                         } else {
                             widgetObj.showHomePage();
@@ -927,7 +925,7 @@ YUI.add("phrescoWidget", function(Y) {
                         break;
                     }
                 }
-            } else if (backPage == "ProductDetails") {
+            } else if (backPage === "ProductDetails") {
                 for (var i = 0; i < listeners.length; i++) {
                     var target = listeners[i].get("targetNode");
                     widgetObj.loading(target);
@@ -937,13 +935,13 @@ YUI.add("phrescoWidget", function(Y) {
                     }
                 }
                 
-            } else if (backPage == "Categories") {
+            } else if (backPage === "Categories") {
                 widgetObj.showHomePage();
             }
-            else if (backPage == "Registration") {
+            else if (backPage === "Registration") {
                 widgetObj.showHomePage();
             }   
-            else if (backPage == "Login") {
+            else if (backPage === "Login") {
                 widgetObj.showHomePage();
             }   
         },

@@ -107,7 +107,7 @@ YUI.add("productDetailsWidget", function(Y) {
         },
 
         createContent : function(targetNode, jsonData) {
-            if (jsonData != null) {
+            if (jsonData !== null) {
                 targetNode.empty();
 
                 var apiRef = this.get("apiReference");
@@ -143,10 +143,10 @@ YUI.add("productDetailsWidget", function(Y) {
                 
                 for (var j = 0; j < 5; j++) {
                     var starImage = 'start.png';
-                    if (productDetails.rating == j) {
+                    if (productDetails.rating === j) {
                         ratingDone = true;
                     }
-                    if (ratingDone == true) {
+                    if (ratingDone === true) {
                         starImage = 'start_dis.png';
                     }
                     var star = this.createElement('<span ><img src="images/eshop/' + starImage + '" border="0" title="image" /></span>');
@@ -234,7 +234,10 @@ YUI.add("productDetailsWidget", function(Y) {
 
             $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
-                document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+                document.addEventListener('touchmove', function (e) { 
+                    e.preventDefault(); 
+                }, 
+                false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
             });
 

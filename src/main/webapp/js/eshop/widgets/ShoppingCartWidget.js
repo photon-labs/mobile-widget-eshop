@@ -90,7 +90,10 @@ YUI.add("shoppingCartWidget", function(Y) {
              */
             $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
-                document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+                document.addEventListener('touchmove', function (e) { 
+                    e.preventDefault(); 
+                }, 
+                false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
             });
         },
@@ -122,14 +125,17 @@ YUI.add("shoppingCartWidget", function(Y) {
             var productQty = apiRef.get("productQty");
             var productDetails = productQty.productDetail;
             console.info("productDetails*****",productDetails);
-            if(productQty.quantity)
+            if(productQty.quantity){
                 var quantity = productQty.quantity;
-            else var quantity = 1;
+            }    
+            else {
+                var quantity = 1;
+            } 
             
             var totalItem = productQty.totalItem;
 
             var currentProductId = 0;
-            if(apiRef.get("currentProductId") != 0 ){
+            if(apiRef.get("currentProductId") !== 0 ){
                 var currentProductId = apiRef.get("currentProductId");
                 console.info('currentProductId = ',currentProductId);
             }
@@ -246,15 +252,14 @@ YUI.add("shoppingCartWidget", function(Y) {
                 product = productArray[i];
 
                 var quantity = $("#productQuantity_"+product.productId).val();
-                console.info('text box quantity ',quantity);
-                if(quantity != product.quantity)
+
+                if(quantity !== product.quantity){
                     product.quantity =  quantity;
-                
+                }
                 totalItem = Number(totalItem) + Number(product.quantity);
                 cartTotal = Number(product.quantity) * Number(product.price);
                 
                 subTotal = Number(subTotal) + Number(cartTotal);
-                console.info('subTotal =' , subTotal);
             }
             
             $("#subTotal").html(subTotal.toFixed(2));
