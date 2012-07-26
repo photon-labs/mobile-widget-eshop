@@ -112,7 +112,7 @@ YUI.add("productDetailsWidget", function(Y) {
 
                 var apiRef = this.get("apiReference");
                 apiRef.set("backPage", "ProductDetails");
-                var url = apiRef.get("wsURLWithoutContext");
+                var url = apiRef.wsURLWithoutContext;
                 var config = apiRef._getConfigData();
                 var webImage = config.web.web;
                 var productDetails = jsonData.product[0];
