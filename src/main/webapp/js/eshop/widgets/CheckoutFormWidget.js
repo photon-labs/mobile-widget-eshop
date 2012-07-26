@@ -374,7 +374,7 @@ YUI.add("checkoutFormWidget", function(Y) {
                 
                 var countryli = this.createElement('<li class="">');
                 var countrylispan1 = this.createElement('<span class="bill_details_lft">Country *</span>');  
-				var countryArray = array("USA","India","Australia","Canada","Bangladesh");	
+				var countryArray = ["USA","India","Australia","Canada","Bangladesh"];	
 				
 				var countryselect = this.createElement('<select name="deliverycountry" id="deliverycountry">');
 				for(var i= 0; i < countryArray.length; i++) {
@@ -510,7 +510,7 @@ YUI.add("checkoutFormWidget", function(Y) {
 				
 				var billcountryli = this.createElement('<li class="">');
                 var billcountrylispan1 = this.createElement('<span class="bill_details_lft">Country *</span>');  
-				var bcountryArray = array("USA","India","Australia","Canada","Bangladesh");	
+				var bcountryArray = ["USA","India","Australia","Canada","Bangladesh"];	
 				
 				var bcountryselect = this.createElement('<select name="billingcountry" id="billingcountry">');
 				for(var i= 0; i < bcountryArray.length; i++) {
