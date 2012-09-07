@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<environment>
+<phresco>
+<mobilewidget>
+
+           <links>
+               <browseWidget>//div[@id='container']/div/div[2]/div[2]/ul/li[2]/a/div/img</browseWidget>
+               <login>//div[@id='container']/div/div[2]/div[2]/ul/li[3]/a/div/img</login>
+               <register>//div[@id='container']/div/div[2]/div/ul/li[2]/a/div/img</register>
+           </links>
+	       <tabs>
+	           <hometab>link=Home</hometab>
+	           <televisiontab>//div[@id='scroller']/div/ul/li/a/span[2]</televisiontab>
+	           <computerstab>//div[@id='scroller']/div/ul/li[2]/a/span[2]</computerstab>
+	           <mobiletab>//div[@id='scroller']/div/ul/li[3]/a/span[2]</mobiletab>
+	           <audioDevicestab>//div[@id='scroller']/div/ul/li[4]/a/span[2]</audioDevicestab>
+	           <camerastab>//div[@id='scroller']/div/ul/li[5]/a/span[2]</camerastab>
+	           <tabletstab>//div[@id='scroller']/div/ul/li[6]/a/span[2]</tabletstab>
+	           <moviesNmusictab>//div[@id='scroller']/div/ul/li[7]/a/span[2]</moviesNmusictab>
+	           <videoGamestab>//div[@id='scroller']/div/ul/li[8]/a/span[2]</videoGamestab>
+	           <mp3Playerstab>//div[@id='scroller']/div/ul/li[9]/a/span[2]</mp3Playerstab>
+	           <accessoriestab>//div[@id='scroller']/div/ul/li[10]/a/span[2]</accessoriestab>
+	           <moretab>link=More</moretab>
+	       </tabs>
+	       <productPage>
+	           <browsepgBackButton>//div[@id='header']/div/div/a/div/p</browsepgBackButton>
+	           <review>//div[@id='scroller']/div[2]/ul/li/div/div[2]/div[2]/a/img</review>
+	           <myShopCartReview>//div[@id='scroller']/div[2]/ul/li/div/div[2]/div[2]/a/img3</myShopCartReview>
+	           <teleProd1Details>//a[contains(text(),'LG Electronics 42PW350 3D Plasma HDTV')]</teleProd1Details>
+	           <compProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</compProd1Details>
+	           <mobileProd1Details>//a[contains(text(),'Apple iPhone 4')]</mobileProd1Details>
+	           <audioProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</audioProd1Details>
+	           <camerasProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</camerasProd1Details>
+	           <tabProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</tabProd1Details>
+	           <MnMProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</MnMProd1Details>
+	           <vidGamesProd1Details>//a[contains(text(),'Call of Duty: Modern Warfare 3')]</vidGamesProd1Details>
+	           <mp3Prod1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</mp3Prod1Details>
+	           <accessoriesProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</accessoriesProd1Details>
+	           <updateCart>//a[contains(text(),'Update Cart')]</updateCart>
+	           <addToCart>//div[@id='scroller']/div[2]/ul/li/div/div[2]/div[2]/a[2]/img</addToCart>
+	           <viewMyCart>link=View My Cart</viewMyCart>
+	           <checkout>//a[contains(text(),'Check Out')]</checkout>
+	           <custInfo>//a[contains(text(),'Customer Information')]</custInfo>
+	           <reviewOrder>//div[@id='revieworder']/a</reviewOrder>
+	           <submitOrder>//a[contains(text(),'Submit Order')]</submitOrder>
+	       </productPage>
+	       <billingInfoPage>
+	       	   <deliveryInfo>//a[contains(text(),'Delivery Information')]</deliveryInfo>
+	       	   <billInfo>//a[contains(text(),'billing Information')]</billInfo>
+	           <billInfocheckAddress>//input[@id='checkaddress']</billInfocheckAddress>
+	           <billInfopaymentMethods>//a[contains(text(),'Payment Methods')]</billInfopaymentMethods>
+	           <billInfoPayMethodCOD>(//input[@name=''])[3]</billInfoPayMethodCOD>
+	           <billInfoPayMethodCheqOrCash>css=input[type="radio"]</billInfoPayMethodCheqOrCash>
+	           <billInfoComments>//a[contains(text(),'Order Comments')]</billInfoComments>
+	           <billInfoEmail>email</billInfoEmail>
+	           <billInfoFirstName>deliveryfirstname</billInfoFirstName>
+	           <billInfoGiveComments>comments</billInfoGiveComments>
+	           <billInfoLastName>deliverylastname</billInfoLastName>
+	           <billInfoPhoneNumber>deliveryphonenumber</billInfoPhoneNumber>
+	           <billInfoPostCode>deliverypostcode</billInfoPostCode>
+	           <billInfoState>deliverystate</billInfoState>
+	           <billInfoCity>deliverycity</billInfoCity>
+	           <billInfoAddress2>deliveryaddress2</billInfoAddress2>
+	           <billInfoCompany>deliverycompany</billInfoCompany>
+	           <billInfoAddress1>deliveryaddress1</billInfoAddress1>
+	       </billingInfoPage>
+</mobilewidget>
+</phresco>
+</environment>
