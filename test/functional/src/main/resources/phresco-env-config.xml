@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <environment>
-           <Browser>googlechrome</Browser>
+           <Browser>firefox</Browser>
 		   <Server>
                <context>mobilewidget</context>
                <protocol>http</protocol>
                <host>172.16.17.180</host>
                <port>8080</port>
+               <resolution>960x640</resolution>
            </Server>
            <selenium>
                <server.host>localhost</server.host>

@@ -11,6 +11,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -26,16 +27,18 @@ import com.photon.phresco.selenium.util.Constants;
 import com.photon.phresco.selenium.util.GetCurrentDir;
 import com.photon.phresco.selenium.util.ScreenException;
 import com.photon.phresco.uiconstants.MobileWidgetData;
+import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 
 public class BaseScreen {
 
-	private WebDriver driver;
+	private static WebDriver driver;
 	private ChromeDriverService chromeService;
 	private Log log = LogFactory.getLog("BaseScreen");
 	private WebElement element;	
 	private MobileWidgetData mobileWidgetConstants;
 	private UIConstants uiConstants;
+	private static PhrescoUiConstants phrsc;
 
 	// private Log log = LogFactory.getLog(getClass());
 
@@ -87,8 +90,9 @@ public class BaseScreen {
 		} else if (selectedBrowser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
 			log.info("-------------***LAUNCHING FIREFOX***--------------");
 			driver = new FirefoxDriver();
-			driver.manage().window().maximize();
+			//driver.manage().window().maximize();
 			// windowMaximizeFirefox();
+			windowResize();
 			driver.navigate().to(applicationURL + applicationContext);
 
 		}
@@ -116,6 +120,18 @@ public class BaseScreen {
 					"------Only FireFox,InternetExplore and Chrome works-----------");
 		}
 
+	}
+	
+	public static void windowResize(){
+		phrsc = new PhrescoUiConstants();		
+		String resolution = phrsc.RESOLUTION;
+		String[] tokens = resolution.split("x");
+		String resolutionX=tokens[0];
+		String resolutionY=tokens[1];		
+		int x= Integer.parseInt(resolutionX);
+		int y= Integer.parseInt(resolutionY);
+		Dimension screenResolution = new Dimension(x,y);
+		driver.manage().window().setSize(screenResolution);
 	}
 
 	/*
