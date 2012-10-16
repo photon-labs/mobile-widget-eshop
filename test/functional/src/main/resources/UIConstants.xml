@@ -4,22 +4,22 @@
 <mobilewidget>
 
            <links>
-               <browseWidget>//div[@id='container']/div/div[2]/div[2]/ul/li[2]/a/div/img</browseWidget>
-               <login>//div[@id='container']/div/div[2]/div[2]/ul/li[3]/a/div/img</login>
-               <register>//div[@id='container']/div/div[2]/div/ul/li[2]/a/div/img</register>
+               <browseWidget>//div[contains(text(),'Browse')]</browseWidget>
+               <login>//div[contains(text(),'Login')]</login>
+               <register>//div[contains(text(),'Register')]</register>
            </links>
 	       <tabs>
 	           <hometab>link=Home</hometab>
-	           <televisiontab>//div[@id='scroller']/div/ul/li/a/span[2]</televisiontab>
-	           <computerstab>//div[@id='scroller']/div/ul/li[2]/a/span[2]</computerstab>
-	           <mobiletab>//div[@id='scroller']/div/ul/li[3]/a/span[2]</mobiletab>
-	           <audioDevicestab>//div[@id='scroller']/div/ul/li[4]/a/span[2]</audioDevicestab>
-	           <camerastab>//div[@id='scroller']/div/ul/li[5]/a/span[2]</camerastab>
-	           <tabletstab>//div[@id='scroller']/div/ul/li[6]/a/span[2]</tabletstab>
-	           <moviesNmusictab>//div[@id='scroller']/div/ul/li[7]/a/span[2]</moviesNmusictab>
-	           <videoGamestab>//div[@id='scroller']/div/ul/li[8]/a/span[2]</videoGamestab>
-	           <mp3Playerstab>//div[@id='scroller']/div/ul/li[9]/a/span[2]</mp3Playerstab>
-	           <accessoriestab>//div[@id='scroller']/div/ul/li[10]/a/span[2]</accessoriestab>
+	           <televisiontab>//span[@class='listicontext'][contains(text(),'Television')]</televisiontab>
+	           <computerstab>//span[@class='listicontext'][contains(text(),'Computers')]</computerstab>
+	           <mobiletab>//span[@class='listicontext'][contains(text(),'Mobile Phones')]</mobiletab>
+	           <audioDevicestab>//span[@class='listicontext'][contains(text(),'Audio Devices')]</audioDevicestab>
+	           <camerastab>//span[@class='listicontext'][contains(text(),'Cameras')]</camerastab>
+	           <tabletstab>//span[@class='listicontext'][contains(text(),'Tablets')]</tabletstab>
+	           <moviesNmusictab>//span[@class='listicontext'][contains(text(),'Movies and Music')]</moviesNmusictab>
+	           <videoGamestab>//span[@class='listicontext'][contains(text(),'Video Games')]</videoGamestab>
+	           <mp3Playerstab>//span[@class='listicontext'][contains(text(),'MP3 Players')]</mp3Playerstab>
+	           <accessoriestab>//span[@class='listicontext'][contains(text(),'Accessories')]</accessoriestab>
 	           <moretab>link=More</moretab>
 	       </tabs>
 	       <productPage>
@@ -41,7 +41,7 @@
 	           <viewMyCart>link=View My Cart</viewMyCart>
 	           <checkout>//a[contains(text(),'Check Out')]</checkout>
 	           <custInfo>//a[contains(text(),'Customer Information')]</custInfo>
-	           <reviewOrder>//div[@id='revieworder']/a</reviewOrder>
+	           <reviewOrder>//div[@id='revieworder']</reviewOrder>
 	           <submitOrder>//a[contains(text(),'Submit Order')]</submitOrder>
 	       </productPage>
 	       <billingInfoPage>
@@ -49,10 +49,10 @@
 	       	   <billInfo>//a[contains(text(),'billing Information')]</billInfo>
 	           <billInfocheckAddress>//input[@id='checkaddress']</billInfocheckAddress>
 	           <billInfopaymentMethods>//a[contains(text(),'Payment Methods')]</billInfopaymentMethods>
-	           <billInfoPayMethodCOD>(//input[@name=''])[3]</billInfoPayMethodCOD>
+	           <billInfoPayMethodCOD>//input[@name=''])[3]</billInfoPayMethodCOD>
 	           <billInfoPayMethodCheqOrCash>css=input[type="radio"]</billInfoPayMethodCheqOrCash>
 	           <billInfoComments>//a[contains(text(),'Order Comments')]</billInfoComments>
-	           <billInfoEmail>email</billInfoEmail>
+	           <billInfoEmail>//input[@name='email']</billInfoEmail>
 	           <billInfoFirstName>deliveryfirstname</billInfoFirstName>
 	           <billInfoGiveComments>comments</billInfoGiveComments>
 	           <billInfoLastName>deliverylastname</billInfoLastName>
@@ -63,6 +63,7 @@
 	           <billInfoAddress2>deliveryaddress2</billInfoAddress2>
 	           <billInfoCompany>deliverycompany</billInfoCompany>
 	           <billInfoAddress1>deliveryaddress1</billInfoAddress1>
+	           <backButton>//div[@class='btn']</backButton>
 	       </billingInfoPage>
 </mobilewidget>
 </phresco>
