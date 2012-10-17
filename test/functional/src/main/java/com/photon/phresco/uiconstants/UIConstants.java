@@ -56,6 +56,7 @@ public class UIConstants {
 	public String GIVECOMMENTS="billInfoGiveComments";
 	public String REVIEWORDER="reviewOrder";
 	public String SUBMITORDER="submitOrder";
+	public String BACK_BUTTON="backButton";
 	 
 	public UIConstants() {
 		try {

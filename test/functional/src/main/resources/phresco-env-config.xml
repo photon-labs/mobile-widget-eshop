@@ -4,13 +4,9 @@
 		   <Server>
                <context>mobilewidget</context>
                <protocol>http</protocol>
-               <host>172.16.17.180</host>
-               <port>8080</port>
-               <resolution>960x640</resolution>
+               <host>localhost</host>
+               <port>8888</port>
+               <resolution></resolution>
            </Server>
-           <selenium>
-               <server.host>localhost</server.host>
-               <server.port>4444</server.port>
-               <speed>300</speed>
-           </selenium>  
+           
 </environment>

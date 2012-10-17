@@ -74,8 +74,7 @@ public class WelcomePage {
 					.println("---------testToVerifyTheAudioDevicesAddToCart()-------------");
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
-
-			welcomeScreen.clickOnBrowse(methodName);
+			welcomeScreen.clickOnBrowse(methodName);			
 			welcomeScreen.AudioDevices(methodName);			
 			welcomeScreen.BillingInfo(methodName);
 		} catch (Exception t) {
@@ -91,6 +90,8 @@ public class WelcomePage {
 
 			System.out
 					.println("---------testToVerifyTheCamerasAddToCart()-------------");
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
 			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.Cameras(methodName);
 			welcomeScreen.BillingInfo(methodName);
@@ -107,6 +108,8 @@ public class WelcomePage {
 
 			System.out
 					.println("---------testToVerifyTheVideoGamesAddToCart()-------------");
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
 			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.VideoGames(methodName);
 			welcomeScreen.BillingInfo(methodName);
@@ -123,7 +126,9 @@ public class WelcomePage {
 
 			System.out
 					.println("---------testToVerifyTheTelevisionAddToCart()-------------");
-
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.Television(methodName);
 			welcomeScreen.BillingInfo(methodName);
 		} catch (Exception t) {
@@ -139,7 +144,9 @@ public class WelcomePage {
 
 			System.out
 					.println("---------testToVerifyTheTabletsAddToCart()-------------");
-
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.Tablets(methodName);
 			welcomeScreen.BillingInfo(methodName);
 		} catch (Exception t) {
@@ -155,7 +162,9 @@ public class WelcomePage {
 
 			System.out
 					.println("---------testToVerifyTheMP3PlayersAddToCart()-------------");
-
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.MP3Players(methodName);
 			welcomeScreen.BillingInfo(methodName);
 		} catch (Exception t) {
@@ -171,7 +180,9 @@ public class WelcomePage {
 
 			System.out
 					.println("---------testToVerifyTheMoviesAndMusicAddToCart()-------------");
-
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.MoviesnMusic(methodName);
 			welcomeScreen.BillingInfo(methodName);
 		} catch (Exception t) {
@@ -187,7 +198,9 @@ public class WelcomePage {
 
 			System.out
 					.println("---------testToVerifyTheMobilePhonesAddToCart()-------------");
-
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.MobilePhones(methodName);
 			welcomeScreen.BillingInfo(methodName);
 		} catch (Exception t) {
@@ -202,7 +215,9 @@ public class WelcomePage {
 		try {
 			System.out
 					.println("---------testToVerifyTheAccessoriesAddToCart()-------------");
-
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.Accessories(methodName);
 			welcomeScreen.BillingInfo(methodName);
 		} catch (Exception t) {
@@ -217,7 +232,9 @@ public class WelcomePage {
 		try {
 			System.out
 					.println("---------testToVerifyTheComputersAddToCart()-------------");
-
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.Computers(methodName);
 			welcomeScreen.BillingInfo(methodName);
 		} catch (Exception t) {

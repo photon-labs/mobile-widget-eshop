@@ -6,6 +6,8 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 
+import junit.framework.Assert;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
@@ -20,6 +22,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.net.UrlChecker.TimeoutException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.base.Function;
@@ -230,16 +233,26 @@ public class BaseScreen {
 	}
 
 	public void waitForElementPresent(String locator, String methodName)
-			throws IOException, Exception {
+			throws Exception {
 		try {
+			By by=null;
 			log.info("Entering:--------waitForElementPresent()--------");
-			By by = By.xpath(locator);
-			WebDriverWait wait = new WebDriverWait(driver, 10);
-			log.info("Waiting:--------One second----------");
+			
+			if(locator.startsWith("//")){
+				log.info("Entering:--------Xpath checker--------");
+				by = By.xpath(locator);	
+			}else{
+				log.info("Entering:--------Non-Xpath checker----------------");
+				by=By.id(locator);
+			}
+			
+			WebDriverWait wait = new WebDriverWait(driver, 20);			
 			wait.until(presenceOfElementLocated(by));
+			
 		}
-
+	
 		catch (Exception e) {
+			log.info("Entering:------presenceOfElementLocated()-----End"+"--("+ locator +")--");
 			File scrFile = ((TakesScreenshot) driver)
 					.getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(scrFile,
@@ -254,8 +267,7 @@ public class BaseScreen {
 	Function<WebDriver, WebElement> presenceOfElementLocated(final By locator) {
 		log.info("Entering:------presenceOfElementLocated()-----Start");
 		return new Function<WebDriver, WebElement>() {
-			public WebElement apply(WebDriver driver) {
-				log.info("Entering:*********presenceOfElementLocated()******End");
+			public WebElement apply(WebDriver driver) {				
 				return driver.findElement(locator);
 
 			}
@@ -319,7 +331,7 @@ public class BaseScreen {
 	    	if (StringUtils.isEmpty(methodName)) {
 				methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
 			}
-	    	System.out.println("-----------------*********--------------------------");
+	    	
 	    	waitForElementPresent(uiConstants.AUDIO_DEVICES,methodName);
 	    	getXpathWebElement(uiConstants.AUDIO_DEVICES);
 			element.click();
@@ -423,11 +435,11 @@ public class BaseScreen {
 	    	waitForElementPresent(uiConstants.CUSTOMERINFORMATION,methodName);
 	    	getXpathWebElement(uiConstants.CUSTOMERINFORMATION);
 			element.click();
+				
+			waitForElementPresent(uiConstants.EMAIL,methodName);			
+			Thread.sleep(2000);		
 			
-			waitForElementPresent(uiConstants.EMAIL,methodName);
-			
-			
-			getIdWebElement(uiConstants.EMAIL);
+			getXpathWebElement(uiConstants.EMAIL);
 			element.click();
 			
 			element.sendKeys(this.mobileWidgetConstants.EMAIL_VALUE);
@@ -455,17 +467,17 @@ public class BaseScreen {
 			element.sendKeys(this.mobileWidgetConstants.PHONENUMBER_VALUE);
 	    	waitForElementPresent(uiConstants.BILLINGINFO,methodName);
 	    	getXpathWebElement(uiConstants.BILLINGINFO);
-			element.click();
-			Thread.sleep(5000);
+			element.click();			
+			
 	    	waitForElementPresent(uiConstants.CHECKADDRESS,methodName);
 	    	getXpathWebElement(uiConstants.CHECKADDRESS);
 			element.click();
 	    	waitForElementPresent(uiConstants.PAYMENTMETHODS,methodName);
 	    	getXpathWebElement(uiConstants.PAYMENTMETHODS);
 			element.click();
-	    	waitForElementPresent(uiConstants.CASHONDELIVERY,methodName);
+	    	/*waitForElementPresent(uiConstants.CASHONDELIVERY,methodName);
 	    	getXpathWebElement(uiConstants.CASHONDELIVERY);
-			element.click();
+			element.click();*/
 	    	waitForElementPresent(uiConstants.ORDERCOMMENTS,methodName);
 	    	getXpathWebElement(uiConstants.ORDERCOMMENTS);
 			element.click();
@@ -477,6 +489,9 @@ public class BaseScreen {
 	    	waitForElementPresent(uiConstants.SUBMITORDER,methodName);
 	    	getXpathWebElement(uiConstants.SUBMITORDER);
 			element.click();
+			getXpathWebElement(uiConstants.BACK_BUTTON);
+			element.click();
+			Thread.sleep(2000);
 	    }
 
 
