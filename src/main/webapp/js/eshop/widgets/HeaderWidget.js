@@ -23,7 +23,7 @@ YUI.add("headerWidget", function(Y) {
         HeaderWidget.superclass.constructor.apply(this, arguments);
     }
 
-    HeaderWidget.NAME = "headerWidget";
+    HeaderWidget.NAME = "HeaderWidget";
 
     HeaderWidget.ATTRS = {        
         color : {

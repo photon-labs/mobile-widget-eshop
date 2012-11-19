@@ -23,7 +23,7 @@ YUI.add("footerWidget", function(Y) {
         FooterWidget.superclass.constructor.apply(this, arguments);
     }
 
-    FooterWidget.NAME = "footerWidget";
+    FooterWidget.NAME = "FooterWidget";
 
     FooterWidget.ATTRS = {        
         color : {

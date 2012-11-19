@@ -23,7 +23,7 @@ YUI.add("reviewWidget", function(Y) {
         ReviewWidget.superclass.constructor.apply(this, arguments);
     }
 
-    ReviewWidget.NAME = "reviewWidget";
+    ReviewWidget.NAME = "ReviewWidget";
 
     ReviewWidget.ATTRS = {        
         targetNode : {
@@ -103,7 +103,7 @@ YUI.add("reviewWidget", function(Y) {
         captureData : function(jsonData) {
             this.createContent(this.getTargetNode(), jsonData);
             var target = this.get("targetNode");
-            $(target).unmask();
+            //$(target).unmask();
         },
 
         createContent : function(targetNode, jsonData) {
@@ -112,10 +112,8 @@ YUI.add("reviewWidget", function(Y) {
 
                 var apiRef = this.get("apiReference");
                 apiRef.set("backPage", "ProductDetails");
-                var url = apiRef.get("wsURLWithoutContext");
-                var config = apiRef._getConfigData();
                 var productReview = jsonData.reviewData.review;
-            
+				
                 var userId = 0;
                 if(apiRef.get("userId")){
                      userId = apiRef.get("userId");
@@ -135,7 +133,7 @@ YUI.add("reviewWidget", function(Y) {
                     mainDiv.appendChild(reviedTitleDiv);
                     
                     var reviewDiv = this.createElement('<div class="review_div">');
-                    
+                  
                     if(productReview.ratings){
                         var avgreviewDiv = this.createElement('<div class="review_head">Average Customer Review ('+productReview.average+')</div>');
                         reviewDiv.appendChild(avgreviewDiv);
@@ -211,13 +209,13 @@ YUI.add("reviewWidget", function(Y) {
                 targetNode.appendChild(loading);
             }
 
-            $(document).ready(function(){
+            /* $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
                 document.addEventListener('touchmove', function (e) { 
                     e.preventDefault(); 
                 }, false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
-            });
+            }); */
 
         },
         onUpdateListener: function(jsonData) {

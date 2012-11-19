@@ -29,7 +29,7 @@ YUI.add("phrescoWidget", function(Y) {
     var totalItem = 0;
     var cartTotal = 0;  
 
-    PhrescoWidget.NAME = "phrescoWidget";
+    PhrescoWidget.NAME = "PhrescoWidget";
     PhrescoWidget.ATTRS = {
         targetNode : {
             value : Y.Node.one(document.body)
@@ -191,7 +191,9 @@ YUI.add("phrescoWidget", function(Y) {
                     if (listeners[i] instanceof Y.Phresco.CategoryWidget) {
                         var target = listeners[i].get("targetNode");
                         widgetObj.loading(target);
-                        apiRef.getCategories([listeners[i]]);
+                        apiRef.getCategories([listeners[i]], function(callback){
+							//console.info('returnvalue',callback);
+					   });
                     }
                 }
         },
@@ -211,7 +213,9 @@ YUI.add("phrescoWidget", function(Y) {
             for (var i = 0 ;i < listeners.length; i++) {
                 var target = listeners[i].get("targetNode");
                 widgetObj.loading(target);
-                apiRef.getProducts(listeners, this.data, listeners[i]);
+                apiRef.getProducts(listeners, this.data, listeners[i], function(callback){
+				
+				});
             }
 
         },
@@ -226,7 +230,9 @@ YUI.add("phrescoWidget", function(Y) {
             for (var i = 0 ;i < listeners.length; i++) {
                 var target = listeners[i].get("targetNode");
                 widgetObj.loading(target);
-                apiRef.getProductDetails(listeners[i], this.data, listeners[i]);
+                apiRef.getProductDetails(listeners[i], this.data, listeners[i], function(callback){
+				
+				});
             }
         },
         showOrderSuccess : function() {
@@ -466,7 +472,9 @@ YUI.add("phrescoWidget", function(Y) {
                     
                         var target = listeners[i].get("targetNode");
                         widgetObj.loading(target);
-                        apiRef.getCategories([listeners[i]]);
+                        apiRef.getCategories([listeners[i]], function(callback){
+							//console.info('returnvalue',callback);
+					   });
                     }
                 }
 
@@ -712,7 +720,9 @@ YUI.add("phrescoWidget", function(Y) {
             for (var i = 0 ;i < listeners.length; i++) {
                 var target = listeners[i].get("targetNode");
                 widgetObj.loading(target);
-                apiRef.getProductReviews(listeners[i], this.data, listeners[i]);
+                apiRef.getProductReviews(listeners[i], this.data, listeners[i], function(callback){
+				
+				});
             }
         },
         userRegister: function () {
@@ -731,8 +741,9 @@ YUI.add("phrescoWidget", function(Y) {
                 data.register = register;
                 var listeners = widgetObj.get("onSelectedListeners");
                 
-
-                apiRef.doRegister(listeners,data,listeners);
+				apiRef.doRegister(listeners,data,listeners, function(callback){
+				
+				});
 
             }
         },
@@ -773,7 +784,9 @@ YUI.add("phrescoWidget", function(Y) {
                     var target = widgetObj.get("widgets").get("targetNode");
                     widgetObj.loading(target);
                 
-					apiRef.doLogin(listeners[i],data,listeners[i]);
+					apiRef.doLogin(listeners[i],data,listeners[i], function(callback){
+				
+					});
 				}
           }            
         },

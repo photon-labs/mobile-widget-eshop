@@ -4,7 +4,7 @@ YUI.add("loginWidget", function(Y) {
         LoginWidget.superclass.constructor.apply(this, arguments);
     }
 
-    LoginWidget.NAME = "loginWidget";
+    LoginWidget.NAME = "LoginWidget";
 
     LoginWidget.ATTRS = {        
         targetNode : {
@@ -72,11 +72,11 @@ YUI.add("loginWidget", function(Y) {
              * to attribute value changes, and also attach any DOM events,
              * to activate the UI.
              */
-            $(document).ready(function(){
+           /*  $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
                 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
-            });
+            }); */
         },
 
         sync : function() {
@@ -93,7 +93,7 @@ YUI.add("loginWidget", function(Y) {
         captureData : function(jsonData) {
             this.createContent(this.getTargetNode(), jsonData);
             var target = this.get("targetNode");
-            $(target).unmask();
+            //$(target).unmask();
         },
 
         createContent : function(targetNode, jsonData) {
@@ -207,5 +207,5 @@ YUI.add("loginWidget", function(Y) {
 
     Y.namespace("Phresco").LoginWidget = LoginWidget;
 }, "3.3.0", {
-    requires:["widget", "node", "substitute"]
+    requires:["widget", "node", "substitute", "phrescoWidget"]
 });

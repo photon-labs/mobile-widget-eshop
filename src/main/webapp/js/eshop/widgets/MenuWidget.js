@@ -23,7 +23,7 @@ YUI.add("menuWidget", function(Y) {
         MenuWidget.superclass.constructor.apply(this, arguments);
     }
 
-    MenuWidget.NAME = "menuWidget";
+    MenuWidget.NAME = "MenuWidget";
 
     MenuWidget.ATTRS = {        
     };

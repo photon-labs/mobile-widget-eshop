@@ -4,7 +4,7 @@ YUI.add("productsWidget", function(Y) {
         ProductsWidget.superclass.constructor.apply(this, arguments);
     }
 
-    ProductsWidget.NAME = "productsWidget";
+    ProductsWidget.NAME = "ProductsWidget";
 
     ProductsWidget.ATTRS = {        
         targetNode : {
@@ -86,7 +86,7 @@ YUI.add("productsWidget", function(Y) {
         captureData : function(jsonData) {
             this.createContent(this.getTargetNode(), jsonData);
             var target = this.get("targetNode");
-            $(target).unmask();
+            //$(target).unmask();
         },
 
         createContent : function(targetNode, jsonData) {
@@ -188,14 +188,14 @@ YUI.add("productsWidget", function(Y) {
                     $('.footer li.mycart').removeClass("mycart_active");
                     /* highlighting end */
                 }
-            $(document).ready(function(){
+            /* $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
                 document.addEventListener('touchmove', function (e) { 
                     e.preventDefault(); 
                 }, 
                 false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
-            });
+            }); */
                 
         },
   

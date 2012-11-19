@@ -23,7 +23,7 @@ YUI.add("registrationSuccessWidget", function(Y) {
         RegistrationSuccessWidget.superclass.constructor.apply(this, arguments);
     }
 
-    RegistrationSuccessWidget.NAME = "registrationSuccessWidget";
+    RegistrationSuccessWidget.NAME = "RegistrationSuccessWidget";
 
     RegistrationSuccessWidget.ATTRS = {        
         targetNode : {
@@ -112,23 +112,20 @@ YUI.add("registrationSuccessWidget", function(Y) {
         captureData : function(jsonData) {
             this.createContent(this.getTargetNode(), jsonData);
             var target = this.get("targetNode");
-            $(target).unmask();
+            //$(target).unmask();
         },
 
         createContent : function(targetNode, jsonData) {
             targetNode.empty();
 
             var apiRef = this.get("apiReference");
-            var url = apiRef.get("wsURLWithoutContext");
-            var config = apiRef._getConfigData();
-            var webImage = config.web.web;
-		    console.info('jasondata = ',jsonData);
+            //var url = apiRef.get("wsURLWithoutContext");
+            //var config = apiRef._getConfigData();
+            //var webImage = config.web.web;
             
             var userId = 0;
 			if(apiRef.get("userId"))
 				userId = apiRef.get("userId");
-			
-            console.info('userId =',userId);
 
             var myCart = this.createElement('<div class="mycart_div"></div>');
                 var log_div = this.createElement('<div class="log_div"></div>');

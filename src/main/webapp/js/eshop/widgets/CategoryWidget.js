@@ -23,7 +23,7 @@ YUI.add("categoryWidget", function(Y) {
         CategoryWidget.superclass.constructor.apply(this, arguments);
     }
 
-    CategoryWidget.NAME = "categoryWidget";
+    CategoryWidget.NAME = "CategoryWidget";
 
     CategoryWidget.ATTRS = {        
         targetNode : {
@@ -140,12 +140,12 @@ YUI.add("categoryWidget", function(Y) {
 			$('.footer li.spl_offer').removeClass("spl_offer_active");
 			$('.footer li.mycart').removeClass("mycart_active");
 			
-			/* highlighting end */
+			/* highlighting end 
             $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
                 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
-            });
+            }); */
         },
     });
 

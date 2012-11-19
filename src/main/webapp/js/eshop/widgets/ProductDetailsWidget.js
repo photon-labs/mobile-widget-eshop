@@ -23,7 +23,7 @@ YUI.add("productDetailsWidget", function(Y) {
         ProductDetailsWidget.superclass.constructor.apply(this, arguments);
     }
 
-    ProductDetailsWidget.NAME = "productDetailsWidget";
+    ProductDetailsWidget.NAME = "ProductDetailsWidget";
 
     ProductDetailsWidget.ATTRS = {
         targetNode : {
@@ -103,7 +103,7 @@ YUI.add("productDetailsWidget", function(Y) {
         captureData : function(jsonData) {
             this.createContent(this.getTargetNode(), jsonData);
             var target = this.get("targetNode");
-            $(target).unmask();
+            //$(target).unmask();
         },
 
         createContent : function(targetNode, jsonData) {
@@ -116,7 +116,6 @@ YUI.add("productDetailsWidget", function(Y) {
                 var config = apiRef._getConfigData();
                 var webImage = config.web.web;
                 var productDetails = jsonData.product[0];
-				console.info('productDetails = ' , productDetails);
                 var imageURL = url + webImage + productDetails.image;
                 var detailImageURL = url + '/' + webImage + productDetails.image;       
                 var youSave = productDetails.listPrice - productDetails.sellPrice;
@@ -232,14 +231,14 @@ YUI.add("productDetailsWidget", function(Y) {
             } else {
             }
 
-            $(document).ready(function(){
+            /* $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
                 document.addEventListener('touchmove', function (e) { 
                     e.preventDefault(); 
                 }, 
                 false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
-            });
+            }); */
 
         },
         onUpdateListener: function(jsonData) {

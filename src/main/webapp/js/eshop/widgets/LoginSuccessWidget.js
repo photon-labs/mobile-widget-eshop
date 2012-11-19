@@ -23,7 +23,7 @@ YUI.add("loginSuccessWidget", function(Y) {
         LoginSuccessWidget.superclass.constructor.apply(this, arguments);
     }
 
-    LoginSuccessWidget.NAME = "loginSuccessWidget";
+    LoginSuccessWidget.NAME = "LoginSuccessWidget";
 
     LoginSuccessWidget.ATTRS = {        
         targetNode : {
@@ -112,22 +112,16 @@ YUI.add("loginSuccessWidget", function(Y) {
         captureData : function(jsonData) {
             this.createContent(this.getTargetNode(), jsonData);
             var target = this.get("targetNode");
-            $(target).unmask();
+            //$(target).unmask();
         },
 
         createContent : function(targetNode, jsonData) {
             targetNode.empty();
 
             var apiRef = this.get("apiReference");
-            var url = apiRef.get("wsURLWithoutContext");
-            var config = apiRef._getConfigData();
-            var webImage = config.web.web;
-		    //console.info('jasondata = ',jsonData);
-            
             var userId = 0;
 			if(apiRef.get("userId"))
 				userId = apiRef.get("userId");
-            //console.info('userId =',userId);
 
             var myCart = this.createElement('<div class="mycart_div"></div>');
                 var log_div = this.createElement('<div class="log_div"></div>');
@@ -186,5 +180,5 @@ YUI.add("loginSuccessWidget", function(Y) {
 
     Y.namespace("Phresco").LoginSuccessWidget = LoginSuccessWidget;
 }, "3.3.0", {
-    requires:["widget", "node", "substitute"]
+    requires:["widget", "node", "substitute", "phrescoWidget"]
 });

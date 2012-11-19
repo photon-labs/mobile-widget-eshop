@@ -23,7 +23,7 @@ YUI.add("postReviewWidget", function(Y) {
         PostReviewWidget.superclass.constructor.apply(this, arguments);
     }
 
-    PostReviewWidget.NAME = "postReviewWidget";
+    PostReviewWidget.NAME = "PostReviewWidget";
 
     PostReviewWidget.ATTRS = {        
         targetNode : {
@@ -110,20 +110,14 @@ YUI.add("postReviewWidget", function(Y) {
         captureData : function(jsonData) {
             this.createContent(this.getTargetNode(), jsonData);
             var target = this.get("targetNode");
-            $(target).unmask();
+            //$(target).unmask();
         },
 
         createContent : function(targetNode, jsonData) {
-            targetNode.empty();
+          targetNode.empty();
 
             var apiRef = this.get("apiReference");
-            var url = apiRef.get("wsURLWithoutContext");
-            var config = apiRef._getConfigData();
-            var webImage = config.web.web;
-			console.info('jason data =' , jsonData.id);
-			if(apiRef.get("userId")){
-				var userId = apiRef.get("userId");
-			}		
+			
             var myCart = this.createElement('<div class="mycart_div">');
             var myCartHead = this.createElement('<div class="product_name">Post Review</div>');
            
@@ -135,14 +129,16 @@ YUI.add("postReviewWidget", function(Y) {
 					var reviewRatingTitle = this.createElement('<label for="name"><span class="comments_text">Rate this</span></label>');
 					var ratingStarSpan = this.createElement('<span class="ratingStarSpan"></span>');
 					
-					for (var i = 1; i <= 5; i++) {
+					var i;
+					
+					for ( i = 1; i <= 5; i++) {
 						var starImage = 'start_dis.png';
 						var star = Y.Node.create('<a href="javascript:void(0);" id="starImage_'+i+'" name="starImage_'+i+'"><img src="images/eshop/start_dis.png" width="16" height="16" title="' + i + '"></a>');
 						star.obj = this;
 						star.data = i;
 						Y.on('click' , this.addRating , star);
 						ratingStarSpan.appendChild(star);
-					}
+					} 
 					var starValueBox = this.createElement('<input type="hidden" name="starValue" id="starValue" size="2">');
 					var productId = this.createElement('<input type="hidden" name="productId" id="productId" value="'+jsonData.id+'">');
 					reviewRating.appendChild(reviewRatingTitle);
@@ -181,7 +177,7 @@ YUI.add("postReviewWidget", function(Y) {
             
             if ($('#container').is(":visible")) {
                     this.renderWidgets();
-                }
+                } 
         },
         onUpdateListener: function(jsonData) {
             this.captureData(jsonData);

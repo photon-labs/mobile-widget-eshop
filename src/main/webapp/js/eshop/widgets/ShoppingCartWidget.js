@@ -23,7 +23,7 @@ YUI.add("shoppingCartWidget", function(Y) {
         ShoppingCartWidget.superclass.constructor.apply(this, arguments);
     }
 
-    ShoppingCartWidget.NAME = "shoppingCartWidget";
+    ShoppingCartWidget.NAME = "ShoppingCartWidget";
 
     ShoppingCartWidget.ATTRS = {        
         targetNode : {
@@ -76,8 +76,7 @@ YUI.add("shoppingCartWidget", function(Y) {
             var jsonData = this.get("newproducts");
             this.createContent(this.getTargetNode());
         },
-        
-
+		
         bind : function() {
             /*
              * bind is intended to be used by the Widget subclass 
@@ -111,46 +110,37 @@ YUI.add("shoppingCartWidget", function(Y) {
         captureData : function(jsonData) {
             this.createContent(this.getTargetNode(), jsonData);
             var target = this.get("targetNode");
-            $(target).unmask();
+            //$(target).unmask();
         },
 
         createContent : function(targetNode, jsonData) {
             targetNode.empty();
 
             var apiRef = this.get("apiReference");
-            var url = apiRef.get("wsURLWithoutContext");
-            var config = apiRef._getConfigData();
-            var webImage = config.web.web;
             
             var productQty = apiRef.get("productQty");
             var productDetails = productQty.productDetail;
-            console.info("productDetails*****",productDetails);
             if(productQty.quantity){
                 var quantity = productQty.quantity;
             }    
             else {
                 var quantity = 1;
-            } 
+            }  
             
-            var totalItem = productQty.totalItem;
+			var totalItem = productQty.totalItem;
 
             var currentProductId = 0;
             if(apiRef.get("currentProductId") !== 0 ){
                 var currentProductId = apiRef.get("currentProductId");
-                console.info('currentProductId = ',currentProductId);
-            }
+            }  
         
-            var imageURL = url + '/' + webImage + productDetails.image;
-            var detailImageURL = url + '/' + webImage + productDetails.detailImage;
-            
-            
             var myCart = this.createElement('<div class="mycart_div">');
             var myCartHead = this.createElement('<div class="product_name">My Shopping Cart</div>');
-            myCart.appendChild(myCartHead);
+            myCart.appendChild(myCartHead); 
             
             var productTotal = 0; 
             var subTotal = 0;
-            for (var j = 0; j < productDetails.length; j++) {
+			for (var j = 0; j < productDetails.length; j++) {
                 var mycart_quality_div = Y.Node.create('<div class="mycart_quality_div">');
 				mycart_quality_div.obj = this;
 				mycart_quality_div.productId = productDetails[j].productId;
@@ -197,41 +187,40 @@ YUI.add("shoppingCartWidget", function(Y) {
                 mycart_qua_div.appendChild(mycart_borderline);
             
             mycart_quality_div.appendChild(mycart_qua_div);
-            myCart.appendChild(mycart_quality_div);
-            subTotal = (Number(subTotal) + (Number(productDetails[j].quantity) * Number(productDetails[j].price)));
+            myCart.appendChild(mycart_quality_div); 
+           subTotal = (Number(subTotal) + (Number(productDetails[j].quantity) * Number(productDetails[j].price)));
         }
 
-        var mycart_subtotal =  this.createElement('<div class="mycart_subtotal">Subtotal: $ <span id="subTotal">'+subTotal+'</span></div>');
-        var mycart_btn =  this.createElement('<div class="mycart_btn">');
-        var mycart_update_view_bu =  this.createElement('<div class="mycart_update_view_bu">');
-        var mycart_mid_bu =  Y.Node.create('<div class="mycart_mid_bu"><a href="#">Update Cart</a></div>');
-            
-            mycart_mid_bu.obj = this;
-            mycart_mid_bu.pid = productDetails.id;
-            Y.on('click' , this.addToMyCart , mycart_mid_bu);
-            
-            mycart_update_view_bu.appendChild(mycart_mid_bu);
+			var mycart_subtotal =  this.createElement('<div class="mycart_subtotal">Subtotal: $ <span id="subTotal">'+subTotal+'</span></div>');
+			var mycart_btn =  this.createElement('<div class="mycart_btn">');
+			var mycart_update_view_bu =  this.createElement('<div class="mycart_update_view_bu">');
+			var mycart_mid_bu =  Y.Node.create('<div class="mycart_mid_bu"><a href="#">Update Cart</a></div>');
+				
+				mycart_mid_bu.obj = this;
+				mycart_mid_bu.pid = productDetails.id;
+				Y.on('click' , this.addToMyCart , mycart_mid_bu);
+				
+				mycart_update_view_bu.appendChild(mycart_mid_bu);
 
-        var mycart_update_view_bu1 =  this.createElement('<div class="mycart_update_view_bu">');
-        var mycart_mid_bu1 =  Y.Node.create('<div class="mycart_mid_bu"><a href="#">Check Out</a></div>');
-            mycart_mid_bu1.obj = this;
-            mycart_mid_bu1.id = 'cart-tab';
-            Y.on('click' , this.showProductOrder, mycart_mid_bu1);
-        
-            mycart_update_view_bu1.appendChild(mycart_mid_bu1);
-        var clearDiv =  this.createElement('<div style="clear:both"></div>');
-        
-        if(subTotal > 0){
-            mycart_btn.appendChild(mycart_update_view_bu);
-            mycart_btn.appendChild(mycart_update_view_bu1);
-        }   
-            mycart_btn.appendChild(clearDiv);
-            
-        
-        myCart.appendChild(mycart_subtotal);
-        myCart.appendChild(mycart_btn);
-        
-        targetNode.appendChild(myCart);
+			var mycart_update_view_bu1 =  this.createElement('<div class="mycart_update_view_bu">');
+			var mycart_mid_bu1 =  Y.Node.create('<div class="mycart_mid_bu"><a href="#">Check Out</a></div>');
+				mycart_mid_bu1.obj = this;
+				mycart_mid_bu1.id = 'cart-tab';
+				Y.on('click' , this.showProductOrder, mycart_mid_bu1);
+			
+				mycart_update_view_bu1.appendChild(mycart_mid_bu1);
+			var clearDiv =  this.createElement('<div style="clear:both"></div>');
+			
+			if(subTotal > 0){
+				mycart_btn.appendChild(mycart_update_view_bu);
+				mycart_btn.appendChild(mycart_update_view_bu1);
+			}   
+				mycart_btn.appendChild(clearDiv);
+				
+			
+			myCart.appendChild(mycart_subtotal);
+			myCart.appendChild(mycart_btn); 
+        targetNode.appendChild(myCart); 
        
         
         },

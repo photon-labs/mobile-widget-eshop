@@ -23,7 +23,7 @@ YUI.add("sliderWidget", function(Y) {
         SliderWidget.superclass.constructor.apply(this, arguments);
     }
 
-    SliderWidget.NAME = "sliderWidget";
+    SliderWidget.NAME = "SliderWidget";
 
     SliderWidget.ATTRS = {        
         color : {

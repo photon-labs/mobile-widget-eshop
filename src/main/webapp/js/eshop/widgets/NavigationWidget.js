@@ -23,7 +23,7 @@ YUI.add("navigationWidget", function(Y) {
         NavigationWidget.superclass.constructor.apply(this, arguments);
     }
 
-    NavigationWidget.NAME = "navigationWidget";
+    NavigationWidget.NAME = "NavigationWidget";
 
     NavigationWidget.ATTRS = {        
     };

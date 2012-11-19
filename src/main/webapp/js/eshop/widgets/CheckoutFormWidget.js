@@ -23,7 +23,7 @@ YUI.add("checkoutFormWidget", function(Y) {
         CheckoutFormWidget.superclass.constructor.apply(this, arguments);
     }
 
-    CheckoutFormWidget.NAME = "checkoutFormWidget";
+    CheckoutFormWidget.NAME = "CheckoutFormWidget";
 
     CheckoutFormWidget.ATTRS = {        
         targetNode : {
@@ -199,7 +199,7 @@ YUI.add("checkoutFormWidget", function(Y) {
         captureData : function(jsonData) {
             this.createContent(this.getTargetNode(), jsonData);
             var target = this.get("targetNode");
-            $(target).unmask();
+            //$(target).unmask();
         },
 
         createContent : function(targetNode, jsonData) {
@@ -657,14 +657,14 @@ YUI.add("checkoutFormWidget", function(Y) {
             } else {
              }
 
-            $(document).ready(function(){
+           /*  $(document).ready(function(){
                 var myScroll = new iScroll('scroller');
                 document.addEventListener('touchmove', function (e) { 
                     e.preventDefault(); 
                 }, 
                 false);
                 document.addEventListener('DOMContentLoaded', myScroll, false);
-            });
+            }); */
 
             this.bind();
         },

@@ -4,7 +4,7 @@ YUI.add("registrationWidget", function(Y) {
         RegistrationWidget.superclass.constructor.apply(this, arguments);
     }
 
-    RegistrationWidget.NAME = "registrationWidget";
+    RegistrationWidget.NAME = "RegistrationWidget";
 
     RegistrationWidget.ATTRS = {        
         targetNode : {
@@ -93,7 +93,7 @@ YUI.add("registrationWidget", function(Y) {
         captureData : function(jsonData) {
             this.createContent(this.getTargetNode(), jsonData);
             var target = this.get("targetNode");
-            $(target).unmask();
+            //$(target).unmask();
         },
 
         createContent : function(targetNode, jsonData) {
@@ -155,7 +155,7 @@ YUI.add("registrationWidget", function(Y) {
 
                                 var log_txt3 = this.createElement('<div class="log_txt"><div id="regphonenumber_err_div" class="clearfix">');
                                     var log_txt_lft3 = this.createElement('<div class="log_txt_lft">Phone</div>');
-                                    var log_txt_rht3 = Y.Node.create('<div class="log_txt_rht"><input type="phone" name="regphonenumber" id="regphonenumber" placeholder="Phone Number" maxlength="20" /></div><span class="help-inline" id="regphonenumber_err"></span>');
+                                    var log_txt_rht3 = Y.Node.create('<div class="log_txt_rht"><input type="text" name="regphonenumber" id="regphonenumber" placeholder="Phone Number" maxlength="20" /></div><span class="help-inline" id="regphonenumber_err"></span>');
                                 log_txt3.appendChild(log_txt_lft3);
                                 log_txt3.appendChild(log_txt_rht3);
 

@@ -17,35 +17,35 @@
         <link type="text/css" rel="stylesheet" href="css/eshop/style1.css"/>
         <link type="text/css" rel="stylesheet" href="css/eshop/jquery.loadmask.css"/>
 
-        <script type="text/javascript" charset="utf-8" src="lib/jquery/jquery.js"></script>
-		<script type="text/javascript" src="lib/xml2json/jquery.xml2json.js"></script>
+        <script type="text/javascript" charset="utf-8" src="lib/jslibraries/files/jslib_jquery-amd/1.7.1-alpha-1/jslib_jquery-amd-1.7.1-alpha-1.js"></script>
+		<script type="text/javascript" src="lib/jslibraries/files/jslib_xml2json-amd/1.1/jslib_xml2json-amd-1.1.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/eshop/jquery.loadmask.js"></script>
         <script type="text/javascript" src="lib/yui/build/yui/yui-min.js"></script>
         <script type="text/javascript" src="lib/iscroll/iscroll.js"></script>
 <!--    <script type="text/javascript" src="lib/iscroll/iscrollnew.js"></script>-->
-        <script type="text/javascript" src="lib/jsonpath/jsonpath.js"></script> 
+        <script type="text/javascript" src="lib/jslibraries/files/jslib_jsonpath-amd/0.8.0/jslib_jsonpath-amd-0.8.0.js"></script> 
         <!--<script type="text/javascript" src="lib/others/javascript.js"></script>-->
-        <script type="text/javascript" src="js/eshop/controller/EShopAPI.js"></script>
+        <script type="text/javascript" src="js/eshop/controller/eshopAPI.js"></script>
 
-        <script type="text/javascript" src="js/eshop/widgets/PhrescoWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/MenuWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/HeaderWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/NavigationWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/CategoryWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/ProductsWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/ProductDetailsWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/FooterWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/ShoppingCartWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/ReviewWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/MyCartWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/CheckoutFormWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/CheckoutFormViewWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/CheckoutSuccessWidget.js"></script>
-		<script type="text/javascript" src="js/eshop/widgets/PostReviewWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/RegistrationWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/RegistrationSuccessWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/LoginWidget.js"></script>
-        <script type="text/javascript" src="js/eshop/widgets/LoginSuccessWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/phrescoWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/menuWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/headerWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/navigationWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/categoryWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/productsWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/productDetailsWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/footerWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/shoppingCartWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/reviewWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/myCartWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/checkoutFormWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/checkoutFormViewWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/checkoutSuccessWidget.js"></script>
+		<script type="text/javascript" src="js/eshop/widgets/postReviewWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/registrationWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/registrationSuccessWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/loginWidget.js"></script>
+        <script type="text/javascript" src="js/eshop/widgets/loginSuccessWidget.js"></script>
 		
 		<%
 			String currentEnv = System.getProperty("SERVER_ENVIRONMENT");
@@ -56,8 +56,7 @@
 			%>
 
         <script type="text/javascript">
-            YUI().use('node', 'widget', 'eshopAPI', 'phrescoWidget', 'menuWidget', 'headerWidget', 'navigationWidget',
-                'categoryWidget', 'productsWidget', 'productDetailsWidget', 'footerWidget', 'shoppingCartWidget', 'reviewWidget', 'checkoutFormWidget', 'checkoutFormViewWidget','checkoutSuccessWidget' ,'myCartWidget','postReviewWidget','registrationWidget', 'registrationSuccessWidget', 'loginWidget', 'loginSuccessWidget',function(Y) {
+             YUI({gallery: 'gallery-2012.06.20-20-07'}).use('node', 'widget', 'io-base', 'json-parse', 'io-xdr', 'querystring', "event-custom-base", "querystring-stringify-simple", 'eshopAPI', 'phrescoWidget', 'menuWidget', 'headerWidget', 'navigationWidget','categoryWidget', 'productsWidget', 'productDetailsWidget', 'footerWidget', 'shoppingCartWidget', 'reviewWidget', 'checkoutFormWidget', 'checkoutFormViewWidget','checkoutSuccessWidget' ,'myCartWidget','postReviewWidget','registrationWidget', 'registrationSuccessWidget', 'loginWidget', 'loginSuccessWidget',function(Y) {
 
                 Y.on("domready", function () {
 					var configJson = '<%= configJson %>';
