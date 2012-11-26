@@ -364,7 +364,7 @@ YUI.add("eshopAPI", function(Y) {
             }, 'json');
         },
 		
-		doRegister : function (uiWidgetsToPopulate,data,listeners) {
+		/* doRegister : function (uiWidgetsToPopulate,data,listeners) {
 			var responseHandler = this.populateResponseToWidgets;
 			var eshopAPI = this;
 			$.post(eshopAPI.wsURL + '/rest/api/post/register', data, function(response) {
@@ -376,33 +376,9 @@ YUI.add("eshopAPI", function(Y) {
 				}
 				listeners.onUpdateListener(data);
 			}, 'json');
-		},
+		}, */
 		
-			/* Y.jsonp(url, data, function(response) {
-				var args = {};
-				args.complete = uiWidgetsToPopulate;
-				data.response = response;
-				eshopAPI.set("res", response.message);
-				console.info("response.message--", response.message);
-                if(response.message == 'success'){
-                    eshopAPI.set("userId", response.userId);
-                    eshopAPI.set("userData", data);
-				}
-				listeners.onUpdateListener(data);
-			}); */
-			
-			/* Y.YQLRESTClient.request({
-				method: 'put',
-				content: data,
-				accept: 'applicatioon/json',
-				contentType:'applicatioon/json',
-				jsonCompat: 'new',
-				url: url
-			}, function (response) {
-				console.info("message--", response);
-			});   */
-			
-		doLogin : function (uiWidgetsToPopulate,data,listeners, callback) {
+		doRegister : function (uiWidgetsToPopulate,data,listeners) {
 			var responseHandler = this.populateResponseToWidgets;
 			var eshopAPI = this;
 			
@@ -418,6 +394,38 @@ YUI.add("eshopAPI", function(Y) {
 					//var responseresult = eval('(' + res + ')');
 					//console.info("responseresult---", o.response);
 					var responseresult = Y.JSON.parse(res);
+					data.response = response;
+					eshopAPI.set("res", response.successMessage);
+					if(response.userId > 0){
+						eshopAPI.set("userId", response.userId);
+						eshopAPI.set("userData", data);
+					}
+					listeners.onUpdateListener(data);
+				},
+			};
+
+			var url = eshopAPI.wsURL + '/rest/api/post/register',
+			request = Y.io(url, cfg);
+			Y.on('io:success', GlobalEventHandler.success, Y); 
+
+		},
+		
+			
+		doLogin : function (uiWidgetsToPopulate,data,listeners, callback) {
+			var responseHandler = this.populateResponseToWidgets;
+			var eshopAPI = this;
+			
+			var jsonString = Y.QueryString.stringify(data);
+			var cfg = {
+				method: 'POST',
+				xdr: { use: 'native', dataType: 'json'}, 
+				data: jsonString,
+			};
+			var GlobalEventHandler = {
+				success: function(id, o) {
+					var res = o.responseText;
+					var responseresult = Y.JSON.parse(res);
+					
 					var args = {};
 					args.complete = uiWidgetsToPopulate;
 					data.response = responseresult;
@@ -430,7 +438,7 @@ YUI.add("eshopAPI", function(Y) {
 				},
 			};
 
-			var url = eshopAPI.wsURL + '/rest/api/post/login',
+			var url = 'http://172.16.17.180:2020/eshop/rest/api/post/login',
 			request = Y.io(url, cfg);
 			Y.on('io:success', GlobalEventHandler.success, Y); 
 
@@ -476,42 +484,6 @@ YUI.add("eshopAPI", function(Y) {
            // this.setWSConfig();
             
         },
-        
-		/*setWSConfig : function() {
-			if (window.XMLHttpRequest)
-			  {// code for IE7+, Firefox, Chrome, Opera, Safari
-			  xmlhttp=new XMLHttpRequest();
-			  }
-			else
-			  {// code for IE6, IE5
-			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-			  }
-            var currentEnv = this.get("currentEnv");
-            //var currentEnv = "Dev";
-            			
-			//xmlhttp.open("GET","WEB-INF/resources/phresco-env-config.xml", false);
-			//xmlhttp.send();
-			xmlDoc = xmlhttp.responseXML;	
-			
-            var type = "WebService";
-            var name = "";
-            var configdata = this.getConfigByName(currentEnv, type, name);
-            console.info("configdata", configdata);    
-              
-			var host = configdata.host;
-            var port = configdata.port;
-            var protocol = configdata.protocol;
-            var context = configdata.context;
-            var username = configdata.username;
-            var password = configdata.password;
-
-            //this.set("wsConfig", wsConfig);
-            var urlWithoutContext = protocol + '://' + host + ':' + port;
-            var url = protocol + '://' + host + ':' + port + '/' + context;            
-            this.set("wsURL", url);
-            this.set("wsURLWithoutContext", urlWithoutContext); 
-        },*/
-
        
 
         // three param for envtype, configtype, configname. for example currentEnv = "development", type ="server",name ="myserver"
