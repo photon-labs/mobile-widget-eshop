@@ -4,8 +4,8 @@
 		   <Server>
                <context>mobilewidget</context>
                <protocol>http</protocol>
-               <host>localhost</host>
-               <port>8888</port>
+               <host>172.16.17.180</host>
+               <port>8080</port>
                <resolution></resolution>
            </Server>
            

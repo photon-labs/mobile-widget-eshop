@@ -13,9 +13,9 @@ public class PhotonAbstractScreen extends BaseScreen {
 
 	}
 
-	protected PhotonAbstractScreen(String selectedBrowser, String applicationURL, String context, MobileWidgetData mobileWidgetConstants, UIConstants uiConstants) throws IOException,
+	protected PhotonAbstractScreen(String selectedBrowser,String selectedPlatform ,String applicationURL, String context, MobileWidgetData mobileWidgetConstants, UIConstants uiConstants) throws IOException,
 			Exception {
-		super(selectedBrowser, applicationURL, context, mobileWidgetConstants, uiConstants);
+		super(selectedBrowser,selectedPlatform, applicationURL, context, mobileWidgetConstants, uiConstants);
 	}
 
 }
