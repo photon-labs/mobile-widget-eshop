@@ -9,7 +9,7 @@ public class PhrescoUiConstants {
 	public String HOST = "host";
 	public String PORT = "port";
 	public String BROWSER = "Browser";
-	public String RESOLUTION = "resolution";
+	public String RESOLUTION = "Resolution";
 
 	public PhrescoUiConstants() {
 		try {
