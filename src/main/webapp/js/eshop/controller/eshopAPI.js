@@ -438,7 +438,7 @@ YUI.add("eshopAPI", function(Y) {
 				},
 			};
 
-			var url = 'http://172.16.17.180:2020/eshop/rest/api/post/login',
+			var url = eshopAPI.wsURL + '/rest/api/post/login',
 			request = Y.io(url, cfg);
 			Y.on('io:success', GlobalEventHandler.success, Y); 
 

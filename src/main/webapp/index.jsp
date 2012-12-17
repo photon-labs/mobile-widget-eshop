@@ -49,6 +49,9 @@
 		
 		<%
 			String currentEnv = System.getProperty("SERVER_ENVIRONMENT");
+			if(currentEnv == null) {
+				currentEnv = "Production";
+			}
 			String path = application.getRealPath("/WEB-INF/resources/phresco-env-config.xml");
 			File file = new File(path);
 			ConfigReader reader = new ConfigReader(file);
