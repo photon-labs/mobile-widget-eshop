@@ -251,12 +251,6 @@
 			<version>1.7.1-alpha-1</version>
 			<type>js</type>
 		</dependency>
-		<!-- <dependency>
-		  <groupId>jslibraries.files</groupId>
-		  <artifactId>jslib_xml2json-amd</artifactId>
-		  <version>1.1</version>
-		  <type>js</type>
-		</dependency> -->
 		<dependency>
 		  <groupId>jslibraries.files</groupId>
 		  <artifactId>jslib_jsonpath-amd</artifactId>

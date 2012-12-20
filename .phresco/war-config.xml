@@ -43,7 +43,7 @@
 		</fileSet>
 		
 		<fileSet>
-			<directory>${basedir}/do_not_checkin/target/service</directory>
+			<directory>${basedir}/do_not_checkin/target/jstest/overlays/jslibraries.files/jslib_yui</directory>
 			<outputDirectory>/lib</outputDirectory>
 			<includes>
 			    <include>/yui/**</include>

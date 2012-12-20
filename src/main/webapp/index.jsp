@@ -18,13 +18,10 @@
         <link type="text/css" rel="stylesheet" href="css/eshop/jquery.loadmask.css"/>
 
         <script type="text/javascript" charset="utf-8" src="lib/jslibraries/files/jslib_jquery-amd/1.7.1-alpha-1/jslib_jquery-amd-1.7.1-alpha-1.js"></script>
-		<script type="text/javascript" src="lib/jslibraries/files/jslib_xml2json-amd/1.1/jslib_xml2json-amd-1.1.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/eshop/jquery.loadmask.js"></script>
         <script type="text/javascript" src="lib/yui/build/yui/yui-min.js"></script>
-        <script type="text/javascript" src="lib/iscroll/iscroll.js"></script>
-<!--    <script type="text/javascript" src="lib/iscroll/iscrollnew.js"></script>-->
+        <!-- <script type="text/javascript" src="lib/iscroll/iscroll.js"></script> -->
         <script type="text/javascript" src="lib/jslibraries/files/jslib_jsonpath-amd/0.8.0/jslib_jsonpath-amd-0.8.0.js"></script> 
-        <!--<script type="text/javascript" src="lib/others/javascript.js"></script>-->
         <script type="text/javascript" src="js/eshop/controller/eshopAPI.js"></script>
 
         <script type="text/javascript" src="js/eshop/widgets/phrescoWidget.js"></script>
@@ -49,6 +46,9 @@
 		
 		<%
 			String currentEnv = System.getProperty("SERVER_ENVIRONMENT");
+			if(currentEnv == null) {
+				currentEnv = "Production";
+			}
 			String path = application.getRealPath("/WEB-INF/resources/phresco-env-config.xml");
 			File file = new File(path);
 			ConfigReader reader = new ConfigReader(file);
