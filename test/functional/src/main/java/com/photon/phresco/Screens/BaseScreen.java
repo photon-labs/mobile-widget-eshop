@@ -166,13 +166,14 @@ public class BaseScreen {
 			// break;
 		}
 		driver = new RemoteWebDriver(server, capabilities);
+		windowResize();
 		driver.get(applicationURL + applicationContext);
+		
 		// driver.manage().window().maximize();
 		// driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 	}
-	
-	
+		
 	public  void windowResize()
 	{
 		phrsc = new PhrescoUiConstants();
@@ -184,7 +185,7 @@ public class BaseScreen {
 		String resolutionY=tokens[1];		
 		int x= Integer.parseInt(resolutionX);
 		int y= Integer.parseInt(resolutionY);
-		Dimension screenResolution = new Dimension(x,y);
+		Dimension screenResolution = new Dimension(500,500);
 		driver.manage().window().setSize(screenResolution);
 		}
 		else{
