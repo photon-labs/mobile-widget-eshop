@@ -185,7 +185,7 @@ public class BaseScreen {
 		String resolutionY=tokens[1];		
 		int x= Integer.parseInt(resolutionX);
 		int y= Integer.parseInt(resolutionY);
-		Dimension screenResolution = new Dimension(500,500);
+		Dimension screenResolution = new Dimension(x,y);
 		driver.manage().window().setSize(screenResolution);
 		}
 		else{
