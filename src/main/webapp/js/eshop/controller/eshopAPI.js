@@ -107,7 +107,7 @@ YUI.add("eshopAPI", function(Y) {
             });
         },
 		
-        getCategories : function (uiWidgetsToPopulate) {
+        getCategories : function (uiWidgetsToPopulate, callback) {
             var responseHandler = this.populateResponseToWidgets;
             var eshopAPI = this;
             var wsURL = this.get("wsURL");
@@ -118,6 +118,7 @@ YUI.add("eshopAPI", function(Y) {
 				args.complete = uiWidgetsToPopulate;
 				var html = "";
 				responseHandler(data, args);
+				callback(data);
 			});
         },
 		
@@ -175,13 +176,14 @@ YUI.add("eshopAPI", function(Y) {
 				var args = {};
 				args.complete = uiWidgetsToPopulate;
 				responseHandler(data, args);
+				callback(data);
 				eshopAPI.set("products", data);
 				listeners.onUpdateListener(data);
 			});
   
         },
 		
-        getProductDetails : function (uiWidgetsToPopulate, productId, listeners) {
+        getProductDetails : function (uiWidgetsToPopulate, productId, listeners, callback) {
             var responseHandler = this.populateResponseToWidgets;
 			var eshopAPI = this;
             var wsURL = this.get("wsURL");            
@@ -215,6 +217,7 @@ YUI.add("eshopAPI", function(Y) {
 				responseHandler(data, args);
 				eshopAPI.set("productDetails", data);
 				listeners.onUpdateListener(data);
+				callback(data);
 			});
         },
 		

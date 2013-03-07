@@ -43,6 +43,8 @@
         <script type="text/javascript" src="js/eshop/widgets/registrationSuccessWidget.js"></script>
         <script type="text/javascript" src="js/eshop/widgets/loginWidget.js"></script>
         <script type="text/javascript" src="js/eshop/widgets/loginSuccessWidget.js"></script>
+		<script type="text/javascript" src="js/eshop/widgets/WSConfig.js"></script>
+		<script type="text/javascript" src="js/eshop/widgets/ConfigReader.js"></script>
 		
 		<%
 			String currentEnv = System.getProperty("SERVER_ENVIRONMENT");
@@ -56,7 +58,7 @@
 			%>
 
         <script type="text/javascript">
-             YUI({gallery: 'gallery-2012.06.20-20-07'}).use('node', 'widget', 'io-base', 'json-parse', 'io-xdr', 'querystring', "event-custom-base", "querystring-stringify-simple", 'eshopAPI', 'phrescoWidget', 'menuWidget', 'headerWidget', 'navigationWidget','categoryWidget', 'productsWidget', 'productDetailsWidget', 'footerWidget', 'shoppingCartWidget', 'reviewWidget', 'checkoutFormWidget', 'checkoutFormViewWidget','checkoutSuccessWidget' ,'myCartWidget','postReviewWidget','registrationWidget', 'registrationSuccessWidget', 'loginWidget', 'loginSuccessWidget',function(Y) {
+             YUI({gallery: 'gallery-2012.06.20-20-07'}).use('node', 'widget', 'io-base', 'json-parse', 'io-xdr', 'querystring', "event-custom-base", "querystring-stringify-simple", 'eshopAPI', 'phrescoWidget', 'menuWidget', 'headerWidget', 'navigationWidget','categoryWidget', 'productsWidget', 'productDetailsWidget', 'footerWidget', 'shoppingCartWidget', 'reviewWidget', 'checkoutFormWidget', 'checkoutFormViewWidget','checkoutSuccessWidget' ,'myCartWidget','postReviewWidget','registrationWidget', 'registrationSuccessWidget', 'loginWidget', 'loginSuccessWidget','WSConfig','ConfigReader','',function(Y) {
 
                 Y.on("domready", function () {
 					var configJson = '<%= configJson %>';
@@ -178,6 +180,19 @@
                         apiReference : eshopAPI
                     });
 
+					 var WSConfig = new Y.Phresco.WSConfig({
+                        // place holder can be decided by specifying the attribute
+                        targetNode : "#scroller",
+                        apiReference : eshopAPI
+                    });
+					
+					 var ConfigReader = new Y.Phresco.ConfigReader({
+                        // place holder can be decided by specifying the attribute
+                        targetNode : "#scroller",
+                        apiReference : eshopAPI
+                    });
+					
+					
                     eshopAPI.getWsConfig();
                     eshopAPI.getConfig();
                     //eshopAPI.getCategories([categoryWidget]);
