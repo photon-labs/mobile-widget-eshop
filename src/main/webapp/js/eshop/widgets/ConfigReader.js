@@ -72,12 +72,7 @@ YUI.add("ConfigReader", function(Y) {
 						var valueTag = $(this).find('value');
 						envValue = valueTag.text();
 						envValue = envValue.replace(name.trim(), "");
-					}
-					if (name.trim() === 'WebService') {
-						var valueTag = $(this).find('value');
-						webServiceName = valueTag.text();
-						webServiceName = webServiceName.replace(name.trim(), "");
-						callback(webServiceName, envValue);
+						callback(envValue);
 					}
 				});	
 			});

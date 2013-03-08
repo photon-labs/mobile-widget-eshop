@@ -65,12 +65,12 @@ YUI.add("WSConfig", function(Y) {
 			configReader.getStatus(unitinfopath, function(status){
 				
 				if (status == 200) {
-					configReader.getEnvironment("phresco-unit-test-info.xml", function(webServiceName, environment){
+					configReader.getEnvironment("phresco-unit-test-info.xml", function(environment){
 						defaultEnv = environment;
 					});
 				}
 				else {
-					configReader.getEnvironment("phresco-validate-code-info.xml", function(webServiceName, environment){
+					configReader.getEnvironment("phresco-validate-code-info.xml", function(environment){
 							defaultEnv = environment;
 						});
 					}
