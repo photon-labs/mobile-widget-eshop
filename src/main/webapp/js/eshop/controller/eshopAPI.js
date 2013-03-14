@@ -118,7 +118,6 @@ YUI.add("eshopAPI", function(Y) {
 				args.complete = uiWidgetsToPopulate;
 				var html = "";
 				responseHandler(data, args);
-				callback(data);
 			});
         },
 		
@@ -217,7 +216,6 @@ YUI.add("eshopAPI", function(Y) {
 				responseHandler(data, args);
 				eshopAPI.set("productDetails", data);
 				listeners.onUpdateListener(data);
-				callback(data);
 			});
         },
 		
