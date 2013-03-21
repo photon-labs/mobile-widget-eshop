@@ -53,50 +53,28 @@ YUI.add("WSConfig", function(Y) {
         },
 
         destructor : function() {},
-
-        getWsConfig : function (callback) {
+		
+		getWsConfig : function (callback) {
 			var wsconfig = this;
 			var WSConfigurl = {};
 			var serviceName = "eshopService";
-			var defaultEnv = undefined;
-			var unitinfopath = "src/WEB-INF/resources/phresco-unit-test-info.xml";
-			var codeinfopath = "src/WEB-INF/resources/phresco-validate-code-info.xml";
-			var configReader = new Y.Phresco.ConfigReader();
-			configReader.getStatus(unitinfopath, function(status){
-				
-				if (status == 200) {
-					configReader.getEnvironment("phresco-unit-test-info.xml", function(environment){
-						defaultEnv = environment;
+			$.get("test/resources/phresco-env-config.xml",function(data){
+				$(data).find("environment").each(function() {
+					var env = $(this).attr('name');
+					$(this).find("WebService").each(function() {
+						var configServiceName = $(this).attr("name");
+						if (configServiceName === serviceName) {
+							WSConfigurl.host = $(this).find("host").text();
+							WSConfigurl.port = $(this).find("port").text();
+							WSConfigurl.context = $(this).find("context").text();
+							WSConfigurl.protocol = $(this).find("protocol").text(); 
+							callback(WSConfigurl);
+						}
 					});
-				}
-				else {
-					configReader.getEnvironment("phresco-validate-code-info.xml", function(environment){
-							defaultEnv = environment;
-						});
-					}
+				});	
 			});
-			
-			setTimeout(function(){
-				$.get("src/WEB-INF/resources/phresco-env-config.xml",function(data){
-					$(data).find("environment").each(function() {
-						var env = $(this).attr('name');
-						if (env.trim() === defaultEnv) {
-							$(this).find("webService").each(function() {
-								var configServiceName = $(this).attr("name");
-								if (configServiceName === serviceName) {
-									WSConfigurl.host = $(this).find("host").text();
-									WSConfigurl.port = $(this).find("port").text();
-									WSConfigurl.context = $(this).find("context").text();
-									WSConfigurl.protocol = $(this).find("protocol").text(); 
-									callback(WSConfigurl);
-								}
-							});
-						}	
-					});	
-				});
-			},500);
-        }
-    });
+		}
+	});
     
     Y.namespace("Phresco").WSConfig = WSConfig;
 }, "3.4.1", {
