@@ -148,6 +148,7 @@
                     <skip xmlns:ns2="http://maven.apache.org/POM/4.0.0" xmlns="">true</skip>
                 </configuration>
             </plugin>
+
         </plugins>
 		
     </build>
