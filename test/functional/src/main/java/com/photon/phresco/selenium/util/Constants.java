@@ -44,6 +44,13 @@ public class Constants {
 	 * Execute tests on opera browser
 	 */
 	public static final String BROWSER_OPERA = "opera";
+	
+	
+	/**
+	 * Execute tests on Iphone Webdriver
+	 * 
+	 */
+	 public static final String  IPHONE_WEBDRIVER ="iPhone";
 
 
 	public static String DEFAULT_TIMEOUT = "180000";

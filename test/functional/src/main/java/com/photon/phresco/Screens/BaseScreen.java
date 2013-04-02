@@ -160,9 +160,22 @@ public class BaseScreen {
 			// break;
 			// driver = new RemoteWebDriver(server, capabilities);
 
-		} else {
+		}else if (selectedBrowser.equalsIgnoreCase(Constants.IPHONE_WEBDRIVER)) {
+			try{
+			log.info("-------------***LAUNCHING iPhoneWebDriver***--------------");
+			capabilities = new DesiredCapabilities();
+			capabilities.setBrowserName("iPhone");
+			capabilities.setJavascriptEnabled(true);
+			System.out.println("-----------Checking in iPhoneWebDriver-------");
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+		}
+    }
+			else {
 			throw new ScreenException(
-					"------Only FireFox,InternetExplore and Chrome works-----------");
+					"------Only FireFox,InternetExplore ,Chrome and IphoneWebdriver works-----------");
 		}
 
 		/**
@@ -184,7 +197,8 @@ public class BaseScreen {
 		}
 		driver = new RemoteWebDriver(server, capabilities);
 		//windowResize();
-		driver.get(applicationURL + applicationContext);
+		driver.navigate().to(applicationURL + applicationContext);
+		//driver.get(applicationURL + applicationContext);
 		
 		// driver.manage().window().maximize();
 		// driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
