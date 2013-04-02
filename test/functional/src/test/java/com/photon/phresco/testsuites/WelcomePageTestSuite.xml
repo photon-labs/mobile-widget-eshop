@@ -38,8 +38,16 @@
 			<class name="com.photon.phresco.testcases.WelcomePageTestCase" />
 		</classes>
 	</test>
+	<test name="VerifyWelcomePageOniPhoneWebdriver" junit="false"
+		preserve-order="true">
+		<parameter name="browser" value="iPhone" />
+		<parameter name="platform" value="MAC" />
+		<classes>
+			<class name="com.photon.phresco.testcases.WelcomePageTestCase" />
+		</classes>                                                                                  
+	</test>
 </suite>
  
 
- 	
+
  
