@@ -43,12 +43,14 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.net.UrlChecker.TimeoutException;
+import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.base.Function;
+import com.photon.phresco.model.YuiMobileWidgets.Mobilewidget;
 import com.photon.phresco.selenium.util.Constants;
 import com.photon.phresco.selenium.util.GetCurrentDir;
 import com.photon.phresco.selenium.util.ScreenActionFailedException;
@@ -59,13 +61,13 @@ import com.photon.phresco.uiconstants.UIConstants;
 
 public class BaseScreen {
 
-	private  WebDriver driver;
+	private WebDriver driver;
 	private ChromeDriverService chromeService;
 	private Log log = LogFactory.getLog("BaseScreen");
-	private WebElement element;	
+	private WebElement element;
 	private MobileWidgetData mobileWidgetConstants;
 	private UIConstants uiConstants;
-	private  PhrescoUiConstants phrsc;
+	private PhrescoUiConstants phrsc;
 	DesiredCapabilities capabilities;
 
 	// private Log log = LogFactory.getLog(getClass());
@@ -74,13 +76,16 @@ public class BaseScreen {
 
 	}
 
-	public BaseScreen(String selectedBrowser,String selectedPlatform, String applicationURL, String applicatinContext, MobileWidgetData mobileWidgetConstants, UIConstants uiConstants)
-			 throws AWTException, IOException, ScreenActionFailedException {
-	
-		this.mobileWidgetConstants=mobileWidgetConstants;
+	public BaseScreen(String selectedBrowser, String selectedPlatform,
+			String applicationURL, String applicatinContext,
+			MobileWidgetData mobileWidgetConstants, UIConstants uiConstants)
+			throws AWTException, IOException, ScreenActionFailedException {
+
+		this.mobileWidgetConstants = mobileWidgetConstants;
 		this.uiConstants = uiConstants;
 		try {
-			instantiateBrowser(selectedBrowser,selectedPlatform, applicationURL, applicatinContext);
+			instantiateBrowser(selectedBrowser, selectedPlatform,
+					applicationURL, applicatinContext);
 		} catch (ScreenException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,10 +93,10 @@ public class BaseScreen {
 
 	}
 
-	public void instantiateBrowser(String selectedBrowser,String selectedPlatform,
-			String applicationURL, String applicationContext)
-					 throws ScreenException,
-						MalformedURLException {
+	public void instantiateBrowser(String selectedBrowser,
+			String selectedPlatform, String applicationURL,
+			String applicationContext) throws ScreenException,
+			MalformedURLException {
 
 		URL server = new URL("http://localhost:4444/wd/hub/");
 		if (selectedBrowser.equalsIgnoreCase(Constants.BROWSER_CHROME)) {
@@ -122,29 +127,27 @@ public class BaseScreen {
 				capabilities = new DesiredCapabilities();
 				capabilities.setJavascriptEnabled(true);
 				capabilities.setBrowserName("iexplorer");
-				} catch (Exception e) {
-					e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		}
-			else if (selectedBrowser.equalsIgnoreCase(Constants.BROWSER_OPERA)) {
-				log.info("-------------***LAUNCHING OPERA***--------------");
-				try {
-					
+		} else if (selectedBrowser.equalsIgnoreCase(Constants.BROWSER_OPERA)) {
+			log.info("-------------***LAUNCHING OPERA***--------------");
+			try {
+
 				capabilities = new DesiredCapabilities();
 				capabilities.setBrowserName("opera");
-				capabilities.setCapability("opera.autostart ",true);
+				capabilities.setCapability("opera.autostart ", true);
 
 				System.out.println("-----------checking the OPERA-------");
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-		
-		} 
-			else if (selectedBrowser.equalsIgnoreCase(Constants.BROWSER_SAFARI)) {
-				log.info("-------------***LAUNCHING SAFARI***--------------");
-				try {
-					
-			    capabilities = new DesiredCapabilities();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		} else if (selectedBrowser.equalsIgnoreCase(Constants.BROWSER_SAFARI)) {
+			log.info("-------------***LAUNCHING SAFARI***--------------");
+			try {
+
+				capabilities = new DesiredCapabilities();
 				capabilities.setBrowserName("safari");
 				capabilities.setCapability("safari.autostart ", true);
 				System.out.println("-----------checking the SAFARI-------");
@@ -152,7 +155,7 @@ public class BaseScreen {
 				e.printStackTrace();
 			}
 
-				} else if (selectedBrowser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
+		} else if (selectedBrowser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
 			log.info("-------------***LAUNCHING FIREFOX***--------------");
 			capabilities = new DesiredCapabilities();
 			capabilities.setBrowserName("firefox");
@@ -160,20 +163,18 @@ public class BaseScreen {
 			// break;
 			// driver = new RemoteWebDriver(server, capabilities);
 
-		}else if (selectedBrowser.equalsIgnoreCase(Constants.IPHONE_WEBDRIVER)) {
-			try{
-			log.info("-------------***LAUNCHING iPhoneWebDriver***--------------");
-			capabilities = new DesiredCapabilities();
-			capabilities.setBrowserName("iPhone");
-			capabilities.setJavascriptEnabled(true);
-			System.out.println("-----------Checking in iPhoneWebDriver-------");
-			}
-			catch (Exception e)
-			{
+		} else if (selectedBrowser.equalsIgnoreCase(Constants.IPHONE_WEBDRIVER)) {
+			try {
+				log.info("-------------***LAUNCHING iPhoneWebDriver***--------------");
+				capabilities = new DesiredCapabilities();
+				capabilities.setBrowserName("iPhone");
+				capabilities.setJavascriptEnabled(true);
+				System.out
+						.println("-----------Checking in iPhoneWebDriver-------");
+			} catch (Exception e) {
 				e.printStackTrace();
-		}
-    }
-			else {
+			}
+		} else {
 			throw new ScreenException(
 					"------Only FireFox,InternetExplore ,Chrome and IphoneWebdriver works-----------");
 		}
@@ -196,30 +197,27 @@ public class BaseScreen {
 			// break;
 		}
 		driver = new RemoteWebDriver(server, capabilities);
-		//windowResize();
+		// windowResize();
 		driver.navigate().to(applicationURL + applicationContext);
-		//driver.get(applicationURL + applicationContext);
-		
+		// driver.get(applicationURL + applicationContext);
+
 		// driver.manage().window().maximize();
 		// driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 	}
-		
-	public  void windowResize()
-	{
+
+	public void windowResize() {
 		phrsc = new PhrescoUiConstants();
-		String resolution = phrsc.RESOLUTION;		
-		if(resolution!=null)
-		{
-		String[] tokens = resolution.split("x");
-		String resolutionX=tokens[0];
-		String resolutionY=tokens[1];		
-		int x= Integer.parseInt(resolutionX);
-		int y= Integer.parseInt(resolutionY);
-		Dimension screenResolution = new Dimension(x,y);
-		driver.manage().window().setSize(screenResolution);
-		}
-		else{
+		String resolution = phrsc.getResolution();
+		if (resolution != null) {
+			String[] tokens = resolution.split("x");
+			String resolutionX = tokens[0];
+			String resolutionY = tokens[1];
+			int x = Integer.parseInt(resolutionX);
+			int y = Integer.parseInt(resolutionY);
+			Dimension screenResolution = new Dimension(x, y);
+			driver.manage().window().setSize(screenResolution);
+		} else {
 			driver.manage().window().maximize();
 		}
 	}
@@ -236,9 +234,8 @@ public class BaseScreen {
 		log.info("-------------***BROWSER CLOSING***--------------");
 		if (driver != null) {
 			driver.quit();
-			if (chromeService!=null) {				
-				
-				
+			if (chromeService != null) {
+
 			}
 		}
 
@@ -313,31 +310,38 @@ public class BaseScreen {
 	public void waitForElementPresent(String locator, String methodName)
 			throws Exception {
 		try {
-			By by=null;
+			By by = null;
 			log.info("Entering:--------waitForElementPresent()--------");
-			
-			if(locator.startsWith("//")){
+
+			if (locator.startsWith("//")) {
 				log.info("Entering:--------Xpath checker--------");
-				by = By.xpath(locator);	
-			}else{
+				by = By.xpath(locator);
+			} else {
 				log.info("Entering:--------Non-Xpath checker----------------");
-				by=By.id(locator);
+				by = By.id(locator);
 			}
-			
-			WebDriverWait wait = new WebDriverWait(driver, 20);			
+
+			WebDriverWait wait = new WebDriverWait(driver, 20);
 			wait.until(presenceOfElementLocated(by));
-			
+
 		}
-	
+
 		catch (Exception e) {
-			log.info("Entering:------presenceOfElementLocated()-----End"+"--("+ locator +")--");
-			File scrFile = ((TakesScreenshot) driver)
+			log.info("presenceOfElementLocated" + e.getMessage());
+
+			WebDriver augmentedDriver = new Augmenter().augment(driver);
+			File screenshot = ((TakesScreenshot) augmentedDriver)
 					.getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile,
-					new File(GetCurrentDir.getCurrentDirectory() + "\\"
-							+ methodName + ".png"));
-			throw new RuntimeException("waitForElementPresent"
-					+ super.getClass().getSimpleName() + " failed", e);
+
+			try {
+
+				FileUtils.copyFile(screenshot,
+						new File(GetCurrentDir.getCurrentDirectory() + "\\"
+								+ methodName + ".png"));
+			} catch (Exception e1) {
+				log.info("presenceOfElementLocated" + e1.getMessage());
+			}
+			Assert.assertNull(e);
 
 		}
 	}
@@ -345,7 +349,7 @@ public class BaseScreen {
 	Function<WebDriver, WebElement> presenceOfElementLocated(final By locator) {
 		log.info("Entering:------presenceOfElementLocated()-----Start");
 		return new Function<WebDriver, WebElement>() {
-			public WebElement apply(WebDriver driver) {				
+			public WebElement apply(WebDriver driver) {
 				return driver.findElement(locator);
 
 			}
@@ -354,224 +358,273 @@ public class BaseScreen {
 
 	}
 
-	public void clickOnBrowse(String methodName) throws IOException, Exception{
+	public void clickOnBrowse(String methodName) throws IOException, Exception {
 		if (StringUtils.isEmpty(methodName)) {
-			methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
-			}
-			waitForElementPresent(uiConstants.BROWSE,methodName);
-			getXpathWebElement(uiConstants.BROWSE);
-			element.click();
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			;
+		}
+		waitForElementPresent(uiConstants.getBrowse(), methodName);
+		getXpathWebElement(uiConstants.getBrowse());
+		element.click();
 
 	}
-	 public  void Television(String methodName)throws Exception {
-	    	if (StringUtils.isEmpty(methodName)) {
-				methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
-			}
-	    	waitForElementPresent(uiConstants.TELEVISION,methodName);
-	    	getXpathWebElement(uiConstants.TELEVISION);
-			element.click();
-	    	waitForElementPresent(uiConstants.TELE_PROD1_DETAILS,methodName);
-	    	getXpathWebElement(uiConstants.TELE_PROD1_DETAILS);
-			element.click();
-	    	waitForElementPresent(uiConstants.REVIEW,methodName);
-	    	
-			
-		}
-	    public  void Computers(String methodName)throws Exception {
-	    	if (StringUtils.isEmpty(methodName)) {
-				methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
-			}
-	    	waitForElementPresent(uiConstants.COMPUTERS,methodName);
-	    	getXpathWebElement(uiConstants.COMPUTERS);
-			element.click();
-	    	waitForElementPresent(uiConstants.COMP_PROD1_DETAILS,methodName);
-	    	getXpathWebElement(uiConstants.COMP_PROD1_DETAILS);
-			element.click();
-	    	waitForElementPresent(uiConstants.REVIEW,methodName);
-	    	
-			
-		}
-	    public  void MobilePhones(String methodName)throws Exception {
-	    	if (StringUtils.isEmpty(methodName)) {
-				methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
-			}
-	    	waitForElementPresent(uiConstants.MOBILE,methodName);
-	    	getXpathWebElement(uiConstants.MOBILE);
-			element.click();
-	    	waitForElementPresent(uiConstants.MOBILE_PROD1_DETAILS,methodName);
-	    	getXpathWebElement(uiConstants.MOBILE_PROD1_DETAILS);
-			element.click();
-	    	waitForElementPresent(uiConstants.REVIEW,methodName);
-	    	
-			
-		}
-	    public  void AudioDevices(String methodName)throws Exception {
-	    	if (StringUtils.isEmpty(methodName)) {
-				methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
-			}
-	    	
-	    	waitForElementPresent(uiConstants.AUDIO_DEVICES,methodName);
-	    	getXpathWebElement(uiConstants.AUDIO_DEVICES);
-			element.click();
-	    	waitForElementPresent(uiConstants.AUDIO_PROD1_DETAILS,methodName);
-	    	getXpathWebElement(uiConstants.AUDIO_PROD1_DETAILS);
-			element.click();
-	    	waitForElementPresent(uiConstants.REVIEW,methodName);
-	    	
-		}
-	    public  void Cameras(String methodName)throws Exception {
-	    	if (StringUtils.isEmpty(methodName)) {
-				methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
-			}
-	    	waitForElementPresent(uiConstants.CAMERAS,methodName);
-	    	getXpathWebElement(uiConstants.CAMERAS);
-			element.click();
-	    	waitForElementPresent(uiConstants.CAMERAS_PROD1_DETAILS,methodName);
-	    	getXpathWebElement(uiConstants.CAMERAS_PROD1_DETAILS);
-			element.click();
-	    	waitForElementPresent(uiConstants.REVIEW,methodName);
-			
-		}
-	    public  void Tablets(String methodName)throws Exception {
-	    	if (StringUtils.isEmpty(methodName)) {
-				methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
-			}
-	    	waitForElementPresent(uiConstants.TABLETS,methodName);
-	    	 getXpathWebElement(uiConstants.TABLETS);
-			element.click();
-	    	waitForElementPresent(uiConstants.TABLETS_PROD1_DETAILS,methodName);
-	    	 getXpathWebElement(uiConstants.TABLETS_PROD1_DETAILS);
-			element.click();
-	    	waitForElementPresent(uiConstants.REVIEW,methodName);
-			
-		}
-	    public  void MoviesnMusic(String methodName)throws Exception {
-	    	if (StringUtils.isEmpty(methodName)) {
-				methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
-			}
-	    	waitForElementPresent(uiConstants.MOVIESnMUSIC,methodName);
-	    	getXpathWebElement(uiConstants.MOVIESnMUSIC);
-			element.click();
-	    	waitForElementPresent(uiConstants.MnM_PROD1_DETAILS,methodName);
-	    	getXpathWebElement(uiConstants.MnM_PROD1_DETAILS);
-			element.click();
-	    	waitForElementPresent(uiConstants.REVIEW,methodName);
-			
-		}
-	    public  void VideoGames(String methodName)throws Exception {
-	    	if (StringUtils.isEmpty(methodName)) {
-				methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
-			}
-	    	waitForElementPresent(uiConstants.VIDEOGAMES,methodName);
-	    	getXpathWebElement(uiConstants.VIDEOGAMES);
-			element.click();
-	    	waitForElementPresent(uiConstants.VIDGAMES_PROD1_DETAILS,methodName);
-	    	getXpathWebElement(uiConstants.VIDGAMES_PROD1_DETAILS);
-			element.click();
-	    	waitForElementPresent(uiConstants.REVIEW,methodName);
-			
-		}
-	    public  void MP3Players(String methodName)throws Exception {
-	    	if (StringUtils.isEmpty(methodName)) {
-				methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
-			}
-	    	waitForElementPresent(uiConstants.MP3PLAYERS,methodName);
-	    	getXpathWebElement(uiConstants.MP3PLAYERS);
-			element.click();
-	    	waitForElementPresent(uiConstants.MP3_PROD1_DETAILS,methodName);
-	    	getXpathWebElement(uiConstants.MP3_PROD1_DETAILS);
-			element.click();
-	    	waitForElementPresent(uiConstants.REVIEW,methodName);
-			
-		}
-	    public  void Accessories(String methodName)throws Exception {
-	    	if (StringUtils.isEmpty(methodName)) {
-				methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
-			}
-	    	waitForElementPresent(uiConstants.ACCESSORIES,methodName);
-	    	 getXpathWebElement(uiConstants.ACCESSORIES);
-			element.click();
-	    	waitForElementPresent(uiConstants.ACC_PROD1_DETAILS,methodName);
-	    	getXpathWebElement(uiConstants.ACC_PROD1_DETAILS);
-			element.click();
-	    	waitForElementPresent(uiConstants.REVIEW,methodName);
-			
-		}
-	    public void BillingInfo(String methodName)throws Exception {
-	    	if (StringUtils.isEmpty(methodName)) {
-				methodName = Thread.currentThread().getStackTrace()[1].getMethodName();;
-			}
-	    	waitForElementPresent(uiConstants.ADDTOCART,methodName);
-	    	getXpathWebElement(uiConstants.ADDTOCART);
-			element.click();
-	    	waitForElementPresent(uiConstants.UPDATECART,methodName);
-	    	getXpathWebElement(uiConstants.UPDATECART);
-			element.click();
-	    	waitForElementPresent(uiConstants.CHECKOUT,methodName);
-	    	 getXpathWebElement(uiConstants.CHECKOUT);
-			element.click();
-	    	waitForElementPresent(uiConstants.CUSTOMERINFORMATION,methodName);
-	    	getXpathWebElement(uiConstants.CUSTOMERINFORMATION);
-			element.click();
-				
-			waitForElementPresent(uiConstants.EMAIL,methodName);			
-			Thread.sleep(2000);		
-			
-			getXpathWebElement(uiConstants.EMAIL);
-			element.click();
-			
-			element.sendKeys(this.mobileWidgetConstants.EMAIL_VALUE);
-			
-	    	waitForElementPresent(uiConstants.DELIVERYINFO,methodName);
-	    	getXpathWebElement(uiConstants.DELIVERYINFO);
-			element.click();
-			 getIdWebElement(uiConstants.FIRSTNAME);
-			element.sendKeys(this.mobileWidgetConstants.FIRSTNAME_VALUE);
-			getIdWebElement(uiConstants.LASTNAME);
-			element.sendKeys(this.mobileWidgetConstants.LASTNAME_VALUE);
-			 getIdWebElement(uiConstants.COMPANY);
-			element.sendKeys(this.mobileWidgetConstants.COMPANY_VALUE);
-			getIdWebElement(uiConstants.ADDRESS1);
-			element.sendKeys(this.mobileWidgetConstants.ADDRESS1_VALUE);
-			getIdWebElement(uiConstants.ADDRESS2);
-			element.sendKeys(this.mobileWidgetConstants.ADDRESS2_VALUE);
-			getIdWebElement(uiConstants.CITY);
-			element.sendKeys(this.mobileWidgetConstants.CITY_VALUE);
-			getIdWebElement(uiConstants.STATE);
-			element.sendKeys(this.mobileWidgetConstants.STATE_VALUE);
-			getIdWebElement(uiConstants.POSTCODE);
-			element.sendKeys(this.mobileWidgetConstants.POSTALCODE_VALUE);
-			 getIdWebElement(uiConstants.PHONENUMBER);
-			element.sendKeys(this.mobileWidgetConstants.PHONENUMBER_VALUE);
-	    	waitForElementPresent(uiConstants.BILLINGINFO,methodName);
-	    	getXpathWebElement(uiConstants.BILLINGINFO);
-			element.click();			
-			
-	    	waitForElementPresent(uiConstants.CHECKADDRESS,methodName);
-	    	getXpathWebElement(uiConstants.CHECKADDRESS);
-			element.click();
-	    	waitForElementPresent(uiConstants.PAYMENTMETHODS,methodName);
-	    	getXpathWebElement(uiConstants.PAYMENTMETHODS);
-			element.click();
-	    	/*waitForElementPresent(uiConstants.CASHONDELIVERY,methodName);
-	    	getXpathWebElement(uiConstants.CASHONDELIVERY);
-			element.click();*/
-	    	waitForElementPresent(uiConstants.ORDERCOMMENTS,methodName);
-	    	getXpathWebElement(uiConstants.ORDERCOMMENTS);
-			element.click();
-			getIdWebElement(uiConstants.GIVECOMMENTS);
-			element.sendKeys(this.mobileWidgetConstants.ORDERCOMMENTS_VALUE);
-	    	waitForElementPresent(uiConstants.REVIEWORDER,methodName);
-	    	getXpathWebElement(uiConstants.REVIEWORDER);
-			element.click();
-	    	waitForElementPresent(uiConstants.SUBMITORDER,methodName);
-	    	getXpathWebElement(uiConstants.SUBMITORDER);
-			element.click();
-			getXpathWebElement(uiConstants.BACK_BUTTON);
-			element.click();
-			Thread.sleep(2000);
-	    }
 
+	public void Television(String methodName) throws Exception {
+		if (StringUtils.isEmpty(methodName)) {
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			;
+		}
+		waitForElementPresent(uiConstants.getTelevision(), methodName);
+		getXpathWebElement(uiConstants.getTelevision());
+		element.click();
+		waitForElementPresent(uiConstants.getTeleProd1Det(), methodName);
+		getXpathWebElement(uiConstants.getTeleProd1Det());
+		element.click();
+		waitForElementPresent(uiConstants.getReview(), methodName);
+
+	}
+
+	public void Computers(String methodName) throws Exception {
+		if (StringUtils.isEmpty(methodName)) {
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			;
+		}
+		waitForElementPresent(uiConstants.getComputers(), methodName);
+		getXpathWebElement(uiConstants.getComputers());
+		element.click();
+		waitForElementPresent(uiConstants.getCompProd1Det(), methodName);
+		getXpathWebElement(uiConstants.getCompProd1Det());
+		element.click();
+		waitForElementPresent(uiConstants.getReview(), methodName);
+
+	}
+
+	public void MobilePhones(String methodName) throws Exception {
+		if (StringUtils.isEmpty(methodName)) {
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			;
+		}
+		waitForElementPresent(uiConstants.getMobile(), methodName);
+		getXpathWebElement(uiConstants.getMobile());
+		element.click();
+		waitForElementPresent(uiConstants.getMobileProd1Det(), methodName);
+		getXpathWebElement(uiConstants.getMobileProd1Det());
+		element.click();
+		waitForElementPresent(uiConstants.getReview(), methodName);
+
+	}
+
+	public void AudioDevices(String methodName) throws Exception {
+		if (StringUtils.isEmpty(methodName)) {
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			;
+		}
+
+		waitForElementPresent(uiConstants.getAudioDevice(), methodName);
+		getXpathWebElement(uiConstants.getAudioDevice());
+		element.click();
+		waitForElementPresent(uiConstants.getAudioProd1Det(), methodName);
+		getXpathWebElement(uiConstants.getAudioProd1Det());
+		element.click();
+		waitForElementPresent(uiConstants.getReview(), methodName);
+
+	}
+
+	public void Cameras(String methodName) throws Exception {
+		if (StringUtils.isEmpty(methodName)) {
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			;
+		}
+		waitForElementPresent(uiConstants.getCameras(), methodName);
+		getXpathWebElement(uiConstants.getCameras());
+		element.click();
+		waitForElementPresent(uiConstants.getCamerasProd1Det(), methodName);
+		getXpathWebElement(uiConstants.getCamerasProd1Det());
+		element.click();
+		waitForElementPresent(uiConstants.getReview(), methodName);
+
+	}
+
+	public void Tablets(String methodName) throws Exception {
+		if (StringUtils.isEmpty(methodName)) {
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			;
+		}
+		waitForElementPresent(uiConstants.getTablets(), methodName);
+		getXpathWebElement(uiConstants.getTablets());
+		element.click();
+		waitForElementPresent(uiConstants.getTabletsProd1Det(), methodName);
+		getXpathWebElement(uiConstants.getTabletsProd1Det());
+		element.click();
+		waitForElementPresent(uiConstants.getReview(), methodName);
+
+	}
+
+	public void MoviesnMusic(String methodName) throws Exception {
+		if (StringUtils.isEmpty(methodName)) {
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			;
+		}
+		waitForElementPresent(uiConstants.getMovieAndMusic(), methodName);
+		getXpathWebElement(uiConstants.getMovieAndMusic());
+		element.click();
+		waitForElementPresent(uiConstants.getmANDmProd1Det(), methodName);
+		getXpathWebElement(uiConstants.getmANDmProd1Det());
+		element.click();
+		waitForElementPresent(uiConstants.getReview(), methodName);
+
+	}
+
+	public void VideoGames(String methodName) throws Exception {
+		if (StringUtils.isEmpty(methodName)) {
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			;
+		}
+		waitForElementPresent(uiConstants.getVideoGames(), methodName);
+		getXpathWebElement(uiConstants.getVideoGames());
+		element.click();
+		waitForElementPresent(uiConstants.getVideoGameProd1Det(), methodName);
+		getXpathWebElement(uiConstants.getVideoGameProd1Det());
+		element.click();
+		waitForElementPresent(uiConstants.getReview(), methodName);
+
+	}
+
+	public void MP3Players(String methodName) throws Exception {
+		if (StringUtils.isEmpty(methodName)) {
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			;
+		}
+		waitForElementPresent(uiConstants.getMp3Players(), methodName);
+		getXpathWebElement(uiConstants.getMp3Players());
+		element.click();
+		waitForElementPresent(uiConstants.getMp3Prod1Det(), methodName);
+		getXpathWebElement(uiConstants.getMp3Prod1Det());
+		element.click();
+		waitForElementPresent(uiConstants.getReview(), methodName);
+
+	}
+
+	public void Accessories(String methodName) throws Exception {
+		if (StringUtils.isEmpty(methodName)) {
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			;
+		}
+		waitForElementPresent(uiConstants.getAccessories(), methodName);
+		getXpathWebElement(uiConstants.getAccessories());
+		element.click();
+		waitForElementPresent(uiConstants.getAccProd1Det(), methodName);
+		getXpathWebElement(uiConstants.getAccProd1Det());
+		element.click();
+		waitForElementPresent(uiConstants.getReview(), methodName);
+
+	}
+	
+	public void Failure(String methodName) throws Exception {
+		if (StringUtils.isEmpty(methodName)) {
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			;
+		}
+		waitForElementPresent(uiConstants.getAccProd1Det(), methodName);
+		getXpathWebElement(uiConstants.getAccProd1Det());
+		element.click();
+		waitForElementPresent(uiConstants.getReview(), methodName);
+
+	}
+
+	public void BillingInfo(String methodName, Mobilewidget mobilewidget)
+			throws Exception {
+		if (StringUtils.isEmpty(methodName)) {
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			;
+		}
+		waitForElementPresent(uiConstants.getAddToCart(), methodName);
+		getXpathWebElement(uiConstants.getAddToCart());
+		element.click();
+		waitForElementPresent(uiConstants.getUpdateCart(), methodName);
+		getXpathWebElement(uiConstants.getUpdateCart());
+		element.click();
+		waitForElementPresent(uiConstants.getCheckOut(), methodName);
+		getXpathWebElement(uiConstants.getCheckOut());
+		element.click();
+		waitForElementPresent(uiConstants.getCustomerInformation(), methodName);
+		getXpathWebElement(uiConstants.getCustomerInformation());
+		element.click();
+
+		waitForElementPresent(uiConstants.getEmail(), methodName);
+		Thread.sleep(2000);
+
+		getXpathWebElement(uiConstants.getEmail());
+		element.click();
+
+		element.sendKeys(mobilewidget.getBillInfoEmailValue());
+
+		waitForElementPresent(uiConstants.getDeliveryInfo(), methodName);
+		getXpathWebElement(uiConstants.getDeliveryInfo());
+		element.click();
+		getIdWebElement(uiConstants.getFirstName());
+		element.sendKeys(mobilewidget.getBillInfoFirstNameValue());
+		Thread.sleep(2000);
+		getIdWebElement(uiConstants.getLastName());
+		element.sendKeys(mobilewidget.getBillInfoLastNameValue());
+		getIdWebElement(uiConstants.getCompany());
+		element.sendKeys(mobilewidget.getBillInfoCompanyValue());
+		getIdWebElement(uiConstants.getAddress1());
+		element.sendKeys(mobilewidget.getBillInfoAddress1Value());
+		getIdWebElement(uiConstants.getAddress2());
+		element.sendKeys(mobilewidget.getBillInfoAddress2Value());
+		getIdWebElement(uiConstants.getCity());
+		element.sendKeys(mobilewidget.getBillInfoCityValue());
+		Thread.sleep(2000);
+		getIdWebElement(uiConstants.getState());
+		element.sendKeys(mobilewidget.getBillInfoStateValue());
+		getIdWebElement(uiConstants.getPostcode());
+		element.sendKeys(mobilewidget.getBillInfoPostCodeValue());
+		getIdWebElement(uiConstants.getPhoneNumber());
+		element.sendKeys(mobilewidget.getBillInfoPhoneNumberValue());
+		waitForElementPresent(uiConstants.getBillingInfo(), methodName);
+		getXpathWebElement(uiConstants.getBillingInfo());
+		element.click();
+		Thread.sleep(2000);
+		waitForElementPresent(uiConstants.getCheckAddress(), methodName);
+		getXpathWebElement(uiConstants.getCheckAddress());
+		element.click();
+		waitForElementPresent(uiConstants.getPaymentMethods(), methodName);
+		getXpathWebElement(uiConstants.getPaymentMethods());
+		element.click();
+		/*
+		 * waitForElementPresent(uiConstants.CASHONDELIVERY,methodName);
+		 * getXpathWebElement(uiConstants.CASHONDELIVERY); element.click();
+		 */
+		waitForElementPresent(uiConstants.getOrderComments(), methodName);
+		getXpathWebElement(uiConstants.getOrderComments());
+		element.click();
+		getIdWebElement(uiConstants.getGiveComments());
+		element.sendKeys(mobilewidget.getBillInfoCommentsValue());
+		waitForElementPresent(uiConstants.getReviewOrder(), methodName);
+		getXpathWebElement(uiConstants.getReviewOrder());
+		element.click();
+		waitForElementPresent(uiConstants.getSubmitOrder(), methodName);
+		getXpathWebElement(uiConstants.getSubmitOrder());
+		element.click();
+		waitForElementPresent("//li[@class='home']", methodName);
+		getXpathWebElement("//li[@class='home']");
+		element.click();
+		Thread.sleep(2000);
+	}
 
 	public void click() throws ScreenException {
 		log.info("Entering:********click operation start********");

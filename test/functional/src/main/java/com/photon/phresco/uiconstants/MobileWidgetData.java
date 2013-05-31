@@ -19,41 +19,128 @@ package com.photon.phresco.uiconstants;
 
 import java.lang.reflect.Field;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 public class MobileWidgetData {
 
-	private ReadXMLFile readXml;
-	
-	public String STATE_VALUE="billInfoStateValue";
-	public String POSTALCODE_VALUE="billInfoPostCodeValue";
-	public String ORDERCOMMENTS_VALUE="billInfoCommentsValue";
-	public String CITY_VALUE="billInfoCityValue";
-	public String ADDRESS2_VALUE="billInfoAddress2Value";
-	public String ADDRESS1_VALUE="billInfoAddress1Value";
-	public String COMPANY_VALUE="billInfoCompanyValue";
-	public String LASTNAME_VALUE="billInfoLastNameValue";
-	public String FIRSTNAME_VALUE="billInfoFirstNameValue";
-	public String EMAIL_VALUE="billInfoEmailValue";
-	public String PHONENUMBER_VALUE="billInfoPhoneNumberValue";
-	
+	private Log log = LogFactory.getLog("MobileWidgetData");
+
+	public String stateValue = "billInfoStateValue";
+	public String postalCodeValue = "billInfoPostCodeValue";
+	public String orderCommentValue = "billInfoCommentsValue";
+	public String cityValue = "billInfoCityValue";
+	public String address2Value = "billInfoAddress2Value";
+	public String address1Value = "billInfoAddress1Value";
+	public String companyValue = "billInfoCompanyValue";
+	public String lastNameValue = "billInfoLastNameValue";
+	public String firstNameValue = "billInfoFirstNameValue";
+	public String emailValue = "billInfoEmailValue";
+	public String phoneNumberValue = "billInfoPhoneNumberValue";
+
 	public MobileWidgetData() {
 		try {
-			readXml = new ReadXMLFile();
-			readXml.loadMobileWidgetData();
-			Field[] arrayOfField1 = super.getClass().getFields();
-			Field[] arrayOfField2 = arrayOfField1;
-			int i = arrayOfField2.length;
-			for (int j = 0; j < i; ++j) {
-				Field localField = arrayOfField2[j];
-				Object localObject = localField.get(this);
-				if (localObject instanceof String)
-					localField
-							.set(this, readXml.getValue((String) localObject));
-
+			ReadXMLFile readXml = new ReadXMLFile();
+			//readXml.loadMobileWidgetData();
+			Field[] arrayOfField = this.getClass().getDeclaredFields();
+			for (Field field : arrayOfField) {
+				field.setAccessible(true);
+				Object localObject = field.get(this);
+				if (localObject instanceof String) {
+					field.set(this, readXml.getValue((String) localObject));
+				}
 			}
 		} catch (Exception localException) {
-			throw new RuntimeException("Loading "
-					+ super.getClass().getSimpleName() + " failed",
-					localException);
+			log.info("Exception in MobileWidgetData"
+					+ localException.getMessage());
 		}
+	}
+
+	public String getStateValue() {
+		return stateValue;
+	}
+
+	public void setStateValue(String stateValue) {
+		this.stateValue = stateValue;
+	}
+
+	public String getPostalCodeValue() {
+		return postalCodeValue;
+	}
+
+	public void setPostalCodeValue(String postalCodeValue) {
+		this.postalCodeValue = postalCodeValue;
+	}
+
+	public String getOrderCommentValue() {
+		return orderCommentValue;
+	}
+
+	public void setOrderCommentValue(String orderCommentValue) {
+		this.orderCommentValue = orderCommentValue;
+	}
+
+	public String getCityValue() {
+		return cityValue;
+	}
+
+	public void setCityValue(String cityValue) {
+		this.cityValue = cityValue;
+	}
+
+	public String getAddress2Value() {
+		return address2Value;
+	}
+
+	public void setAddress2Value(String address2Value) {
+		this.address2Value = address2Value;
+	}
+
+	public String getAddress1Value() {
+		return address1Value;
+	}
+
+	public void setAddress1Value(String address1Value) {
+		this.address1Value = address1Value;
+	}
+
+	public String getCompanyValue() {
+		return companyValue;
+	}
+
+	public void setCompanyValue(String companyValue) {
+		this.companyValue = companyValue;
+	}
+
+	public String getLastNameValue() {
+		return lastNameValue;
+	}
+
+	public void setLastNameValue(String lastNameValue) {
+		this.lastNameValue = lastNameValue;
+	}
+
+	public String getFirstNameValue() {
+		return firstNameValue;
+	}
+
+	public void setFirstNameValue(String firstNameValue) {
+		this.firstNameValue = firstNameValue;
+	}
+
+	public String getEmailValue() {
+		return emailValue;
+	}
+
+	public void setEmailValue(String emailValue) {
+		this.emailValue = emailValue;
+	}
+
+	public String getPhoneNumberValue() {
+		return phoneNumberValue;
+	}
+
+	public void setPhoneNumberValue(String phoneNumberValue) {
+		this.phoneNumberValue = phoneNumberValue;
 	}
 }

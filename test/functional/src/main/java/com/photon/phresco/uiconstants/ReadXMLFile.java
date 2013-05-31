@@ -42,7 +42,7 @@ public class ReadXMLFile {
 	private  Element eElement;
 	private Log log = LogFactory.getLog(getClass());
 	private  final String phrsc = "./src/main/resources/phresco-env-config.xml";
-	private  final String mobwidgdata = "./src/main/resources/MobileWidgetData.xml";
+	//private  final String mobwidgdata = "./src/main/resources/MobileWidgetData.xml";
 	private  final String constants = "./src/main/resources/UIConstants.xml";
 	private  final String UsrInfConst="./src/main/resources/UserInfo.xml";
 	
@@ -80,9 +80,9 @@ public class ReadXMLFile {
 		}
 	}
 	
-	public void loadMobileWidgetData() throws ScreenException {
+/*	public void loadMobileWidgetData() throws ScreenException {
     	loadPhrescoConstansts(mobwidgdata);
-	}
+	}*/
 	public void loadUIConstants() throws ScreenException {
     	loadPhrescoConstansts(constants);
 	}

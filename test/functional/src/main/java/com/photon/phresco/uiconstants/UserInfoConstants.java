@@ -19,32 +19,48 @@ package com.photon.phresco.uiconstants;
 
 import java.lang.reflect.Field;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 public class UserInfoConstants {
-	private ReadXMLFile readXml;
 
-	public String USERNAME="userName";
-	public String PASSWORD ="passWord";
-	
+	private Log log = LogFactory.getLog("UserInfoConstants");
 
-    public UserInfoConstants() {
+	public String userName = "userName";
+	public String passWord = "passWord";
+
+	public UserInfoConstants() {
 		try {
-			readXml = new ReadXMLFile();
+			ReadXMLFile readXml = new ReadXMLFile();
 			readXml.loadUserInfoConstants();
-			Field[] arrayOfField1 = super.getClass().getFields();
-			Field[] arrayOfField2 = arrayOfField1;
-			int i = arrayOfField2.length;
-			for (int j = 0; j < i; ++j) {
-				Field localField = arrayOfField2[j];
-				Object localObject = localField.get(this);
-				if (localObject instanceof String)
-					localField
-							.set(this, readXml.getValue((String) localObject));
-
+			Field[] arrayOfField = this.getClass().getDeclaredFields();
+			for (Field field : arrayOfField) {
+				field.setAccessible(true);
+				Object localObject = field.get(this);
+				if (localObject instanceof String) {
+					field.set(this, readXml.getValue((String) localObject));
+				}
 			}
 		} catch (Exception localException) {
-			throw new RuntimeException("Loading "
-					+ super.getClass().getSimpleName() + " failed",
-					localException);
+			log.info("Exception in UserInfoConstants"
+					+ localException.getMessage());
 		}
 	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassWord() {
+		return passWord;
+	}
+
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
+	}
+
 }

@@ -23,6 +23,7 @@
 
 	<test name="VerifyWelcomePageOnFirefox" junit="false"
 		preserve-order="true">
+		<parameter name="yuiMobilewidgetdataXml" value="/MobileWidgetData.xml" />
 		<parameter name="browser" value="firefox" />
 		<parameter name="platform" value="WINDOWS" />
 		<classes>
@@ -32,6 +33,7 @@
 
 	 <test name="VerifyWelcomePageOnChrome" junit="false"
 		preserve-order="true">
+		<parameter name="yuiMobilewidgetdataXml" value="/MobileWidgetData.xml" />
 		<parameter name="browser" value="googlechrome" />
 		<parameter name="platform" value="WINDOWS" />
 		<classes>
@@ -40,6 +42,7 @@
 	</test>
 	<test name="VerifyWelcomePageOniPhoneWebdriver" junit="false"
 		preserve-order="true">
+		<parameter name="yuiMobilewidgetdataXml" value="/MobileWidgetData.xml" />
 		<parameter name="browser" value="iPhone" />
 		<parameter name="platform" value="MAC" />
 		<classes>
