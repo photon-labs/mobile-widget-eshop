@@ -26,6 +26,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.photon.phresco.Screens.WelcomeScreen;
+import com.photon.phresco.model.YuiMobileWidgets.Mobilewidget;
 import com.photon.phresco.uiconstants.MobileWidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
@@ -54,12 +55,12 @@ public class WelcomePageTestCase {
 					.getMethodName();
 			Reporter.log("Selected Browser to execute testcases--->>"
 					+ selectedBrowser);
-			String applicationURL = phrescoUIConstants.PROTOCOL + "://"
-					+ phrescoUIConstants.HOST + ":" + phrescoUIConstants.PORT
+			String applicationURL = phrescoUIConstants.getProtocol() + "://"
+					+ phrescoUIConstants.getHost() + ":" + phrescoUIConstants.getPort()
 					+ "/";
 			welcomeScreen = new WelcomeScreen(selectedBrowser,
 					selectedPlatform, applicationURL,
-					phrescoUIConstants.CONTEXT, mobileWidgetConstants,
+					phrescoUIConstants.getContext(), mobileWidgetConstants,
 					uiConstants);
 
 		} catch (Exception exception) {
@@ -93,8 +94,8 @@ public class WelcomePageTestCase {
 		}
 	}
 
-	@Test
-	public void testToVerifyTheAudioDevicesAddToCart()
+	@Test(dataProvider = "yuiMobilewidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheAudioDevicesAddToCart(Mobilewidget mobilewidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 
@@ -105,15 +106,15 @@ public class WelcomePageTestCase {
 
 			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.AudioDevices(methodName);
-			welcomeScreen.BillingInfo(methodName);
+			welcomeScreen.BillingInfo(methodName,mobilewidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheCamerasAddToCart() throws InterruptedException,
+	@Test(dataProvider = "yuiMobilewidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheCamerasAddToCart(Mobilewidget mobilewidget) throws InterruptedException,
 			IOException, Exception {
 		try {
 
@@ -123,15 +124,15 @@ public class WelcomePageTestCase {
 					.getMethodName();
 			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.Cameras(methodName);
-			welcomeScreen.BillingInfo(methodName);
+			welcomeScreen.BillingInfo(methodName,mobilewidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheVideoGamesAddToCart()
+	@Test(dataProvider = "yuiMobilewidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheVideoGamesAddToCart(Mobilewidget mobilewidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 
@@ -141,15 +142,15 @@ public class WelcomePageTestCase {
 					.getMethodName();
 			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.VideoGames(methodName);
-			welcomeScreen.BillingInfo(methodName);
+			welcomeScreen.BillingInfo(methodName,mobilewidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheTelevisionAddToCart()
+	@Test(dataProvider = "yuiMobilewidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheTelevisionAddToCart(Mobilewidget mobilewidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 
@@ -159,15 +160,15 @@ public class WelcomePageTestCase {
 					.getMethodName();
 			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.Television(methodName);
-			welcomeScreen.BillingInfo(methodName);
+			welcomeScreen.BillingInfo(methodName,mobilewidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheTabletsAddToCart() throws InterruptedException,
+	@Test(dataProvider = "yuiMobilewidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheTabletsAddToCart(Mobilewidget mobilewidget) throws InterruptedException,
 			IOException, Exception {
 		try {
 
@@ -177,15 +178,15 @@ public class WelcomePageTestCase {
 					.getMethodName();
 			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.Tablets(methodName);
-			welcomeScreen.BillingInfo(methodName);
+			welcomeScreen.BillingInfo(methodName,mobilewidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheMP3PlayersAddToCart()
+	@Test(dataProvider = "yuiMobilewidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheMP3PlayersAddToCart(Mobilewidget mobilewidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 
@@ -195,15 +196,15 @@ public class WelcomePageTestCase {
 					.getMethodName();
 			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.MP3Players(methodName);
-			welcomeScreen.BillingInfo(methodName);
+			welcomeScreen.BillingInfo(methodName,mobilewidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheMoviesAndMusicAddToCart()
+	@Test(dataProvider = "yuiMobilewidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheMoviesAndMusicAddToCart(Mobilewidget mobilewidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 
@@ -213,15 +214,15 @@ public class WelcomePageTestCase {
 					.getMethodName();
 			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.MoviesnMusic(methodName);
-			welcomeScreen.BillingInfo(methodName);
+			welcomeScreen.BillingInfo(methodName,mobilewidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheMobilePhonesAddToCart()
+	@Test(dataProvider = "yuiMobilewidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheMobilePhonesAddToCart(Mobilewidget mobilewidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 
@@ -231,15 +232,15 @@ public class WelcomePageTestCase {
 					.getMethodName();
 			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.MobilePhones(methodName);
-			welcomeScreen.BillingInfo(methodName);
+			welcomeScreen.BillingInfo(methodName,mobilewidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheAccessoriesAddToCart()
+	@Test(dataProvider = "yuiMobilewidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheAccessoriesAddToCart(Mobilewidget mobilewidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 			System.out
@@ -248,15 +249,15 @@ public class WelcomePageTestCase {
 					.getMethodName();
 			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.Accessories(methodName);
-			welcomeScreen.BillingInfo(methodName);
+			welcomeScreen.BillingInfo(methodName,mobilewidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
-	@Test
-	public void testToVerifyTheComputersAddToCart()
+	@Test(dataProvider = "yuiMobilewidgetdata", dataProviderClass=com.photon.phresco.uiconstants.TestDataProvider.class)
+	public void testToVerifyTheComputersAddToCart(Mobilewidget mobilewidget)
 			throws InterruptedException, IOException, Exception {
 		try {
 			System.out
@@ -265,13 +266,29 @@ public class WelcomePageTestCase {
 					.getMethodName();
 			welcomeScreen.clickOnBrowse(methodName);
 			welcomeScreen.Computers(methodName);
-			welcomeScreen.BillingInfo(methodName);
+			welcomeScreen.BillingInfo(methodName,mobilewidget);
 		} catch (Exception t) {
 			t.printStackTrace();
 
 		}
 	}
 
+	@Test
+	public void testFailureScript(Mobilewidget mobilewidget)
+			throws InterruptedException, IOException, Exception {
+		try {
+			System.out
+					.println("---------testFailureScript()-------------");
+			methodName = Thread.currentThread().getStackTrace()[1]
+					.getMethodName();
+			welcomeScreen.Failure(methodName);
+			
+		} catch (Exception t) {
+			t.printStackTrace();
+
+		}
+	}
+	
 	@AfterTest
 	public void tearDown() {
 		welcomeScreen.closeBrowser();
