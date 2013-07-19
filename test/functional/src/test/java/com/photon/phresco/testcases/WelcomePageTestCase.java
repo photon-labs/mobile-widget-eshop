@@ -273,7 +273,7 @@ public class WelcomePageTestCase {
 		}
 	}
 
-	@Test
+/*	@Test
 	public void testFailureScript(Mobilewidget mobilewidget)
 			throws InterruptedException, IOException, Exception {
 		try {
@@ -287,7 +287,7 @@ public class WelcomePageTestCase {
 			t.printStackTrace();
 
 		}
-	}
+	}*/
 	
 	@AfterTest
 	public void tearDown() {
