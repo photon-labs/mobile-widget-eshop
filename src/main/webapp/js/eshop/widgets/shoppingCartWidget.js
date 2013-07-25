@@ -175,7 +175,7 @@ YUI.add("shoppingCartWidget", function(Y) {
 			var mycart_subtotal =  this.createElement('<div class="mycart_subtotal">Subtotal: $ <span id="subTotal">'+subTotal+'</span></div>');
 			var mycart_btn =  this.createElement('<div class="mycart_btn">');
 			var mycart_update_view_bu =  this.createElement('<div class="mycart_update_view_bu">');
-			var mycart_mid_bu =  Y.Node.create('<div class="mycart_mid_bu"><a href="#">Update Cart</a></div>');
+			var mycart_mid_bu =  Y.Node.create('<div id="updatecart" class="mycart_mid_bu"><a href="#">Update Cart</a></div>');
 				
 				mycart_mid_bu.obj = this;
 				mycart_mid_bu.pid = productDetails.id;
@@ -183,8 +183,8 @@ YUI.add("shoppingCartWidget", function(Y) {
 				
 				mycart_update_view_bu.appendChild(mycart_mid_bu);
 
-			var mycart_update_view_bu1 =  this.createElement('<div class="mycart_update_view_bu">');
-			var mycart_mid_bu1 =  Y.Node.create('<div class="mycart_mid_bu"><a href="#">Check Out</a></div>');
+			var mycart_update_view_bu1 =  this.createElement('<div id="checkout" class="mycart_update_view_bu">');
+			var mycart_mid_bu1 =  Y.Node.create('<div id="checkoutid"class="mycart_mid_bu"><a href="#">Check Out</a></div>');
 				mycart_mid_bu1.obj = this;
 				mycart_mid_bu1.id = 'cart-tab';
 				Y.on('click' , this.showProductOrder, mycart_mid_bu1);

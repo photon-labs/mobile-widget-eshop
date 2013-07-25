@@ -409,10 +409,10 @@ YUI.add("checkoutFormViewWidget", function(Y) {
                 
                 var buttons = this.createElement('<div class="checkout_btn">');
                 var buttonblock = this.createElement('<div class="mycart_btn_mid">');
-                var revieworder = Y.Node.create('<div class="mycart_mid_bu"><a href="#">Submit Order</a></div>');
+                var revieworder = Y.Node.create('<div id="sumbitorder" class="mycart_mid_bu"><a href="#">Submit Order</a></div>');
                 revieworder.obj = this;             
                 Y.on('click' , this.showOrderSuccess , revieworder);
-                var cancel = this.createElement('<div class="mycart_mid_bu"><a href="#">Back</a></div>');
+                var cancel = this.createElement('<div id="back" class="mycart_mid_bu"><a href="#">Back</a></div>');
                 cancel.obj = this;
                 cancel.data = 2;
                 Y.on('click' , this.showProductOrder , cancel);
