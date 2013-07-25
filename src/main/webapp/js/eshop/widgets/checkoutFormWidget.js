@@ -19,7 +19,7 @@ YUI.add("checkoutFormWidget", function(Y) {
     Y.extend(CheckoutFormWidget, Y.Phresco.PhrescoWidget, {
         initializer: function() {
             /*
-             * initializer is part of the lifecycle introduced by 
+             * initializer is part of the lifecycle introduced  
              * the Base class. It is invoked during construction,
              * and can be used to setup instance specific state or publish events which
              * require special configuration (if they don't need custom configuration, 
