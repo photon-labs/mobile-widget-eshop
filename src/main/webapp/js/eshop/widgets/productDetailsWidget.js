@@ -137,13 +137,13 @@ YUI.add("productDetailsWidget", function(Y) {
                 pdHead.appendChild(pdReviewCount);
                 pdLeftHolder.appendChild(pdHead);
 
-                var btnHolder = this.createElement('<div class="review_contright1">');
-                var reviewA = Y.Node.create('<a href="#"><img src="images/eshop/review.png" border="0" title="image" /></a>');
+                var btnHolder = this.createElement('<div  id="review" class="review_contright1">');
+                var reviewA = Y.Node.create('<a href="#" id="reviews"><img src="images/eshop/review.png" border="0" title="image"/></a>');
                 reviewA.obj = this;
                 reviewA.data = productDetails.id;
                 Y.on('click' , this.getReviews , reviewA);
                
-                var addToCartA = Y.Node.create('<a href="#"><img src="images/eshop/add_cart.png" border="0" title="image" /></a>');
+                var addToCartA = Y.Node.create('<a href="#" id="Addtocart"><img src="images/eshop/add_cart.png" border="0" title="image"/></a>');
                 addToCartA.obj = this;
                 var data = {};
                 data.productId = productDetails.id;
