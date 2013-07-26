@@ -20,6 +20,7 @@ package com.photon.phresco.Screens;
 import java.io.IOException;
 
 import com.photon.phresco.uiconstants.MobileWidgetData;
+import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 
 public class PhotonAbstractScreen extends BaseScreen {
@@ -30,9 +31,9 @@ public class PhotonAbstractScreen extends BaseScreen {
 
 	}
 
-	protected PhotonAbstractScreen(String selectedBrowser,String selectedPlatform ,String applicationURL, String context, MobileWidgetData mobileWidgetConstants, UIConstants uiConstants) throws IOException,
+	protected PhotonAbstractScreen(String selectedBrowser,String selectedPlatform ,String applicationURL,  MobileWidgetData mobileWidgetConstants, UIConstants uiConstants,PhrescoUiConstants phrescoUiConstants) throws IOException,
 			Exception {
-		super(selectedBrowser,selectedPlatform, applicationURL, context, mobileWidgetConstants, uiConstants);
+		super(selectedBrowser,selectedPlatform, applicationURL,  mobileWidgetConstants, uiConstants,phrescoUiConstants);
 	}
 
 }

@@ -20,8 +20,6 @@
 -->
 <suite name="AllTest"  parallel="tests" thread-count="10">
    <suite-files>
-    <!--  <suite-file path="./RegistrationTestSuite.xml" />  
-     <suite-file path="./LoginTestSuite.xml" />  --> 
     <suite-file path="./WelcomePageTestSuite.xml" />  
   </suite-files>
 </suite>

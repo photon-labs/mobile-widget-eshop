@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     PHR_HTML5MobileWidget
@@ -17,15 +16,46 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 
--->
-<environment>
-           <Browser>firefox</Browser>
-		   <Server>
-               <context>yuimobile</context>
-               <protocol>http</protocol>
-               <host>localhost</host>
-               <port>9090</port>
-               <Resolution></Resolution>
-           </Server>
+--><environment>
+           <Browser/>
+		   
            
+<Resolution>1024x768</Resolution>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Server desc="" name="server">
+        <context>yuimobile</context>
+        <admin_username>admin</admin_username>
+        <deploy_dir>C:/apache-tomcat-7.0.42/webapps/</deploy_dir>
+        <additional_context/>
+        <port>8080</port>
+        <admin_password>admin</admin_password>
+        <version>7.0.x</version>
+        <type>Apache Tomcat</type>
+        <remoteDeployment>false</remoteDeployment>
+        <host>172.16.28.251</host>
+        <protocol>http</protocol>
+    </Server>
 </environment>

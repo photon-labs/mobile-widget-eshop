@@ -21,7 +21,7 @@ import com.thoughtworks.selenium.Selenium;
 
 
 
-@SuppressWarnings("serial")
+@SuppressWarnings({ "serial", "unused" })
 public  class ScreenException extends Exception {
 
 	    public ScreenException(String msg){ 

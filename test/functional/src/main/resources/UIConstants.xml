@@ -1,89 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
+<!-- PHR_HTML5MobileWidget Copyright (C) 1999-2013 Photon Infotech Inc. Licensed 
+	under the Apache License, Version 2.0 (the "License"); you may not use this 
+	file except in compliance with the License. You may obtain a copy of the 
+	License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by 
+	applicable law or agreed to in writing, software distributed under the License 
+	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY 
+	KIND, either express or implied. See the License for the specific language 
+	governing permissions and limitations under the License. -->
 
-    PHR_HTML5MobileWidget
+<uiConstants>
 
-    Copyright (C) 1999-2013 Photon Infotech Inc.
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-            http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
--->
-<environment>
-<phresco>
-<mobilewidget>
-
-           <links>
-               <browseWidget>//div[contains(text(),'Browse')]</browseWidget>
-               <login>//div[contains(text(),'Login')]</login>
-               <register>//div[contains(text(),'Register')]</register>
-           </links>
-	       <tabs>
-	           <hometab>link=Home</hometab>
-	           <televisiontab>//span[@class='listicontext'][contains(text(),'Television')]</televisiontab>
-	           <computerstab>//span[@class='listicontext'][contains(text(),'Computers')]</computerstab>
-	           <mobiletab>//span[@class='listicontext'][contains(text(),'Mobile Phones')]</mobiletab>
-	           <audioDevicestab>//span[@class='listicontext'][contains(text(),'Audio Devices')]</audioDevicestab>
-	           <camerastab>//span[@class='listicontext'][contains(text(),'Cameras')]</camerastab>
-	           <tabletstab>//span[@class='listicontext'][contains(text(),'Tablets')]</tabletstab>
-	           <moviesNmusictab>//span[@class='listicontext'][contains(text(),'Movies and Music')]</moviesNmusictab>
-	           <videoGamestab>//span[@class='listicontext'][contains(text(),'Video Games')]</videoGamestab>
-	           <mp3Playerstab>//span[@class='listicontext'][contains(text(),'MP3 Players')]</mp3Playerstab>
-	           <accessoriestab>//span[@class='listicontext'][contains(text(),'Accessories')]</accessoriestab>
-	           <moretab>link=More</moretab>
-	       </tabs>
-	       <productPage>
-	           <browsepgBackButton>//div[@id='header']/div/div/a/div/p</browsepgBackButton>
-	           <review>//div[@id='scroller']/div[2]/ul/li/div/div[2]/div[2]/a/img</review>
-	           <myShopCartReview>//div[@id='scroller']/div[2]/ul/li/div/div[2]/div[2]/a/img3</myShopCartReview>
-	           <teleProd1Details>//a[contains(text(),'LG Electronics 42PW350 3D Plasma HDTV')]</teleProd1Details>
-	           <compProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</compProd1Details>
-	           <mobileProd1Details>//a[contains(text(),'Apple iPhone 4')]</mobileProd1Details>
-	           <audioProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</audioProd1Details>
-	           <camerasProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</camerasProd1Details>
-	           <tabProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</tabProd1Details>
-	           <MnMProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</MnMProd1Details>
-	           <vidGamesProd1Details>//a[contains(text(),'Call of Duty: Modern Warfare 3')]</vidGamesProd1Details>
-	           <mp3Prod1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</mp3Prod1Details>
-	           <accessoriesProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</accessoriesProd1Details>
-	           <updateCart>//a[contains(text(),'Update Cart')]</updateCart>
-	           <addToCart>//div[@id='scroller']/div[2]/ul/li/div/div[2]/div[2]/a[2]/img</addToCart>
-	           <viewMyCart>link=View My Cart</viewMyCart>
-	           <checkout>//a[contains(text(),'Check Out')]</checkout>
-	           <custInfo>//a[contains(text(),'Customer Information')]</custInfo>
-	           <reviewOrder>//div[@id='revieworder']</reviewOrder>
-	           <submitOrder>//a[contains(text(),'Submit Order')]</submitOrder>
-	       </productPage>
-	       <billingInfoPage>
-	       	   <deliveryInfo>//a[contains(text(),'Delivery Information')]</deliveryInfo>
-	       	   <billInfo>//a[contains(text(),'billing Information')]</billInfo>
-	           <billInfocheckAddress>//input[@id='checkaddress']</billInfocheckAddress>
-	           <billInfopaymentMethods>//a[contains(text(),'Payment Methods')]</billInfopaymentMethods>
-	           <billInfoPayMethodCOD>//input[@name=''])[3]</billInfoPayMethodCOD>
-	           <billInfoPayMethodCheqOrCash>css=input[type="radio"]</billInfoPayMethodCheqOrCash>
-	           <billInfoComments>//a[contains(text(),'Order Comments')]</billInfoComments>
-	           <billInfoEmail>//input[@name='email']</billInfoEmail>
-	           <billInfoFirstName>deliveryfirstname</billInfoFirstName>
-	           <billInfoGiveComments>comments</billInfoGiveComments>
-	           <billInfoLastName>deliverylastname</billInfoLastName>
-	           <billInfoPhoneNumber>deliveryphonenumber</billInfoPhoneNumber>
-	           <billInfoPostCode>deliverypostcode</billInfoPostCode>
-	           <billInfoState>deliverystate</billInfoState>
-	           <billInfoCity>deliverycity</billInfoCity>
-	           <billInfoAddress2>deliveryaddress2</billInfoAddress2>
-	           <billInfoCompany>deliverycompany</billInfoCompany>
-	           <billInfoAddress1>deliveryaddress1</billInfoAddress1>
-	           <backButton>//div[@class='btn']</backButton>
-	       </billingInfoPage>
-</mobilewidget>
-</phresco>
-</environment>
+	<links>
+        <browseWidget>//div[contains(text(),'Browse')]</browseWidget>
+        <login>//div[contains(text(),'Login')]</login>
+        <register>//div[contains(text(),'Register')]</register>
+        
+    </links>
+	<tabs>
+		<hometab>//li[@class='home']</hometab>
+		<televisiontab>//span[@class='listicontext'][contains(text(),'Television')]</televisiontab>
+		<computerstab>//span[@class='listicontext'][contains(text(),'Computers')]</computerstab>
+		<mobiletab>//span[@class='listicontext'][contains(text(),'Mobile Phones')]</mobiletab>
+		<audioDevicestab>//span[@class='listicontext'][contains(text(),'Audio Devices')]</audioDevicestab>
+		<camerastab>//span[@class='listicontext'][contains(text(),'Cameras')]</camerastab>
+		<tabletstab>//span[@class='listicontext'][contains(text(),'Tablets')]</tabletstab>
+		<moviesNmusictab>//span[@class='listicontext'][contains(text(),'Movies and Music')]</moviesNmusictab>
+		<videoGamestab>//span[@class='listicontext'][contains(text(),'Video Games')]</videoGamestab>
+		<mp3Playerstab>//span[@class='listicontext'][contains(text(),'MP3 Players')]</mp3Playerstab>
+		<accessoriestab>//span[@class='listicontext'][contains(text(),'Accessories')]</accessoriestab>
+		<moretab>link=More</moretab>
+	</tabs>
+	<productPage>
+		<browsepgBackButton>//div[@id='header']/div/div/a/div/p</browsepgBackButton>
+		<review>//div[@id='scroller']/div[2]/ul/li/div/div[2]/div[2]/a/img</review>
+		<myShopCartReview>//div[@id='scroller']/div[2]/ul/li/div/div[2]/div[2]/a/img3</myShopCartReview>
+		<teleProd1Details>//a[contains(text(),'LG Electronics 42PW350 3D Plasma HDTV')]</teleProd1Details>
+		<compProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</compProd1Details>
+		<mobileProd1Details>//a[contains(text(),'Apple iPhone 4')]</mobileProd1Details>
+		<audioProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</audioProd1Details>
+		<camerasProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</camerasProd1Details>
+		<tabProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</tabProd1Details>
+		<MnMProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</MnMProd1Details>
+		<vidGamesProd1Details>//a[contains(text(),'Call of Duty: Modern Warfare 3')]</vidGamesProd1Details>
+		<mp3Prod1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</mp3Prod1Details>
+		<accessoriesProd1Details>//div[@id='scroller']/div/ul/li/div/div[2]/h3/a</accessoriesProd1Details>
+		<updateCart>//a[contains(text(),'Update Cart')]</updateCart>
+		<addToCart>//div[@id='scroller']/div[2]/ul/li/div/div[2]/div[2]/a[2]/img</addToCart>
+		<viewMyCart>link=View My Cart</viewMyCart>
+		<checkout>//a[contains(text(),'Check Out')]</checkout>
+		<custInfo>//a[contains(text(),'Customer Information')]</custInfo>
+		<reviewOrder>//div[@id='revieworder']</reviewOrder>
+		<submitOrder>//a[contains(text(),'Submit Order')]</submitOrder>
+	</productPage>
+	<billingInfoPage>
+		<deliveryInfo>//a[contains(text(),'Delivery Information')]</deliveryInfo>
+		<billInfo>//a[contains(text(),'billing Information')]</billInfo>
+		<billInfocheckAddress>//input[@id='checkaddress']</billInfocheckAddress>
+		<billInfopaymentMethods>//a[contains(text(),'Payment Methods')]</billInfopaymentMethods>
+		<billInfoPayMethodCOD>//input[@name=''])[3]</billInfoPayMethodCOD>
+		<billInfoPayMethodCheqOrCash>css=input[type="radio"]</billInfoPayMethodCheqOrCash>
+		<billInfoComments>//a[contains(text(),'Order Comments')]</billInfoComments>
+		<billInfoEmail>//ul/li/label/span/input[@id='email']</billInfoEmail>
+		<billInfoFirstName>//input[@id='deliveryfirstname']</billInfoFirstName>
+		<billInfoLastName>//input[@id='deliverylastname']</billInfoLastName>
+		<billInfoCompany>//input[@id='deliverycompany']</billInfoCompany>
+		<billInfoAddress1>//input[@id='deliveryaddress1']</billInfoAddress1>
+		<billInfoAddress2>//input[@id='deliveryaddress2']</billInfoAddress2>
+		<billInfoCity>//input[@id='deliverycity']</billInfoCity>
+		<billInfoState>//input[@id='deliverystate']</billInfoState>
+		<billInfoPostCode>//input[@id='deliverypostcode']</billInfoPostCode>
+		<billInfoPhoneNumber>//input[@id='deliveryphonenumber']</billInfoPhoneNumber>
+		<billInfoGiveComments>//textarea[@id='comments']</billInfoGiveComments>
+		<backButton>//div[@class='btn']</backButton>
+	</billingInfoPage>
+</uiConstants>
