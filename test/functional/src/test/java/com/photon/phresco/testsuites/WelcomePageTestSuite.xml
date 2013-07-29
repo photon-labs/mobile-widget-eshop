@@ -31,7 +31,7 @@
 		</classes>
 	</test>
 
-	 <test name="VerifyWelcomePageOnChrome" junit="false"
+	<test name="VerifyWelcomePageOnChrome" junit="false"
 		preserve-order="true">
 		<parameter name="yuiMobilewidgetdataXml" value="/MobileWidgetData.xml" />
 		<parameter name="browser" value="googlechrome" />
@@ -40,7 +40,7 @@
 			<class name="com.photon.phresco.testcases.WelcomePageTestCase" />
 		</classes>
 	</test>
-<!-- 	<test name="VerifyWelcomePageOniPhoneWebdriver" junit="false"
+	<test name="VerifyWelcomePageOniPhoneWebdriver" junit="false"
 		preserve-order="true">
 		<parameter name="yuiMobilewidgetdataXml" value="/MobileWidgetData.xml" />
 		<parameter name="browser" value="iPhone" />
@@ -48,7 +48,7 @@
 		<classes>
 			<class name="com.photon.phresco.testcases.WelcomePageTestCase" />
 		</classes>                                                                                  
-	</test> -->
+	</test> 
 </suite>
  
 

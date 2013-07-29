@@ -18,8 +18,8 @@
 package com.photon.phresco.testcases;
 
 import java.io.IOException;
+
 import org.testng.Assert;
-import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -31,6 +31,7 @@ import com.photon.phresco.uiconstants.MobileWidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 
+@SuppressWarnings("unused")
 public class WelcomePageTestCase {
 
 	private UIConstants uiConstants;
@@ -47,47 +48,28 @@ public class WelcomePageTestCase {
 		try {
 			phrescoUIConstants = new PhrescoUiConstants();
 			uiConstants = new UIConstants();
-			// assertNotNull(uiConstants);
 			mobileWidgetConstants = new MobileWidgetData();
 			String selectedBrowser = browser;
 			String selectedPlatform = platform;
 			methodName = Thread.currentThread().getStackTrace()[1]
 					.getMethodName();
-			Reporter.log("Selected Browser to execute testcases--->>"
-					+ selectedBrowser);
 			String applicationURL = phrescoUIConstants.getProtocol() + "://"
 					+ phrescoUIConstants.getHost() + ":" + phrescoUIConstants.getPort()
 					+ "/";
 			welcomeScreen = new WelcomeScreen(selectedBrowser,
-					selectedPlatform, applicationURL,
-					phrescoUIConstants.getContext(), mobileWidgetConstants,
-					uiConstants);
+					selectedPlatform, applicationURL, mobileWidgetConstants,
+					uiConstants,phrescoUIConstants);
 
 		} catch (Exception exception) {
 			exception.printStackTrace();
 		}
 	}
-
-	/*
-	 * public void launchingBrowser() throws Exception { try { String
-	 * applicationURL = phrescoUIConstants.PROTOCOL + "://" +
-	 * phrescoUIConstants.HOST + ":" + phrescoUIConstants.PORT + "/";
-	 * selectedBrowser = phrescoUIConstants.BROWSER; welcomeScreen = new
-	 * WelcomeScreen(selectedBrowser, selectedPlatform, applicationURL,
-	 * phrescoUIConstants.CONTEXT, mobileWidgetConstants, uiConstants); } catch
-	 * (Exception exception) { exception.printStackTrace();
-	 * 
-	 * }
-	 * 
-	 * }
-	 */
-
+	
 	@Test
 	public void testWelcomePageScreen() throws InterruptedException,
 			IOException, Exception {
 		try {
 			Assert.assertNotNull(welcomeScreen);
-			// Thread.sleep(10000);
 		} catch (Exception t) {
 			t.printStackTrace();
 
@@ -273,21 +255,6 @@ public class WelcomePageTestCase {
 		}
 	}
 
-/*	@Test
-	public void testFailureScript(Mobilewidget mobilewidget)
-			throws InterruptedException, IOException, Exception {
-		try {
-			System.out
-					.println("---------testFailureScript()-------------");
-			methodName = Thread.currentThread().getStackTrace()[1]
-					.getMethodName();
-			welcomeScreen.Failure(methodName);
-			
-		} catch (Exception t) {
-			t.printStackTrace();
-
-		}
-	}*/
 	
 	@AfterTest
 	public void tearDown() {
