@@ -19,7 +19,6 @@ package com.photon.phresco.Screens;
 
 import java.io.IOException;
 
-import com.photon.phresco.uiconstants.MobileWidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 
@@ -29,8 +28,8 @@ import com.photon.phresco.uiconstants.UIConstants;
 
 public class WelcomeScreen extends PhotonAbstractScreen {
 	public UIConstants phrsc;
-    public WelcomeScreen(String selectedBrowser,String selectedPlatform, String applicationURL,  MobileWidgetData mobileWidgetConstants, UIConstants uiConstants,PhrescoUiConstants phrescoUiConstants ) throws InterruptedException,IOException, Exception {
-    	super(selectedBrowser,selectedPlatform, applicationURL,  mobileWidgetConstants, uiConstants,phrescoUiConstants);
+    public WelcomeScreen(String selectedBrowser,String selectedPlatform, String applicationURL,   UIConstants uiConstants,PhrescoUiConstants phrescoUiConstants ) throws InterruptedException,IOException, Exception {
+    	super(selectedBrowser,selectedPlatform, applicationURL,   uiConstants,phrescoUiConstants);
     	
     
     }
