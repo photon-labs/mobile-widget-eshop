@@ -49,18 +49,15 @@ import com.photon.phresco.selenium.util.Constants;
 import com.photon.phresco.selenium.util.GetCurrentDir;
 import com.photon.phresco.selenium.util.ScreenActionFailedException;
 import com.photon.phresco.selenium.util.ScreenException;
-import com.photon.phresco.uiconstants.MobileWidgetData;
 import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.photon.phresco.uiconstants.UIConstants;
 
-@SuppressWarnings("unused")
 public class BaseScreen {
 
 	private WebDriver driver;
 	private ChromeDriverService chromeService;
 	private Log log = LogFactory.getLog("BaseScreen");
 	private WebElement element;
-	private MobileWidgetData mobileWidgetConstants;
 	private UIConstants uiConstants;
 	private PhrescoUiConstants phrsc;
 	DesiredCapabilities capabilities;
@@ -70,11 +67,9 @@ public class BaseScreen {
 	}
 
 	public BaseScreen(String selectedBrowser, String selectedPlatform,
-			String applicationURL,
-			MobileWidgetData mobileWidgetConstants, UIConstants uiConstants,PhrescoUiConstants phrescoUiConstants)
+			String applicationURL, UIConstants uiConstants,PhrescoUiConstants phrescoUiConstants)
 			throws AWTException, IOException, ScreenActionFailedException {
 
-		this.mobileWidgetConstants = mobileWidgetConstants;
 		this.uiConstants = uiConstants;
 		this.phrsc = phrescoUiConstants;
 		String context = phrsc.getContext();
