@@ -1,0 +1,25 @@
+<environments>
+    <environment default="true" desc="Production Environment is used for Development purpose only" name="Production">
+        <Server desc="Server Configuration for YUI Mobile Widget Eshop application" name="Server Configuration">
+            <context>yuimobileeshop</context>
+            <deploy_dir>D:/tomcat-7.0.14/webapps/</deploy_dir>
+            <admin_username/>
+            <additional_context/>
+            <port>8080</port>
+            <admin_password/>
+            <version>7.0.x</version>
+            <type>Apache Tomcat</type>
+            <remoteDeployment>false</remoteDeployment>
+            <protocol>http</protocol>
+            <host>localhost</host>
+        </Server>
+    <WebService desc="Webservice Configuration for YUI Mobile Widget Eshop application" name="Webservice Configuration">
+            <port>4545</port>
+            <password/>
+            <context>eshop</context>
+            <host>localhost</host>
+            <protocol>http</protocol>
+            <username/>
+        </WebService>
+    </environment>
+</environments>
