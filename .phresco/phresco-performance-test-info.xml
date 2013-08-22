@@ -85,7 +85,7 @@
 <groupId>com.photon.phresco.framework</groupId>
 <artifactId>phresco-framework-impl</artifactId>
 <type>jar</type>
-<version>3.0.0.22003-SNAPSHOT</version>
+<version>3.0.0.22004-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -125,7 +125,7 @@
 <groupId>com.photon.phresco.commons</groupId>
 <artifactId>phresco-commons</artifactId>
 <type>jar</type>
-<version>3.0.0.22003-SNAPSHOT</version>
+<version>3.0.0.22004-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -150,7 +150,7 @@
 <groupId>com.photon.phresco.framework</groupId>
 <artifactId>phresco-framework-impl</artifactId>
 <type>jar</type>
-<version>3.0.0.22003-SNAPSHOT</version>
+<version>3.0.0.22004-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -165,6 +165,34 @@
                 </parameter>
                 <parameter>
                     <name>
+<<<<<<< HEAD
+=======
+                        <value lang="en">Test Result Name</value>
+                    </name>
+                    <type>DynamicParameter</type>
+                    <dynamicParameter>
+                        <class>com.photon.phresco.framework.param.impl.PerformanceTestResultNamesImpl</class>
+                        <dependencies>
+                            <dependency>
+<groupId>com.photon.phresco.framework</groupId>
+<artifactId>phresco-framework-impl</artifactId>
+<type>jar</type>
+<version>3.0.0.22004-SNAPSHOT</version>
+                            </dependency>
+                        </dependencies>
+                    </dynamicParameter>
+                    <required>true</required>
+                    <editable>edit</editable>
+                    <description></description>
+                    <key>testName</key>
+                    <multiple>false</multiple>
+                    <value>YUIMobileWebservice</value>
+                    <sort>false</sort>
+                    <show>false</show>
+                </parameter>
+                <parameter>
+                    <name>
+>>>>>>> 919d718ffdfe0100b37738563e1ace04a675d2b6
                         <value lang="en">Ramp-Up Period</value>
                     </name>
                     <type>Number</type>
@@ -274,7 +302,7 @@
 <groupId>com.photon.phresco.framework</groupId>
 <artifactId>phresco-framework-impl</artifactId>
 <type>jar</type>
-<version>3.0.0.22003-SNAPSHOT</version>
+<version>3.0.0.22004-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -299,7 +327,7 @@
 <groupId>com.photon.phresco.framework</groupId>
 <artifactId>phresco-framework-impl</artifactId>
 <type>jar</type>
-<version>3.0.0.22003-SNAPSHOT</version>
+<version>3.0.0.22004-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -340,7 +368,7 @@
 <groupId>com.photon.phresco.commons</groupId>
 <artifactId>phresco-commons</artifactId>
 <type>jar</type>
-<version>3.0.0.22003-SNAPSHOT</version>
+<version>3.0.0.22004-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>

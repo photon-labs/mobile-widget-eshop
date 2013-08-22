@@ -83,7 +83,7 @@
 <groupId>com.photon.phresco.framework</groupId>
 <artifactId>phresco-framework-impl</artifactId>
 <type>jar</type>
-<version>3.0.0.22003-SNAPSHOT</version>
+<version>3.0.0.22004-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -123,7 +123,7 @@
 <groupId>com.photon.phresco.commons</groupId>
 <artifactId>phresco-commons</artifactId>
 <type>jar</type>
-<version>3.0.0.22003-SNAPSHOT</version>
+<version>3.0.0.22004-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -148,7 +148,7 @@
 <groupId>com.photon.phresco.framework</groupId>
 <artifactId>phresco-framework-impl</artifactId>
 <type>jar</type>
-<version>3.0.0.22003-SNAPSHOT</version>
+<version>3.0.0.22004-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -160,6 +160,31 @@
                     <value>Webservice</value>
                     <sort>false</sort>
                     <show>true</show>
+                </parameter>
+                <parameter>
+                    <name>
+                        <value lang="en">Test Result Name</value>
+                    </name>
+                    <type>DynamicParameter</type>
+                    <dynamicParameter>
+                        <class>com.photon.phresco.framework.param.impl.PerformanceTestResultNamesImpl</class>
+                        <dependencies>
+                            <dependency>
+<groupId>com.photon.phresco.framework</groupId>
+<artifactId>phresco-framework-impl</artifactId>
+<type>jar</type>
+<version>3.0.0.22004-SNAPSHOT</version>
+                            </dependency>
+                        </dependencies>
+                    </dynamicParameter>
+                    <required>true</required>
+                    <editable>edit</editable>
+                    <description></description>
+                    <key>testName</key>
+                    <multiple>false</multiple>
+                    <value>YUIMobile Load Test - Webservices</value>
+                    <sort>false</sort>
+                    <show>false</show>
                 </parameter>
                 <parameter>
                     <name>
@@ -300,7 +325,7 @@
 <groupId>com.photon.phresco.framework</groupId>
 <artifactId>phresco-framework-impl</artifactId>
 <type>jar</type>
-<version>3.0.0.22003-SNAPSHOT</version>
+<version>3.0.0.22004-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -341,7 +366,7 @@
 <groupId>com.photon.phresco.commons</groupId>
 <artifactId>phresco-commons</artifactId>
 <type>jar</type>
-<version>3.0.0.22003-SNAPSHOT</version>
+<version>3.0.0.22004-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
