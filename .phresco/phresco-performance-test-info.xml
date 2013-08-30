@@ -165,8 +165,6 @@
                 </parameter>
                 <parameter>
                     <name>
-<<<<<<< HEAD
-=======
                         <value lang="en">Test Result Name</value>
                     </name>
                     <type>DynamicParameter</type>
@@ -192,7 +190,6 @@
                 </parameter>
                 <parameter>
                     <name>
->>>>>>> 919d718ffdfe0100b37738563e1ace04a675d2b6
                         <value lang="en">Ramp-Up Period</value>
                     </name>
                     <type>Number</type>
