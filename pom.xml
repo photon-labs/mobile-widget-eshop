@@ -6,10 +6,6 @@
     <packaging>war</packaging>
     <name>PHR_HTML5MobileWidget</name>
     <version>2.0.0.25003-SNAPSHOT</version>
-	<inceptionYear>1999</inceptionYear>
-    <organization>
-        <name>Photon Infotech Inc.</name>
-    </organization>
     <build>
 		<sourceDirectory>${basedir}/src/main/webapp/js</sourceDirectory>		
 		<testSourceDirectory>src/test/webapp/js</testSourceDirectory>
