@@ -92,7 +92,7 @@
                     <description></description>
                     <key>testName</key>
                     <multiple>false</multiple>
-                    <value>YUIMobile Load Test - Webservices</value>
+                    <value>YUIMobile</value>
                     <sort>false</sort>
                     <show>false</show>
                 </parameter>

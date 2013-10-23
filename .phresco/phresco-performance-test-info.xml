@@ -94,7 +94,7 @@
                     <description></description>
                     <key>testName</key>
                     <multiple>false</multiple>
-                    <value>YUIMobileWebservice</value>
+                    <value>YUIMobile</value>
                     <sort>false</sort>
                     <show>false</show>
                 </parameter>
