@@ -41,16 +41,12 @@ YUI.add("WSConfig", function(Y) {
 			var serviceName = "eshopService";
 			$.get("test/resources/phresco-env-config.xml",function(data){
 				$(data).find("environment").each(function() {
-					var env = $(this).attr('name');
 					$(this).find("WebService").each(function() {
-						var configServiceName = $(this).attr("name");
-						if (configServiceName === serviceName) {
-							WSConfigurl.host = $(this).find("host").text();
-							WSConfigurl.port = $(this).find("port").text();
-							WSConfigurl.context = $(this).find("context").text();
-							WSConfigurl.protocol = $(this).find("protocol").text(); 
-							callback(WSConfigurl);
-						}
+						WSConfigurl.host = $(this).find("host").text();
+						WSConfigurl.port = $(this).find("port").text();
+						WSConfigurl.context = $(this).find("context").text();
+						WSConfigurl.protocol = $(this).find("protocol").text(); 
+						callback(WSConfigurl);
 					});
 				});	
 			});
