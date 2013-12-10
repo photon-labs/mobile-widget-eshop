@@ -41,6 +41,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.junit.Assert;
 
 import com.google.common.base.Function;
 import com.photon.phresco.model.YuiMobileWidgets.Mobilewidget;
