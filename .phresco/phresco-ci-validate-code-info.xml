@@ -62,7 +62,7 @@
           <description></description>
           <key>src</key>
             <possibleValues>
-				<value key="js" dependency="src,skipTests,showSettings,environmentName,webservices">Js</value>
+				<value key="js" dependency="skipTests,showSettings,environmentName,webservices">Js</value>
 				<value key="java" dependency="skipTests">Java</value>
                 <value key="html">Html</value>
                 <value key="web">Jsp/Jsf</value>
