@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.photon.phresco.load</groupId>
-    <artifactId>d7noneas-drupal7</artifactId>
+    <artifactId>mobile-widget-eshop-load-server</artifactId>
     <packaging>pom</packaging>
     <name>LoadTest-Server</name>
     <version>dfd</version>
