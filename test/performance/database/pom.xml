@@ -24,7 +24,7 @@
 	<artifactId>mobile-widget-eshop-perf-db</artifactId>
 	<packaging>pom</packaging>
 	<name>Performance testing for HTML5 YUI Mobile Widget-Database</name>
-	<version>1.0</version>
+	<version>3.3.1-16001-SNAPSHOT</version>
 	
 	 <build>
     <plugins>

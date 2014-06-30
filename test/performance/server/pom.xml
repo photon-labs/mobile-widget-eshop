@@ -21,10 +21,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Photon</groupId>
-	<artifactId>mobile-widget-eshop-perf-server</artifactId>
+	<artifactId>mobile-widget-eshop-perf-serv</artifactId>
 	<packaging>pom</packaging>
 	<name>Performance testing for HTML5 YUI Mobile Widget-Server</name>
-	<version>1.0</version>
+	<version>3.3.1.16001-SNAPSHOT</version>
 	
 	 <build>
     <plugins>
